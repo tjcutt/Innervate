@@ -7,6 +7,8 @@ exports.up = function(knex, Promise) {
      table.string('summary').notNullable().defaultTo('')
      table.string('story').notNullable().defaultTo('')
      table.string('info').notNullable().defaultTo('')
+     table.integer('created_by_user_id')
+     table.integer('edited_by_user_id')
      table.boolean('active')
       .notNullable()
       .defaultTo(true)
