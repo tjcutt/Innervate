@@ -4,9 +4,10 @@ exports.up = function(knex, Promise) {
    knex.schema.createTable('proposals', table => {
      table.increments();
      table.string('title').notNullable().defaultTo('')
-     table.string('summary').notNullable().defaultTo('')
-     table.string('story').notNullable().defaultTo('')
-     table.string('info').notNullable().defaultTo('')
+     table.text('summary').notNullable().defaultTo('')
+     table.text('story').notNullable().defaultTo('')
+     table.text('info').notNullable().defaultTo('')
+     table.integer('votes').notNullable().defaultTo(0);
      table.integer('created_by_user_id')
      table.integer('edited_by_user_id')
      table.boolean('active')
