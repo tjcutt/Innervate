@@ -1,4 +1,6 @@
 import React from 'react'
+import {Input, Row} from 'react-materialize'
+
 
 class Proposals extends React.Component {
 
@@ -6,20 +8,18 @@ class Proposals extends React.Component {
       return (
       <div>
          <div className="container">
-            <div id="timbo"> Proposals!!</div>
-            <button className="btn"> im a button NeW </button>
-            <div className="input-field col s6">
-              <input placeholder="Filter" id="first_name" type="text" className="validate"></input>
-            </div>
-            <div className="input-field col s12">
-              <select>
-                <option value disabled selected>Choose your option</option>
-                <option value={1}>Option 1</option>
-                <option value={2}>Option 2</option>
-                <option value={3}>Option 3</option>
-              </select>
-              <label>Materialize Select</label>
-            </div>
+            <h1 id="timbo"> Proposals!!</h1>
+
+            <Row>
+               <Input s={6} label="Filter" />
+                <Input s={3} type='select' label="Sort" defaultValue='2' className="select">
+                    <option type="checkbox" value='1'>Option 1</option>
+                    <option value='2'>Option 2</option>
+                    <option value='3'>Option 3</option>
+                </Input>
+                <button className="btn"> + NeW </button>
+            </Row>
+
          </div>
       </div>
       )
