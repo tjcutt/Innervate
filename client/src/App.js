@@ -13,7 +13,6 @@ class App extends Component {
         <HomeNav />
         <HomeInfo />
         <HomeForm />
-        <Link to="/proposals"> PROProsals </Link>
       </div>
     );
   }
