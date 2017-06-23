@@ -38,9 +38,9 @@ exports.seed = function(knex) {
         user_id: 7
       },{
         id:6,
-        title:"******",
-        summary: "An app to allow anyone afflicted with Dementia to reference photos of loved ones, read relevant news, and maintain a personal schedule",
-        story: "I have a mother with dementia and this app would allow her to remember what is important so that she can spend more time with loved ones.",
+        title:"Memoryable",
+        summary: "Memoryable is a supportive tool for people who care for those afflicted with various types of cognitive impairment or cognitive decline (dementia, Alzheimer's, Traumatic Brain Injury, etc.) Memoryable helps maintain a person's link to reality by providing an online photo album (which puts names and faces together), displaying the time, date and location of the guest, hosting to-do lists and other familiar activities such as a place to read the latest news and see a weather report.",
+        story: "Created by Erica Epperson, inspired by the need she saw in her mother, Loreley, who had moderate dementia. Like so many elderly people, Loreley needed daily reminders of where she lived, what day it was, and who the people around her were, yet she was often silent in her confusion. This app was designed to help people like Loreley maintain their dignity and their memories at the same time.",
         votes: 104,
         user_id: 8
       }

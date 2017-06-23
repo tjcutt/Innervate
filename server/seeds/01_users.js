@@ -5,42 +5,50 @@ exports.seed = function(knex) {
         id:1,
         first_name:"Lisa",
         last_name:"Ma",
-        email:"limawebdev@gmail.com"
+        email:"limawebdev@gmail.com",
+        referral_id: 1
       },{
         id:2,
         first_name:"Tim",
         last_name:"Cutter",
-        email:"tjcutt@gmail.com"
+        email:"tjcutt@gmail.com",
+        referral_id: 3
       },{
         id:3,
         first_name:"Joshua",
         last_name:"Lerner",
-        email:"joshualerner@me.com"
+        email:"joshualerner@me.com",
+        referral_id: 2
       },{
         id:4,
         first_name:"Heidi",
         last_name:"Grabenstatter",
-        email:"heidi.grabenstatter@colorado.edu"
+        email:"heidi.grabenstatter@colorado.edu",
+        referral_id: 4
       },{
         id:5,
         first_name:"Craig",
         last_name:"Quincy",
-        email:"cquincy@gmail.com"
+        email:"cquincy@gmail.com",
+        referral_id: 1
       },{
         id:6,
         first_name:"Pete",
         last_name:"Silva",
-        email:"psilva@gmail.com"
+        email:"psilva@gmail.com",
+        referral_id: 2
       },{
         id:7,
         first_name:"Alicia",
         last_name:"Key",
-        email:"akey@gmail.com"
+        email:"akey@gmail.com",
+        referral_id: 3
       },{
         id:8,
         first_name:"Erica",
         last_name:"Epperson",
-        email:"eepperson@gmail.com"
+        email:"eepperson@gmail.com",
+        referral_id: 4
       }]);
     });
 };
