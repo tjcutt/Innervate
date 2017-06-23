@@ -11,7 +11,6 @@ exports.up = function(knex, Promise) {
       .defaultTo(true)
       table.integer('referral_id')
         .references('referrals.id')
-        .notNullable()
      table.timestamps(true, true)
      })
  ])

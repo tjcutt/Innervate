@@ -10,9 +10,6 @@ exports.seed = function(knex) {
             }, {
                 id: 3,
                 name: `Children's Hospital Colorado`
-            }, {
-                id: 4,
-                name: 'Amen Clinics'
             }]);
         });
 };

@@ -24,7 +24,6 @@ exports.seed = function(knex) {
         first_name:"Heidi",
         last_name:"Grabenstatter",
         email:"heidi.grabenstatter@colorado.edu",
-        referral_id: 4
       },{
         id:5,
         first_name:"Craig",
@@ -48,7 +47,7 @@ exports.seed = function(knex) {
         first_name:"Erica",
         last_name:"Epperson",
         email:"eepperson@gmail.com",
-        referral_id: 4
+        referral_id: 1
       }]);
     });
 };
