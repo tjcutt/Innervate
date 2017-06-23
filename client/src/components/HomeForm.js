@@ -1,5 +1,7 @@
 import React from 'react';
+
 // const bcrypt = require('bcryptjs');
+
 
 class HomeForm extends React.Component{
   constructor(props){

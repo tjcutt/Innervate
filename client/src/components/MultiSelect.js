@@ -6,17 +6,15 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 const names = [
-  'Lemon',
-  'Give',
-  'Me',
-  'A',
-  'Highfive',
+  'Popular',
+  'New',
+  'Level',
 ];
 
 /**
  * `SelectField` can handle multiple selections. It is enabled with the `multiple` property.
  */
-export default class SelectFieldExampleMultiSelect extends Component {
+export default class MultiSelect extends Component {
   state = {
     values: [],
   };
@@ -40,7 +38,7 @@ export default class SelectFieldExampleMultiSelect extends Component {
     return (
       <SelectField
         multiple={true}
-        hintText="Select a name"
+        hintText="Sort"
         value={values}
         onChange={this.handleChange}
       >

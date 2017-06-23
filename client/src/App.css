@@ -47,6 +47,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+<<<<<<< HEAD
 .lgText{
   font-size: 1.1em;
 }
@@ -74,5 +75,11 @@
 
 label {
   color: #424242 ;
+}
 
+
+
+#newBtn {
+   right: 10px;
+   display:  inline;
 }
