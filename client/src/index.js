@@ -9,7 +9,7 @@ ReactDOM.render(
   <BrowserRouter>
     <div className="App">
       <Route exact path="/" component={App}></Route>
-      <Route path="proposals" component={Proposals} </Route>
+      
     </div>
 
 
