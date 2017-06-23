@@ -9,7 +9,6 @@ ReactDOM.render(
   <BrowserRouter>
     <div className="App">
       <Route exact path="/" component={App}></Route>
-      
     </div>
 
 
