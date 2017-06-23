@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <HomeNav />
+        <Link to="/proposals"> PROProsals </Link>
       </div>
     );
   }
