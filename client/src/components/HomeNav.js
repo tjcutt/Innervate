@@ -6,12 +6,12 @@ import AppBar from 'material-ui/AppBar';
 
 class HomeNav extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
   }
   render() {
     return (
        <MuiThemeProvider>
-        <AppBar title="Title"/>
+          <AppBar showMenuIconButton="false" title="Title"/>
       </MuiThemeProvider>
     );
   }
