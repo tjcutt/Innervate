@@ -13,7 +13,20 @@ class Proposals extends React.Component {
      }
    }
 
+
+   componentWillMount() {
+      fetch(`../routes/proposals`, {
+         credentials:'include'
+      })
+      .then(res => res.json())
+      .then(proposals => {
+         this.setState({
+          proposals:proposals
+         })
+      })
+   }
    render(){
+      console.log(this.proposals)
       return (
 
       <MuiThemeProvider>
@@ -23,8 +36,8 @@ class Proposals extends React.Component {
                <button className="btn newBtn">I am gr8</button></h1>
             </div>
             <div className="row">
-               <MultiSelect  className="col s4 m4" />
-               <div className="input-field col s5 m5 l6">
+               <MultiSelect  className="col s2 m2" />
+               <div className="input-field col s4 m4 l6">
                 <input id="filter" type="text" className="validate" />
                 <label htmlFor="filter">Filter</label>
                </div>
