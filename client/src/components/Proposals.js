@@ -15,7 +15,7 @@ class Proposals extends React.Component {
 
 
    componentWillMount() {
-      fetch(`../routes/proposals`, {
+      fetch(`/proposals`, {
          credentials:'include'
       })
       .then(res => res.json())

@@ -4,6 +4,7 @@ const knex = require('../db/knex');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+   console.log('yay!!!!')
    knex(proposals)
       .select(*)
       .then ((props) => {
