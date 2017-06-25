@@ -11,15 +11,23 @@ const disorders = [
 class Survey extends React.Component {
   state = {
     values: [],
+    role: 'Patient',
   };
 
   constructor(props){
     super(props);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.handleRoleChange = this.handleRoleChange.bind(this)
   }
 
-  handleChange = (event, index, values) => this.setState({values});
-
+  handleChange(event, index, values){
+    this.setState({values});
+  }
+  handleRoleChange(role) {
+    this.setState({
+      role: role.target.value
+    });
+  }
   menuItems(values) {
     return disorders.map((name) => (
       <MenuItem
@@ -42,7 +50,7 @@ class Survey extends React.Component {
     }).then(res => console.log(res));
   }
   render(){
-    const {values} = this.state;
+    const {values,role} = this.state;
     return (
       <MuiThemeProvider>
         <div className="row">
@@ -51,25 +59,25 @@ class Survey extends React.Component {
             <h5>Specify your role...</h5>
             <div className="col l3">
               <p>
-                <input className="with-gap" name="role" type="radio" id="patient" />
+                <input className="with-gap" name="role" type="radio" id="patient" value="Patient" checked={this.state.role === 'Patient'} onChange={this.handleRoleChange}/>
                 <label htmlFor="patient">Patient</label>
               </p>
             </div>
             <div className="col l3">
               <p>
-                <input className="with-gap" name="role" type="radio" id="family" />
+                <input className="with-gap" name="role" type="radio" id="family" value="Family" checked={this.state.role === 'Family'} onChange={this.handleRoleChange}/>
                 <label htmlFor="family">Family</label>
               </p>
             </div>
             <div className="col l3">
               <p>
-                <input className="with-gap" name="role" type="radio" id="caregiver" />
+                <input className="with-gap" name="role" type="radio" id="caregiver" value="Caregiver" checked={this.state.role === 'Caregiver'} onChange={this.handleRoleChange}/>
                 <label htmlFor="caregiver">Caregiver</label>
               </p>
             </div>
             <div className="col l3">
               <p>
-                <input className="with-gap" name="role" type="radio" id="medprof" />
+                <input className="with-gap" name="role" type="radio" id="medprof" value="Medical Professional" checked={this.state.role === 'Medical Professional'} onChange={this.handleRoleChange} />
                 <label htmlFor="medprof">Medical Professional</label>
               </p>
             </div>
