@@ -14,7 +14,7 @@ class HomeNav extends React.Component{
        <div>
         <nav>
             <div className="nav-wrapper">
-              <h1 className="brand-logo ">Logo</h1>
+              <a className="brand-logo ">Logo</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li className="input-field col s6">
                  <input placeholder="email" id="first_name" type="text" className="validate"/>
