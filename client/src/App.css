@@ -47,7 +47,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-<<<<<<< HEAD
 .lgText{
   font-size: 1.1em;
 }
@@ -77,18 +76,23 @@ label {
   color: #424242 ;
 }
 
-
+.componentTitle {
+   font-size:3em;
+   display: inline-block;
+   margin-right: 30vw;
+}
 
 #newBtn {
-   right: 10px;
-   display:  inline;
+   float: right;
+   right: 0;
+   display:  inline-block;
 }
 
 .proposalItem {
    border: 1px solid black;
    display: inline-block;
    margin: 1vw 1vw;
-   width: 30vw;
+   width: 39vw;
    height: 25vh;
    overflow: scroll;
 }

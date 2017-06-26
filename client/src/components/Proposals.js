@@ -32,8 +32,8 @@ class Proposals extends React.Component {
       <div>
          <div className="container">
             <div className="row">
-               <h1 id="timbo"> Proposals!!
-               <button className="btn newBtn">I am gr8</button></h1>
+               <div className="componentTitle"> Proposals</div>
+               <button className="btn newBtn">New Proposal</button>
             </div>
             <div className="row">
                <div className="input-field col s4 m4 l6">
