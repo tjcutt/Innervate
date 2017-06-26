@@ -5,16 +5,17 @@ const router = express.Router();
 const knex = require('../knex');
 
 router.post('/', function(req, res, next){
-  knex('users')
-        .returning('*')
-        // .insert({
-        //   req
-        // })
-        .then((user) => {
-          console.log(user);
-        })
-    })
-  res.send('working?');
+  res.send('hey')
+  // knex('users')
+  //       .returning('*')
+  //       // .insert({
+  //       //   req
+  //       // })
+  //       .then((user) => {
+  //         console.log(user);
+  //       })
+  //   })
+  // res.send('working?');
 })
 
 
