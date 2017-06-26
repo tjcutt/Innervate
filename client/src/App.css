@@ -2,7 +2,7 @@
 
 /*=============================*/
 
-/*GENERIC STYLING*/
+/*STYLING*/
 
 /*Home Page*/
 
@@ -24,11 +24,17 @@
 }
 
 .formSubtitle {
-  margin-top: 20vh;
+  margin-top: 8vh;
 }
 
 .input-field {
-  margin: 8vh;
+  margin: 8vh 8vh 0 8vh;
+}
+
+.adminRef {
+  float: right;
+  margin-top: 0;
+  margin-right: 3vw;
 }
 
 /*=============================*/

@@ -1,5 +1,6 @@
 'use strict';
-var survey = require('./survey');
+const survey = require('./survey');
+const homeForm = require('./homeForm');
 
 const express = require(`express`);
 const router = express.Router();

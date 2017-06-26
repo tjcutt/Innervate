@@ -1,8 +1,21 @@
-// const express = require('express');
-// const router = express.Router();
-// const bcrypt = require('bcrypt-as-promised');
-// const knex = require('../knex');
-//
-// router.post()
-//
-// module.exports = router;
+
+const express = require('express');
+const router = express.Router();
+// const bcrypt = require('bcryptjs');
+const knex = require('../knex');
+
+router.post('/', function(req, res, next){
+  knex('users')
+        .returning('*')
+        // .insert({
+        //   req
+        // })
+        .then((user) => {
+          console.log(user);
+        })
+    })
+  res.send('working?');
+})
+
+
+module.exports = router;
