@@ -12,12 +12,15 @@ class Survey extends React.Component {
   state = {
     values: [],
     role: 'Patient',
+    referral: 'Baylor University'
   };
 
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleRoleChange = this.handleRoleChange.bind(this)
+    this.handleReferralChange = this.handleReferralChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event, index, values){
@@ -26,6 +29,11 @@ class Survey extends React.Component {
   handleRoleChange(role) {
     this.setState({
       role: role.target.value
+    });
+  }
+  handleReferralChange(referral) {
+    this.setState({
+      referral: referral.target.value
     });
   }
   menuItems(values) {
@@ -41,16 +49,18 @@ class Survey extends React.Component {
   }
 
   handleClick(event) {
+    console.log(this.state)
     fetch('/api/survey',{
-      method:"GET",
+      method:"POST",
       headers: {
            'Accept': 'application/json',
            'Content-Type': 'application/json'
-           }
+         },
+      body:JSON.stringify(this.state)
     }).then(res => console.log(res));
   }
   render(){
-    const {values,role} = this.state;
+    const {values, role, referral} = this.state;
     return (
       <MuiThemeProvider>
         <div className="row">
@@ -103,24 +113,24 @@ class Survey extends React.Component {
             <h5>Where did you hear about us?</h5>
             <div className="col l4">
               <p>
-                <input className="with-gap" name="referral" type="radio" id="baylor" />
+                <input className="with-gap" name="referral" type="radio" id="baylor" value="Baylor University" checked={this.state.referral === 'Baylor University'} onChange={this.handleReferralChange}/>
                 <label htmlFor="baylor">Baylor University</label>
               </p>
             </div>
             <div className="col l4">
               <p>
-                <input className="with-gap" name="referral" type="radio" id="cu-med" />
+                <input className="with-gap" name="referral" type="radio" id="cu-med" value="University of Colorado School of Medicine" checked={this.state.referral === 'University of Colorado School of Medicine'} onChange={this.handleReferralChange}/>
                 <label htmlFor="cu-med">University of Colorado School of Medicine</label>
               </p>
             </div>
             <div className="col l4">
               <p>
-                <input className="with-gap" name="referral" type="radio" id="child-hosp" />
+                <input className="with-gap" name="referral" type="radio" id="child-hosp" value="Children's Hospital Colorado" checked={this.state.referral === "Children's Hospital Colorado"} onChange={this.handleReferralChange}/>
                 <label htmlFor="child-hosp">Children&#39;s Hospital Colorado</label>
               </p>
             </div>
             <div className="col l12">
-              <button className="btn waves-effect waves-light right" type="submit" name="action">Next
+              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
               </button>
             </div>
           </div>
