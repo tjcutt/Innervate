@@ -49,7 +49,6 @@ class Survey extends React.Component {
   }
 
   handleClick(event) {
-    console.log(this.state)
     fetch('/api/survey',{
       method:"POST",
       headers: {
@@ -57,7 +56,7 @@ class Survey extends React.Component {
            'Content-Type': 'application/json'
          },
       body:JSON.stringify(this.state)
-    }).then(res => console.log(res));
+    }).then(res => console.log(res))
   }
   render(){
     const {values, role, referral} = this.state;
