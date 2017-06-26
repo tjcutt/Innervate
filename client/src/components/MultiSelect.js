@@ -21,29 +21,33 @@ export default class MultiSelect extends Component {
 
   handleChange = (event, index, values) => this.setState({values});
 
-  menuItems(values) {
-    return names.map((name) => (
-      <MenuItem
-        key={name}
-        insetChildren={true}
-        checked={values && values.indexOf(name) > -1}
-        value={name}
-        primaryText={name}
-      />
-    ));
-  }
+render() {
+   return null
+}
 
-  render() {
-    const {values} = this.state;
-    return (
-      <SelectField
-        multiple={true}
-        hintText="Sort"
-        value={values}
-        onChange={this.handleChange}
-      >
-        {this.menuItems(values)}
-      </SelectField>
-    );
-  }
+  // menuItems(values) {
+  //   return names.map((name) => (
+  //     <MenuItem
+  //       key={name}
+  //       insetChildren={true}
+  //       checked={values && values.indexOf(name) > -1}
+  //       value={name}
+  //       primaryText={name}
+  //     />
+  //   ));
+  // }
+  //
+  // render() {
+  //   const {values} = this.state;
+  //   return (
+  //     <SelectField
+  //       multiple={true}
+  //       hintText="Sort"
+  //       value={values}
+  //       onChange={this.handleChange}
+  //     >
+  //       {this.menuItems(values)}
+  //     </SelectField>
+  //   );
+  // }
 }

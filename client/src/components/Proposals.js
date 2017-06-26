@@ -1,9 +1,9 @@
 import React from 'react'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Container, Row, Col} from 'react-grid-system'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import {Container, Row, Col} from 'react-grid-system'
 import MultiSelect from "./MultiSelect"
-import RaisedButton from 'material-ui/RaisedButton';
+import ProposalList from './ProposalList'
 
 class Proposals extends React.Component {
    constructor(props) {
@@ -26,10 +26,9 @@ class Proposals extends React.Component {
       })
    }
    render(){
-      console.log(this.proposals)
-      return (
 
-      <MuiThemeProvider>
+      return (
+      <div>
          <div className="container">
             <div className="row">
                <h1 id="timbo"> Proposals!!
@@ -43,8 +42,10 @@ class Proposals extends React.Component {
                </div>
             </div>
          </div>
-      </MuiThemeProvider>
-
+         <div>
+            <ProposalList proposals={this.state.proposals}/>
+         </div>
+      </div>
       )
    }
 
