@@ -92,13 +92,25 @@ label {
    display:  inline-block;
 }
 
+.proposalsRow{
+   margin-left: 5vw;
+   margin-right: 5vw;
+}
+
 .proposalItem {
-   border: 1px solid black;
    display: inline-block;
    margin: 1vw 1vw;
-   width: 39vw;
-   height: 25vh;
-   overflow: scroll;
+   width: 42vw;
+}
+
+.proposalsCard {
+   min-height: 44vh;
+   max-height: 44vh;
+}
+
+.proposalSummary {
+   height: 20vh;
+   /*overflow: scroll*/
 }
 
 /* Wizard CSS */

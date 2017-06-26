@@ -14,7 +14,6 @@ class Proposals extends React.Component {
      }
    }
 
-
    componentWillMount() {
       fetch(`/proposals`, {
          credentials:'include'
@@ -34,7 +33,7 @@ class Proposals extends React.Component {
          <div className="container">
             <div className="row">
                <div className="componentTitle"> Proposals</div>
-               <button className="btn newBtn">New Proposal</button>
+               <button className="btn newBtn cyan lighten-1">New Proposal</button>
             </div>
             <div className="row">
                <div className="input-field col s4 m4 l6">
@@ -48,7 +47,7 @@ class Proposals extends React.Component {
             	</Input>
             </div>
          </div>
-         <div className="container">
+         <div className="proposalsRow">
             <ProposalList proposals={this.state.proposals}/>
          </div>
       </div>
