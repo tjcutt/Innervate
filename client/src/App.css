@@ -1,28 +1,72 @@
-/*.App {
-  text-align: center;
+
+
+/*=============================*/
+
+/*GENERIC STYLING*/
+
+/*Home Page*/
+
+.smMargin {
+  margin: 10px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.material-icons {
+  margin: auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.card-image {
+  display: inline-block;
+  width: 7vw;
 }
 
-.App-intro {
-  font-size: large;
+.card-content {
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.formSubtitle {
+  margin-top: 20vh;
 }
 
-#timbo{
-   color: teal;
-}*/
+.input-field {
+  margin: 8vh;
+}
+
+/*=============================*/
+
+/*TYPOGRAPHY*/
+
+
+/*Home Page*/
+.font1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.lgText{
+  font-size: 1.1em;
+}
+
+.logo {
+  color: #424242 ;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+/*Change placeholder color*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #424242 ;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #424242 ;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #424242 ;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #424242 ;
+}
+
+label {
+  color: #424242 ;
+
+}

@@ -13,18 +13,18 @@ class HomeNav extends React.Component{
     return (
        <div>
         <nav>
-            <div className="nav-wrapper">
-              <h1 className="brand-logo ">Logo</h1>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <div className="nav-wrapper font1 cyan lighten-3">
+              <a className="logo smMargin">NPI</a>
+              <ul id="nav-mobile" className="right col s5 hide-on-small-and-down">
                 <li className="input-field col s6">
-                 <input placeholder="email" id="first_name" type="text" className="validate"/>
-                 <label htmlFor="first_name">First Name</label>
+                 <input placeholder="Enter your email" className="homeInput" type="text" className="validate"/>
+                 <label htmlFor="first_name"></label>
                 </li>
 
-                <li className="input-field col s6">
-                  <input placeholder="password" id="first_name" type="text" className="validate"/>
+                <li className="input-field col s5">
+                  <input placeholder="Enter your password" className="homeInput" type="text" className="validate"/>
                   <label htmlFor="first_name">First Name</label></li>
-                <li> <a className="waves-effect waves-light btn">Login</a></li>
+                <li> <a className="waves-effect waves-light btn grey darken-2">Login</a></li>
               </ul>
             </div>
           </nav>
