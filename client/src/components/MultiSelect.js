@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -25,29 +27,29 @@ render() {
    return null
 }
 
-  // menuItems(values) {
-  //   return names.map((name) => (
-  //     <MenuItem
-  //       key={name}
-  //       insetChildren={true}
-  //       checked={values && values.indexOf(name) > -1}
-  //       value={name}
-  //       primaryText={name}
-  //     />
-  //   ));
-  // }
-  //
-  // render() {
-  //   const {values} = this.state;
-  //   return (
-  //     <SelectField
-  //       multiple={true}
-  //       hintText="Sort"
-  //       value={values}
-  //       onChange={this.handleChange}
-  //     >
-  //       {this.menuItems(values)}
-  //     </SelectField>
-  //   );
-  // }
+  menuItems(values) {
+    return names.map((name) => (
+      <MenuItem
+        key={name}
+        insetChildren={true}
+        checked={values && values.indexOf(name) > -1}
+        value={name}
+        primaryText={name}
+      />
+    ));
+  }
+
+  render() {
+    const {values} = this.state;
+    return (
+      <SelectField
+        multiple={true}
+        hintText="Sort"
+        value={values}
+        onChange={this.handleChange}
+      >
+        {this.menuItems(values)}
+      </SelectField>
+    );
+  }
 }

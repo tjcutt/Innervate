@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import {Container, Row, Col} from 'react-grid-system'
 import MultiSelect from "./MultiSelect"
 import ProposalList from './ProposalList'
