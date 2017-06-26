@@ -31,6 +31,10 @@
   margin: 8vh 8vh 0 8vh;
 }
 
+.signupBtn {
+  margin-left: 8vh;
+}
+
 .adminRef {
   float: right;
   margin-top: 0;

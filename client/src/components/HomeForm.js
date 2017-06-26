@@ -1,7 +1,5 @@
 import React from 'react';
-
-// const bcrypt = require('bcryptjs');
-
+const bcrypt = require('bcryptjs');
 
 class HomeForm extends React.Component{
   constructor(props){
@@ -41,21 +39,23 @@ class HomeForm extends React.Component{
 
     setHashedPass(input){
       this.setState({
-
+        hashed_pass: bcrypt.hashSync(input.target.value, 10)
       })
     }
 
     submitClick(event) {
       event.preventDefault()
       console.log('this.state', this.state)
-      fetch('/api/homeForm',{
-        method:"POST",
-        headers: {
-             'Accept': 'application/json',
-             'Content-Type': 'application/json'
-           },
-        body:JSON.stringify(this.state)
-      }).then(res => console.log(res));
+        fetch('/api/homeForm',{
+          method:"POST",
+          headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+          body:JSON.stringify(this.state)
+        })
+          .then(res => console.log('.then of fetch HOMEF', res));
+
     }
 
 
@@ -89,14 +89,9 @@ class HomeForm extends React.Component{
             <label htmlFor="password"> Password</label>
           </div>
 
-          <div className="input-field ">
-            <input id="password" type="password" className="validate"/>
-            <label htmlFor="password">Confirm password</label>
-          </div>
-
           <a className="adminRef collapsible-header active" href="admin">Admin?</a>
 
-          <button type="submit" className="waves-effect waves-light btn grey darken-2">Submit</button>
+          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2">Submit</button>
 
           </form>
 
