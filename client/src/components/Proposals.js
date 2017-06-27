@@ -1,9 +1,8 @@
 import React from 'react'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import {Input, Row, Col} from 'react-grid-system'
 import {Input} from 'react-materialize'
-import MultiSelect from "./MultiSelect"
 import ProposalList from './ProposalList'
 
 class Proposals extends React.Component {
@@ -15,7 +14,7 @@ class Proposals extends React.Component {
    }
 
    componentWillMount() {
-      fetch(`/proposals`, {
+      fetch(`/api/proposals`, {
          credentials:'include'
       })
       .then(res => res.json())
