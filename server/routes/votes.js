@@ -9,7 +9,6 @@ router.post('/:id', (req, res, next) => {
       .where('proposal_id', proposalId)
       .count('active')
       .then((num)=> {
-         console.log('nummy', num[0].count);
          res.send(num[0].count)
       })
 })
@@ -17,21 +16,23 @@ router.post('/:id', (req, res, next) => {
 router.post('/', function(req, res, next) {
    let userId = req.body.userId
    let proposalId = req.body.proposalId
+   console.log('proposdoc', proposalId);
    let body =
         { 'proposal_id': proposalId,
-          'user_id': 1,
+          'user_id': userId,
           'active': true }
    knex('votes')
    .where("user_id", userId)
    .where("proposal_id", proposalId)
    .where("active", true)
    .then((data) => {
-      if (data.length > 0) res.json(data)
+      if (data.length > 0) console.log('exxists',data[0]), res.send(data[0])
       else {
          knex('votes')
             .insert(body)
             .then ((data) => {
-               res.json(data)
+               console.log('insertying');
+               res.send(data[0])
             })
       }
    })
