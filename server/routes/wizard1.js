@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  console.log('hey i got here')
+  console.log(req.body)
   res.send('no');
 })
 

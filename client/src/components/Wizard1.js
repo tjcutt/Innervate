@@ -14,13 +14,21 @@ class WizardOne extends React.Component{
   state = {
     disorders: [],
     afflictions: [],
-    solutions:[]
+    solutions:[],
+    title: '',
+    story: '',
+    summary: ''
   };
 
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this)
+    this.handleDisorderChange = this.handleDisorderChange.bind(this)
+    this.handleSolutionChange = this.handleSolutionChange.bind(this)
+    this.handleAfflictionChange = this.handleAfflictionChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleTitleChange = this.handleTitleChange.bind(this)
+    this.handleStoryChange = this.handleStoryChange.bind(this)
+    this.handleSummaryChange = this.handleSummaryChange.bind(this)
   }
 
   handleClick(event) {
@@ -34,10 +42,24 @@ class WizardOne extends React.Component{
     }).then(res => console.log(res))
   }
 
-  handleChange(event, index, values){
-    this.setState({values});
+  handleDisorderChange(event, index, disorders){
+    this.setState({disorders});
   }
-
+  handleSolutionChange(event, index, solutions){
+    this.setState({solutions});
+  }
+  handleAfflictionChange(event, index, afflictions){
+    this.setState({afflictions});
+  }
+  handleTitleChange(event){
+    this.setState({title: event.target.value});
+  }
+  handleStoryChange(event){
+    this.setState({story: event.target.value});
+  }
+  handleSummaryChange(event){
+    this.setState({summary: event.target.value});
+  }
   disorderItems(values) {
     return disorders.map((name) => (
       <MenuItem
@@ -72,7 +94,7 @@ class WizardOne extends React.Component{
     ));
   }
   render() {
-    const {disorders, afflictions, solutions} = this.state;
+    const {disorders, afflictions, solutions, title, summary, story} = this.state;
     return (
       <MuiThemeProvider>
         <div className="container">
@@ -84,7 +106,11 @@ class WizardOne extends React.Component{
           <div className="row">
             <div className="col l12">
               <h5>Enter a title for your proposal</h5>
-              <input placeholder="Enter title..." type="text" className="validate"/>
+              <input value={this.state.title} onChange={this.handleTitleChange} placeholder="Enter title..." type="text" className="validate"/>
+            </div>
+            <div className="col l12">
+              <h5>Describe your proposal in three sentences or less...</h5>
+              <input value={this.state.summary} onChange={this.handleSummaryChange} placeholder="Enter summary..." type="text" className="validate"/>
               <h5>Specify the neurological disorder your proposal targets:</h5>
             </div>
             <div className="col l8">
@@ -93,7 +119,7 @@ class WizardOne extends React.Component{
                 fullWidth={true}
                 hintText="Select disorders"
                 value={disorders}
-                onChange={this.handleChange}>
+                onChange={this.handleDisorderChange}>
                 {this.disorderItems(disorders)}
               </SelectField>
             </div>
@@ -110,7 +136,7 @@ class WizardOne extends React.Component{
                 fullWidth={true}
                 hintText="Select challenges"
                 value={afflictions}
-                onChange={this.handleChange}>
+                onChange={this.handleAfflictionChange}>
                 {this.afflictionItems(afflictions)}
               </SelectField>
             </div>
@@ -120,13 +146,13 @@ class WizardOne extends React.Component{
                 fullWidth={true}
                 hintText="Select solutions"
                 value={solutions}
-                onChange={this.handleChange}>
+                onChange={this.handleSolutionChange}>
                 {this.solutionItems(solutions)}
               </SelectField>
             </div>
             <div className="input-field col s12">
               <h5>Tell us your personal story/how this would benefit people</h5>
-              <textarea id="textarea1" className="materialize-textarea"></textarea>
+              <textarea value={this.state.story} onChange={this.handleStoryChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>
             <div className="col l12">
               <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
