@@ -12,14 +12,26 @@ const solutions = ["Assistive Devices","Biomarker Development","Alert Systems","
 
 class WizardOne extends React.Component{
   state = {
-    : [],
-    role: 'Patient',
-    referral: 'Baylor University'
+    disorders: [],
+    afflictions: [],
+    solutions:[]
   };
 
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(event) {
+    fetch('/api/wizard1',{
+      method:"POST",
+      headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         },
+      body:JSON.stringify(this.state)
+    }).then(res => console.log(res))
   }
 
   handleChange(event, index, values){
@@ -37,8 +49,30 @@ class WizardOne extends React.Component{
       />
     ));
   }
+  afflictionItems(values) {
+    return afflictions.map((name) => (
+      <MenuItem
+        key={name}
+        insetChildren={true}
+        checked={values && values.indexOf(name) > -1}
+        value={name}
+        primaryText={name}
+      />
+    ));
+  }
+  solutionItems(values) {
+    return solutions.map((name) => (
+      <MenuItem
+        key={name}
+        insetChildren={true}
+        checked={values && values.indexOf(name) > -1}
+        value={name}
+        primaryText={name}
+      />
+    ));
+  }
   render() {
-    const {values, role, referral} = this.state;
+    const {disorders, afflictions, solutions} = this.state;
     return (
       <MuiThemeProvider>
         <div className="container">
@@ -58,9 +92,9 @@ class WizardOne extends React.Component{
                 multiple={true}
                 fullWidth={true}
                 hintText="Select disorders"
-                value={values}
+                value={disorders}
                 onChange={this.handleChange}>
-                {this.disorderItems(values)}
+                {this.disorderItems(disorders)}
               </SelectField>
             </div>
             <div className="col l4">
@@ -75,9 +109,9 @@ class WizardOne extends React.Component{
                 multiple={true}
                 fullWidth={true}
                 hintText="Select challenges"
-                value={values}
+                value={afflictions}
                 onChange={this.handleChange}>
-                {this.disorderItems(values)}
+                {this.afflictionItems(afflictions)}
               </SelectField>
             </div>
             <div className="col l6">
@@ -85,10 +119,18 @@ class WizardOne extends React.Component{
                 multiple={true}
                 fullWidth={true}
                 hintText="Select solutions"
-                value={values}
+                value={solutions}
                 onChange={this.handleChange}>
-                {this.disorderItems(values)}
+                {this.solutionItems(solutions)}
               </SelectField>
+            </div>
+            <div className="input-field col s12">
+              <h5>Tell us your personal story/how this would benefit people</h5>
+              <textarea id="textarea1" className="materialize-textarea"></textarea>
+            </div>
+            <div className="col l12">
+              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
+              </button>
             </div>
           </div>
         </div>
