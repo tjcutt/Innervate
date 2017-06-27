@@ -7,25 +7,29 @@ class ProposalListItem extends React.Component {
    constructor(props) {
      super(props)
      this.state = {
-
+        images: []
      }
    }
 
 
    getImages(event){
-     console.log('wow im not gr8', event.target.className, this.props.proposal.id)
+     let id = this.props.proposal.id
      if (event.target.className == 'modalClick'){
         console.log('wait i actually am gr8');
-        fetch(`/api/images`)
+        fetch(`/api/images/${id}`)
         .then(res => res.json())
         .then(images => {
            console.log('pops', images);
+           this.setState({
+             images:images
+          })
         })
      }
    }
 
 
    render (){
+      console.log('thisstate', this.state.images);
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
@@ -36,6 +40,7 @@ class ProposalListItem extends React.Component {
                      trigger={ <a href="#" className="modalClick"
                       >Click For More</a> }>
                      <p>{this.props.proposal.story}</p>
+                     <img src={this.state.images} width="300px"  />
                    </Modal>
                ]}>
                <div className="proposalSummary">
