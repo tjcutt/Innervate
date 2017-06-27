@@ -96,3 +96,18 @@ label {
    height: 25vh;
    overflow: scroll;
 }
+
+/* Wizard CSS */
+#bar {
+  width: 100%;
+  background-color: grey;
+  margin-top:50px;
+}
+#progress1 {
+  width: 33.3%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}

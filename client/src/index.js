@@ -4,6 +4,7 @@ import App from './App';
 import Proposals from './components/Proposals.js'
 import Survey from './components/Survey.js'
 import HomeForm from './components/HomeForm.js'
+import WizardOne from './components/Wizard1.js'
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Route path="/proposals" component={Proposals}></Route>
       <Route path="/survey" component={Survey}></Route>
       <Route path="/homeForm" component={HomeForm}></Route>
+      <Route path="/wizard1" component={WizardOne}></Route>
     </div>
 
   </BrowserRouter>,
