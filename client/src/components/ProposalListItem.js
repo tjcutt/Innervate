@@ -43,6 +43,7 @@ class ProposalListItem extends React.Component {
                      <img src={this.state.images} width="300px"  />
                    </Modal>
                ]}>
+               <div> up </div><div> down </div>
                <div className="proposalSummary">
                   {  this.props.proposal.summary }
                </div>

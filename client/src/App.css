@@ -104,12 +104,12 @@ label {
 }
 
 .proposalsCard {
-   min-height: 44vh;
-   max-height: 44vh;
+   min-height: 54vh;
+   /*max-height: 54vh;*/
 }
 
 .proposalSummary {
-   height: 20vh;
+   height: 25vh;
    /*overflow: scroll*/
 }
 
