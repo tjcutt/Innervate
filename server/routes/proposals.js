@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
 
-/* GET home page. */
+/* GET All PROPOSALS. */
 router.get('/', function(req, res, next) {
    console.log('yay!!!!')
    knex('proposals')

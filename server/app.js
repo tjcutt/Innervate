@@ -12,7 +12,6 @@ const path = require(`path`);
 const logger = require(`morgan`);
 const cookieParser = require(`cookie-parser`);
 const bodyParser = require(`body-parser`);
-const proposals = require('./routes/proposals');
 
 const api = require(`./routes/api`);
 const app = express();
@@ -36,7 +35,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, `../client/public`)));
 
 app.use(`/api`, api);
-app.use('/proposals', proposals)
 
 app.get(`*`, (req, res) => {
   res.sendFile(path.join(__dirname, `../client/public`, `index.html`));
