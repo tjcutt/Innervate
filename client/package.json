@@ -6,6 +6,7 @@
     "bcryptjs": "^2.4.3",
     "material-ui": "^0.18.3",
     "react": "^15.6.1",
+    "react-cookie": "^2.0.7",
     "react-dom": "^15.6.1",
     "react-grid-system": "^2.9.2",
     "react-materialize": "^1.0.3",

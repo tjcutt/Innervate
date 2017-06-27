@@ -54,13 +54,13 @@ class HomeForm extends React.Component{
              },
           body:JSON.stringify(this.state)
         })
-          .then(res => console.log('.then of fetch HOMEF', res));
+          .then(res => console.log('Form res', res));
 
     }
-
+  // const {first_name, last_name, email, password} = this.state;
 
   render() {
-    const {first_name, last_name, email, password} = this.state;
+
     return (
       <div>
         <div className="homeForm container font1 col m6 l6 hide-on-small-and-down">

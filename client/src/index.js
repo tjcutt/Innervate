@@ -5,6 +5,7 @@ import Proposals from './components/Proposals.js'
 import Survey from './components/Survey.js'
 import HomeForm from './components/HomeForm.js'
 import WizardOne from './components/Wizard1.js'
+import HomeNav from './components/HomeNav.js'
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {BrowserRouter, Route} from 'react-router-dom';
