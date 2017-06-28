@@ -7,9 +7,7 @@ import React from 'react';
 // import TextField from 'material-ui/TextField';
 
 class HomeNav extends React.Component{
-  constructor(props){
-    super(props);
-  }
+
   render() {
     return (
        <div>

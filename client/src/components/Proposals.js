@@ -1,9 +1,8 @@
 import React from 'react'
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import {Input, Row, Col} from 'react-grid-system'
 import {Input} from 'react-materialize'
-import MultiSelect from "./MultiSelect"
 import ProposalList from './ProposalList'
 
 class Proposals extends React.Component {
@@ -14,27 +13,24 @@ class Proposals extends React.Component {
      }
    }
 
-
    componentWillMount() {
-      fetch(`/proposals`, {
+      fetch(`/api/proposals`, {
          credentials:'include'
       })
       .then(res => res.json())
       .then(proposals => {
-         console.log('pops', this.state.proposals);
          this.setState({
           proposals:proposals
          })
       })
    }
    render(){
-      console.log('render', this.state.proposals);
       return (
       <div>
          <div className="container">
             <div className="row">
                <div className="componentTitle"> Proposals</div>
-               <button className="btn newBtn">New Proposal</button>
+               <button className="btn newBtn cyan lighten-1">New Proposal</button>
             </div>
             <div className="row">
                <div className="input-field col s4 m4 l6">
@@ -48,7 +44,7 @@ class Proposals extends React.Component {
             	</Input>
             </div>
          </div>
-         <div className="container">
+         <div className="proposalsRow">
             <ProposalList proposals={this.state.proposals}/>
          </div>
       </div>

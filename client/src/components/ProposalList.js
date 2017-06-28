@@ -2,7 +2,6 @@ import React from 'react'
 import ProposalListItem from './ProposalListItem'
 
 const ProposalList = (props) => {
-   console.log('proposallist props', props.proposals);
 
    let el = null
    if (props.proposals.length > 0){
@@ -13,7 +12,6 @@ const ProposalList = (props) => {
          )
       })
       el = ProposalItems
-      console.log('win', el);
    }
 
    return (
