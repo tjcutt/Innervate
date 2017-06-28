@@ -15,10 +15,9 @@ class ProposalList extends React.Component {
 
 
    sortProposals = (field, proposals) => {
-     // Sorting ...
-     console.log('firing sort prop funk');
+     console.log('!!! in sort proposals', field, proposals);
      var sortedProposals = this.state.proposals.sort( (a, b) => {
-       console.log("IN sortProposals", field);
+       console.log("||||IN sortProposals", field);
        if (a[field] > b[field]) {
          return 1;
        }
