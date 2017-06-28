@@ -69,8 +69,8 @@ class HomeForm extends React.Component{
   render() {
 
     return (
-      <div>
-        <div className="homeForm container font1 col m6 l6 hide-on-small-and-down">
+
+        <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
 

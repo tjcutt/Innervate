@@ -2,14 +2,10 @@ import React from 'react';
 
 class HomeInfo extends React.Component{
 
-  // constructor(props){
-  //   super(props)
-  // }
-
   render() {
     return (
       <div>
-        <div className="homeInfo font1 col s12 m6 l6">
+        <div className="homeInfo font1 col s12 m7 l7">
 
         <br/>
         <div className="smMargin">
