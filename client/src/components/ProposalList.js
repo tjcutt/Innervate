@@ -12,7 +12,6 @@ const ProposalList = (props) => {
          )
       })
       el = ProposalItems
-      console.log('win', el);
    }
 
    return (

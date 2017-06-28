@@ -108,6 +108,11 @@ label {
    /*max-height: 54vh;*/
 }
 
+#upvote, #voteCount {
+   display: inline-block;
+   margin-right: 1em;
+}
+
 .proposalSummary {
    height: 25vh;
    /*overflow: scroll*/

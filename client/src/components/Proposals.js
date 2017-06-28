@@ -19,14 +19,12 @@ class Proposals extends React.Component {
       })
       .then(res => res.json())
       .then(proposals => {
-         console.log('pops', this.state.proposals);
          this.setState({
           proposals:proposals
          })
       })
    }
    render(){
-      console.log('render', this.state.proposals);
       return (
       <div>
          <div className="container">
