@@ -18,9 +18,11 @@ router.post('/', function(req, res, next) {
         })
         .then((data) => {
           if (bcrypt.compareSync(req.body.pass, data[0].hashed_pass)) {
+            delete req.body.pass
               console.log('It works!!!');
               res.redirect('/proposals')
-        }
+              }
+          })
         .catch((error) => {
             next(error)
         })
