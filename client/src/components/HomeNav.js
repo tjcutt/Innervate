@@ -15,8 +15,9 @@ class HomeNav extends React.Component{
     super(props)
 
     this.setEmail = this.setEmail.bind(this)
-    this.setHashedPass = this.setHashedPass.bind(this)
+    // this.setHashedPass = this.setHashedPass.bind(this) 
     this.handleLoginClick = this.handleLoginClick.bind(this)
+    this.setPass = this.setPass.bind(this)
 
     this.state = {
       email: '',
@@ -30,9 +31,15 @@ class HomeNav extends React.Component{
       })
     }
 
-    setHashedPass(input){
+    // setHashedPass(input){
+    //   this.setState({
+    //     hashed_pass: bcrypt.hashSync(input.target.value, 10),
+    //   })
+    // }
+
+    setPass(input){
       this.setState({
-        hashed_pass: bcrypt.hashSync(input.target.value, 10),
+        pass: input.target.value
       })
     }
 
@@ -74,7 +81,7 @@ class HomeNav extends React.Component{
                 </li>
 
                 <li className="input-field col s5">
-                  <input placeholder="Enter your password" onChange={this.setHashedPass} className="homeInput validate" type="password"/>
+                  <input placeholder="Enter your password" onChange={this.setPass} className="homeInput validate" type="password"/>
                   <label htmlFor="first_name">First Name</label>
                 </li>
 
