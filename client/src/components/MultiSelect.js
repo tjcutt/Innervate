@@ -26,7 +26,7 @@ export default class MultiSelect extends Component {
 render() {
    return null
 }
-  
+
   menuItems(values) {
     return names.map((name) => (
       <MenuItem

@@ -61,6 +61,7 @@ class WizardOne extends React.Component{
     this.setState({summary: event.target.value});
   }
   disorderItems(values) {
+    console.log(values)
     return disorders.map((name) => (
       <MenuItem
         key={name}

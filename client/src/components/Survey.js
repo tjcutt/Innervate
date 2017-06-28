@@ -2,14 +2,16 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
-const disorders = [
+const disordersArray = [
   "Stroke","Brain Injury","Alzheimer's Disease and Other Dementias","Epilepsy","Parkinson's Disease","Autism Spectrum Disorders and Other Neurodevelopmental Disorders","Multiple Sclerosis","ALS and Other Neurodegenerative Disorders","Spinal Cord Injury","Migraine/Pain"
 ];
 
 class Survey extends React.Component {
   state = {
-    values: [],
+    disorders: [],
     role: 'Patient',
     referral: 'Baylor University'
   };
@@ -22,8 +24,8 @@ class Survey extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(event, index, values){
-    this.setState({values});
+  handleChange(event, index, disorders){
+    this.setState({disorders});
   }
   handleRoleChange(role) {
     this.setState({
@@ -35,12 +37,12 @@ class Survey extends React.Component {
       referral: referral.target.value
     });
   }
-  menuItems(values) {
-    return disorders.map((name) => (
+  menuItems(disorders) {
+    return disordersArray.map((name) => (
       <MenuItem
         key={name}
         insetChildren={true}
-        checked={values && values.indexOf(name) > -1}
+        checked={disorders && disorders.indexOf(name) > -1}
         value={name}
         primaryText={name}
       />
@@ -58,7 +60,7 @@ class Survey extends React.Component {
     }).then(res => console.log(res))
   }
   render(){
-    const {values, role, referral} = this.state;
+    const {disorders, role, referral} = this.state;
     return (
       <MuiThemeProvider>
         <div className="row">
@@ -96,9 +98,9 @@ class Survey extends React.Component {
                 multiple={true}
                 fullWidth={true}
                 hintText="Select disorders"
-                value={values}
+                value={disorders}
                 onChange={this.handleChange}>
-                {this.menuItems(values)}
+                {this.menuItems(disorders)}
               </SelectField>
             </div>
             <div className="col l4">
