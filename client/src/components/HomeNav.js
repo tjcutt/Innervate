@@ -1,5 +1,5 @@
 import React from 'react';
-import Cookies from 'react-cookie';
+import Cookies from 'universal-cookie';
 const bcrypt = require('bcryptjs');
 
 // import { Link } from 'react-router-dom';
@@ -24,20 +24,16 @@ class HomeNav extends React.Component{
     }
 }
 
-
-
     setEmail(input){
       this.setState({
         email: input.target.value,
       })
-      console.log(this.email);
     }
 
     setHashedPass(input){
       this.setState({
         hashed_pass: bcrypt.hashSync(input.target.value, 10),
       })
-      console.log(this.hashed_pass);
     }
 
 
@@ -53,13 +49,11 @@ class HomeNav extends React.Component{
           body:JSON.stringify(this.state)
         })
          .then(res => res.json())
-        //  .then(res => console.log('navLogin res', res))
          .then( tokens => {
            const cookies = new Cookies()
-           const userToken = cookies.set('user', tokens[0], {httpOnly: true})
-           const roleToken = cookies.set('role', tokens[1], {httpOnly: true})
-          //  cookie.set('user', tokens[0], {httpOnly: true})
-          //  cookie.set('role', tokens[1], {httpOnly: true})
+           cookies.set('user', tokens[0])
+           const userToken = cookies.set('user', tokens[0])
+           const roleToken = cookies.set('role', tokens[1])
            console.log('tokens', tokens)
          })
     }
