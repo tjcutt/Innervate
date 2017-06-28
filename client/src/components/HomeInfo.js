@@ -1,6 +1,11 @@
 import React from 'react';
 
 class HomeInfo extends React.Component{
+
+  // constructor(props){
+  //   super(props)
+  // }
+
   render() {
     return (
       <div>
@@ -8,7 +13,7 @@ class HomeInfo extends React.Component{
 
         <br/>
         <div className="smMargin">
-          <h4 className="center"> Neruological Patient Initiative</h4>
+          <h4 className="center"> Neurological Patient Initiative</h4>
           <p className="lgText">Providing patients, family, and caregivers impacted by neurological disorders a venue to create future innovations and guide neuroscience research </p>
 
             <div className="card horizontal">
