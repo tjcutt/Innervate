@@ -14,6 +14,7 @@ class Sort extends React.Component {
     this.props.sortProposals(field, proposals);
   }
   render() {
+         console.log("WE ARE IN SORT!!");
     // this.sortAds('created_at')
     return (
       <div className="sort-section">

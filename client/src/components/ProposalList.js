@@ -13,8 +13,10 @@ class ProposalList extends React.Component {
      this.filterProposals = this.filterProposals.bind(this)
    }
 
+
    sortProposals = (field, proposals) => {
      // Sorting ...
+     console.log('firing sort prop funk');
      var sortedProposals = this.state.proposals.sort( (a, b) => {
        console.log("IN sortProposals", field);
        if (a[field] > b[field]) {
@@ -31,10 +33,12 @@ class ProposalList extends React.Component {
    }
 
    filterProposals(term, proposals){
+     console.log('firing filter prop funk');
      let filteredProposals = []
      for (let prop of this.state.proposals) {
-       if (prop.title.includes(term) || prop.description.includes(term)) {
-         console.log(prop.title, 'HIIIIIIIIIIII', prop.description);
+       if (prop.title.includes(term) || prop.summary.includes(term)) {
+         console.log('this title passes', prop.title);
+         console.log('filtered proposals in func', filteredProposals);
          filteredProposals.push(prop)
        }
      }
@@ -44,6 +48,8 @@ class ProposalList extends React.Component {
 
 
    render(){
+      console.log('in render poposal list STATE', this.state.proposals);
+      console.log('in render poposal list PROP', this.props.proposals);
 
       let el = null
       if (this.state.proposals.length > 0){
@@ -59,7 +65,7 @@ class ProposalList extends React.Component {
       return (
          <div>
             <div className="row">
-               <Filter proposals={this.props.proposals} filterAdsBy={this.filterProposals}  />
+               <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
                <Sort proposals={this.props.proposals} sortProposals={this.sortProposals}  />
             </div>
             <div className="proposalsRow">

@@ -22,6 +22,18 @@ class Proposals extends React.Component {
       })
    }
    render(){
+      if (this.state.proposals.length == 0){
+         return (
+            <div className="container">
+               <div className="row">
+                  <div className="componentTitle"> Proposals</div>
+                  <button className="btn newBtn cyan lighten-3">New Proposal</button>
+               </div>
+            </div>
+         )
+
+      }
+
       return (
       <div>
          <div className="container">
