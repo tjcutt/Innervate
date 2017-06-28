@@ -33,15 +33,12 @@ class ProposalList extends React.Component {
    }
 
    filterProposals(term, proposals){
-     console.log('||| firing filter prop funk', term, proposals);
      let filteredProposals = []
      for (let prop of proposals) {
-       if (prop.title.includes(term) || prop.summary.includes(term)) {
-         console.log('||| this title passes', prop.title);
+       if (prop.title.toLowerCase().includes(term.toLowerCase()) || prop.summary.toLowerCase().includes(term.toLowerCase())) {
          filteredProposals.push(prop)
        }
      }
-     console.log('||| filtered proposals in func', filteredProposals);
 
      this.setState({ proposals: filteredProposals })
    }
@@ -67,7 +64,7 @@ class ProposalList extends React.Component {
                <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
                <Sort proposals={this.props.proposals} sortProposals={this.sortProposals}  />
             </div>
-            <div className="proposalsRow">
+            <div className="">
                {el}
             </div>
          </div>
