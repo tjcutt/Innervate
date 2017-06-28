@@ -20,9 +20,11 @@ class HomeNav extends React.Component{
 
     this.state = {
       email: '',
-      hashed_pass: '',
+      hashed_pass: ''
     }
 }
+
+
 
     setEmail(input){
       this.setState({
@@ -53,8 +55,11 @@ class HomeNav extends React.Component{
          .then(res => res.json())
         //  .then(res => console.log('navLogin res', res))
          .then( tokens => {
-           cookie.set('user', tokens[0], {httpOnly: true})
-           cookie.set('role', tokens[1], {httpOnly: true})
+           const cookies = new Cookies()
+           const userToken = cookies.set('user', tokens[0], {httpOnly: true})
+           const roleToken = cookies.set('role', tokens[1], {httpOnly: true})
+          //  cookie.set('user', tokens[0], {httpOnly: true})
+          //  cookie.set('role', tokens[1], {httpOnly: true})
            console.log('tokens', tokens)
          })
     }

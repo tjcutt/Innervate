@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Cookies from 'react-cookie'
 import App from './App';
 import Proposals from './components/Proposals.js'
 import Survey from './components/Survey.js'

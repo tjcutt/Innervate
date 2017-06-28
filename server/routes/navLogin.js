@@ -20,6 +20,7 @@ router.post('/', function(req, res, next) {
       // res.cookie('role', tokens[1], {httpOnly: true})
       res.send(tokens);
     })
+    // .then(res => res.json({tokens}))
     .catch((error) => {
       next(error)
     })

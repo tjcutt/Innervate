@@ -16,6 +16,7 @@
     "knex": "^0.13.0",
     "morgan": "~1.8.1",
     "pg": "^6.4.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "universal-cookie-express": "^2.0.5"
   }
 }
