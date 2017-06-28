@@ -1,5 +1,7 @@
 import React from 'react'
 import ProposalListItem from './ProposalListItem'
+import Filter from './Filter'
+import Sort from './Sort'
 
 class ProposalList extends React.Component {
    constructor(props) {
@@ -25,7 +27,7 @@ class ProposalList extends React.Component {
      });
 
      // Then call setState
-   //   this.setState({ 'ads': sortedAds });
+     this.setState({ proposals: sortedProposals });
    }
 
    filterProposals(term, proposals){
@@ -37,16 +39,16 @@ class ProposalList extends React.Component {
        }
      }
 
-   //   this.setState({ 'ads': filteredAds })
+     this.setState({ proposals: filteredProposals })
    }
 
 
    render(){
 
       let el = null
-      if (this.props.proposals.length > 0){
+      if (this.state.proposals.length > 0){
          let ProposalItems =
-         this.props.proposals.map((proposal, i)=> {
+         this.state.proposals.map((proposal, i)=> {
             return (
                <ProposalListItem key={i} data={i + 1} proposal={proposal} />
             )
@@ -56,7 +58,13 @@ class ProposalList extends React.Component {
 
       return (
          <div>
-            {el}
+            <div className="row">
+               <Filter proposals={this.props.proposals} filterAdsBy={this.filterProposals}  />
+               <Sort proposals={this.props.proposals} sortProposals={this.sortProposals}  />
+            </div>
+            <div className="proposalsRow">
+               {el}
+            </div>
          </div>
       )
    }
