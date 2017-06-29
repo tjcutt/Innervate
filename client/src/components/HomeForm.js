@@ -141,6 +141,7 @@ class HomeForm extends React.Component{
           </form>
           {this.handleRedirect()}
         </div>
+        </div>
     );
   }
 }
