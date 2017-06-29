@@ -18,12 +18,13 @@ router.post('/', function(req, res, next){
         .select('*')
         .then((data) => {
           delete req.body.pass
+          res.render('survey')
         })
-        .then((data) => {
-          let tokens = setTokens(data)
-          console.log('tokens on the back end', tokens)
-          res.send(tokens)
-        })
+        // .then((data) => {
+        //   let tokens = setTokens(data)
+        //   console.log('tokens on the back end', tokens)
+        //   res.send(tokens)
+        // })
         .catch((error) => {
           next(error)
         })

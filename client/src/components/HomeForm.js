@@ -1,5 +1,7 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
+import ToggleDisplay from 'react-toggle-display';
+
 
 class HomeForm extends React.Component{
   constructor(props){
@@ -10,12 +12,15 @@ class HomeForm extends React.Component{
     this.setLast = this.setLast.bind(this)
     this.setEmail = this.setEmail.bind(this)
     this.setPass = this.setPass.bind(this)
+    this.setShow = this.setShow.bind(this)
+    // this.showAdmin = this.showAdmin.bind(this)
 
     this.state = {
       first_name: '',
       last_name: '',
       email: '',
-      hashed_pass: ''
+      hashed_pass: '',
+      show: false
     }
   }
 
@@ -42,6 +47,13 @@ class HomeForm extends React.Component{
         pass: input.target.value
       })
     }
+
+    setShow(){
+      this.setState({
+        show: !this.state.show
+      })
+    }
+
 
     submitClick(event) {
       event.preventDefault()
@@ -70,6 +82,7 @@ class HomeForm extends React.Component{
 
     return (
 
+      <div>
         <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
@@ -96,7 +109,17 @@ class HomeForm extends React.Component{
             <label htmlFor="password"> Password</label>
           </div>
 
-          <a className="adminRef collapsible-header active" href="admin">Admin?</a>
+
+          <ToggleDisplay if={this.state.show} tag="section">
+          <div className="input-field ">
+              <input id="adminPass" onChange={this.setPass} type="password" className="validate"/>
+              <label htmlFor="adminPass">Admin Password</label>
+          </div>
+          </ToggleDisplay>
+
+          <a className="adminRef collapsible-header active" onClick={ () => this.setShow()} href="#">Admin?</a>
+
+
 
           <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2">Submit</button>
 
