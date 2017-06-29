@@ -118,6 +118,30 @@ label {
    /*overflow: scroll*/
 }
 
+/* Survey CSS */
+input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after{
+  border: 2px solid #4dd0e1;
+}
+
+[type="radio"].with-gap:checked + label:after {
+border-radius: 50%;
+border: 2px solid #4dd0e1;
+background-color: #4dd0e1;
+z-index: 0;
+-webkit-transform: scale(.5);
+-moz-transform: scale(.5);
+-ms-transform: scale(.5);
+-o-transform: scale(.5);
+transform: scale(.5); }
+
+#selectfield{
+  font-family:"Montserrat", sans-serif;
+}
+.container.survey{
+  width:75%;
+  padding:3%;
+  padding-bottom:8%;
+}
 /* Wizard CSS */
 #bar {
   width: 100%;

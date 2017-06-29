@@ -64,8 +64,8 @@ class Survey extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="row">
-          <h3 className="center">Tell Us About Yourself</h3>
-          <div className="container">
+          <div className="container survey lighten-4 cyan font1">
+            <h3 className="center font1">Tell Us About Yourself</h3>
             <h5>Specify your role...</h5>
             <div className="col l3">
               <p>
@@ -95,6 +95,7 @@ class Survey extends React.Component {
             <h5>Specify the neurological disorder you have or care of:</h5>
             <div className="col l8">
               <SelectField
+                id="selectfield"
                 multiple={true}
                 fullWidth={true}
                 hintText="Select disorders"
@@ -111,27 +112,29 @@ class Survey extends React.Component {
               </p>
             </div>
             <h5>Where did you hear about us?</h5>
-            <div className="col l4">
-              <p>
-                <input className="with-gap" name="referral" type="radio" id="baylor" value="Baylor University" checked={this.state.referral === 'Baylor University'} onChange={this.handleReferralChange}/>
-                <label htmlFor="baylor">Baylor University</label>
-              </p>
-            </div>
-            <div className="col l4">
-              <p>
-                <input className="with-gap" name="referral" type="radio" id="cu-med" value="University of Colorado School of Medicine" checked={this.state.referral === 'University of Colorado School of Medicine'} onChange={this.handleReferralChange}/>
-                <label htmlFor="cu-med">University of Colorado School of Medicine</label>
-              </p>
-            </div>
-            <div className="col l4">
-              <p>
-                <input className="with-gap" name="referral" type="radio" id="child-hosp" value="Children's Hospital Colorado" checked={this.state.referral === "Children's Hospital Colorado"} onChange={this.handleReferralChange}/>
-                <label htmlFor="child-hosp">Children&#39;s Hospital Colorado</label>
-              </p>
-            </div>
-            <div className="col l12">
-              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
-              </button>
+            <div className="row">
+              <div className="col l4">
+                <p>
+                  <input className="with-gap" name="referral" type="radio" id="baylor" value="Baylor University" checked={this.state.referral === 'Baylor University'} onChange={this.handleReferralChange}/>
+                  <label htmlFor="baylor">Baylor University</label>
+                </p>
+              </div>
+              <div className="col l4">
+                <p>
+                  <input className="with-gap" name="referral" type="radio" id="cu-med" value="University of Colorado School of Medicine" checked={this.state.referral === 'University of Colorado School of Medicine'} onChange={this.handleReferralChange}/>
+                  <label htmlFor="cu-med">University of Colorado School of Medicine</label>
+                </p>
+              </div>
+              <div className="col l4">
+                <p>
+                  <input className="with-gap" name="referral" type="radio" id="child-hosp" value="Children's Hospital Colorado" checked={this.state.referral === "Children's Hospital Colorado"} onChange={this.handleReferralChange}/>
+                  <label htmlFor="child-hosp">Children&#39;s Hospital Colorado</label>
+                </p>
+              </div>
+              <div className="col l12">
+                <button className="btn waves-effect waves-light right cyan lighten-2" type="submit" onClick={this.handleClick} name="action">Next
+                </button>
+              </div>
             </div>
           </div>
         </div>
