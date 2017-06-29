@@ -6,13 +6,15 @@ exports.seed = function(knex) {
         summary:"Open-source production of an EEG harness and analytical software that gives power and knowledge to the patient of their own mental health. Enables independent collection and diagnostics of brain wave data that will promote effective and accurate treatment",
         story:"I went to college in a town ridden by Adderall junkies striving to achieve their engineering dreams and neglecting their mental health. I seek to provide an easy-to-use and DIY method of measuring EEG brain waves so that patients can see real-time chemical changes in their brain.",
         votes:10,
-        user_id:1
+        user_id:1,
+        created_at: "2017-07-22T16:00:05.790Z"
       }, {
         title:"Alert System and Breathing Monitor for Epileptic Infants",
         summary:"An breathing monitor that's tied to a mobile app that will alert you of irregular breathing when your baby is sleeping",
         story:"I am an EMT who is frequently called to houses with infant epileptic breathing issues and feel like this device would allow parents to sleep easier at night knowing the condition of their infant.",
         votes:2,
-        user_id:3
+        user_id:3,
+        created_at: "2017-07-29T16:00:05.790Z"
       },{
         title:"Family-Protected Pill Box",
         summary:"A smartphone-controlled pill box to dispense patient medications at the correct time and dose.",
@@ -24,7 +26,8 @@ exports.seed = function(knex) {
         summary:"Don't want to swallow pills or go out to the grocery store to buy all the natural remedies? Here it is in one package so that you can get the rest you need without leaving the house.",
         story:"I live in the mountains so it will take me at least 40 minutes to get to a grocery store. I am not a fan of pharmaceuticals and would love to have a package that I can easily access whenever a migraine renders me incapacitated.",
         votes:50,
-        user_id:6
+        user_id:6,
+        created_at: new Date('2016-06-26 14:26:16 UTC')
       },{
         title:"Walking Metronome for Anxiety",
         summary: "A metronome with slight vibrations that will set the pace for walking, meditation, etc. that also includes a heart rate monitor to calibrate the speed and rate to slow the user down.",
