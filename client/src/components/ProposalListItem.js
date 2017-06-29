@@ -16,6 +16,7 @@ class ProposalListItem extends React.Component {
    }
 
    componentWillMount(){
+      //fetching votes of each proposal
       let id = this.props.proposal.id
       let body = { id }
       // console.log('id', id);
@@ -29,6 +30,7 @@ class ProposalListItem extends React.Component {
       })
       .then(res => res.json())
       .then(num => {
+         console.log('what id is votes', id, num);
          this.setState({
             votes: num
          })
@@ -50,6 +52,8 @@ class ProposalListItem extends React.Component {
    }
 
    updateVotes (){
+      //adds one vote to the proposal if user upvotes it
+      console.log('updating');
       let proposalId = this.props.proposal.id
       let userId = 6
       let body = { proposalId, userId }
@@ -79,6 +83,18 @@ class ProposalListItem extends React.Component {
             this.setState({
                votes: num
             })
+            console.log('this is the number', num);
+            // console.log('can i get id?', id);
+            fetch(`/api/proposals/${id}`,{
+               method:"POST",
+               headers: {
+                   'Accept': 'application/json',
+                   'Content-Type': 'application/json'
+                  },
+            }).then(res => res.json())
+               .then((res) => {
+                  console.log('this is vote res', res);
+               })
          })
       })
    }
@@ -98,7 +114,7 @@ class ProposalListItem extends React.Component {
                    </Modal>
                ]}>
                <div id="voteCount"> {this.state.votes} </div>
-               <div id="upvote" data="1" onClick={this.updateVotes }> updoot </div>
+               <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div>
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>

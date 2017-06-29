@@ -9,6 +9,7 @@ router.post('/:id', (req, res, next) => {
       .where('proposal_id', proposalId)
       .count('active')
       .then((num)=> {
+         console.log('skdjfnks', num);
          res.send(num[0].count)
       })
 })

@@ -15,18 +15,17 @@ class ProposalList extends React.Component {
 
 
    sortProposals = (field, proposals) => {
-     console.log('!!! in sort proposals', field, proposals);
-     var sortedProposals = this.state.proposals.sort( (a, b) => {
-       console.log("||||IN sortProposals", field);
-       if (a[field] > b[field]) {
+     let sortedProposals = this.state.proposals.sort( (a, b) => {
+       console.log("||||IN sortProposals", a[field], b[field]);
+       if (a[field] < b[field]) {
          return 1;
        }
-       if (a[field] < b[field]) {
+       if (a[field] > b[field]) {
          return -1;
        }
        return 0;
      });
-
+     console.log('!!!!! this is my sortProp arr', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
