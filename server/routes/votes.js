@@ -3,6 +3,7 @@ var router = express.Router();
 const knex = require('../knex');
 
 router.post('/:id', (req, res, next) => {
+   //this grabs the number of votes on a specific proposal
    let proposalId = req.body.id
    knex('votes')
       .where('proposal_id', proposalId)

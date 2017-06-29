@@ -13,15 +13,16 @@ router.post('/', function(req, res, next) {
         .where('email', req.body.email)
         .select('*')
         .then((data) => {
-                let tokens = setTokens(data[0])
-                res.send(tokens);
+            let tokens = setTokens(data[0])
+            res.send(tokens);
         })
         .then((data) => {
-          if (bcrypt.compareSync(req.body.pass, data[0].hashed_pass)) {
-            delete req.body.pass
-              console.log('It works!!!');
-              res.redirect('/proposals')
-        }})
+            if (bcrypt.compareSync(req.body.pass, data[0].hashed_pass)) {
+                delete req.body.pass
+                console.log('It works!!!');
+                res.redirect('/proposals')
+            }
+        })
         .catch((error) => {
             next(error)
         })
