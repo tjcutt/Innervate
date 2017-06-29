@@ -1,5 +1,6 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
+import { Redirect } from 'react-router-dom';
 
 class HomeForm extends React.Component{
   constructor(props){
@@ -10,15 +11,21 @@ class HomeForm extends React.Component{
     this.setLast = this.setLast.bind(this)
     this.setEmail = this.setEmail.bind(this)
     this.setPass = this.setPass.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
 
     this.state = {
       first_name: '',
       last_name: '',
       email: '',
-      hashed_pass: ''
+      hashed_pass: '',
+      redirect: false
     }
   }
-
+  handleRedirect(){
+    if(this.state.redirect){
+      return <Redirect to='/survey'></Redirect>;
+    }
+  }
     setFirst(input){
       this.setState({
         first_name: input.target.value
@@ -44,7 +51,7 @@ class HomeForm extends React.Component{
     }
 
     submitClick(event) {
-      event.preventDefault()
+      event.preventDefault();
       console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
@@ -55,19 +62,20 @@ class HomeForm extends React.Component{
           body:JSON.stringify(this.state)
         })
           .then(res => {
-            console.log('did i get here HomeForm json res');
-            res.json()})
-          .then( tokens => {
-            console.log('tokens on the front end',  tokens);
+            console.log(res);
+            res.json()
+          })
+          .then(tokens => {
             const cookies = new Cookies()
             const userToken = cookies.set('user', tokens)
-            console.log('userToken', userToken);
+            this.setState({
+              redirect:true
+            })
           })
     }
   // const {first_name, last_name, email, password} = this.state;
 
   render() {
-
     return (
 
         <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
@@ -101,7 +109,7 @@ class HomeForm extends React.Component{
           <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2">Submit</button>
 
           </form>
-
+          {this.handleRedirect()}
         </div>
     );
   }

@@ -26,7 +26,14 @@ class WizardTwo extends React.Component {
     this.createArticles = this.createArticles.bind(this)
   }
   handleClick(event){
-    console.log(this.state)
+    fetch('/api/wizard2',{
+      method:"POST",
+      headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         },
+      body:JSON.stringify(this.state)
+    }).then(res => console.log(res))
   }
   handleInfoChange(event){
     this.setState({info: event.target.value});
