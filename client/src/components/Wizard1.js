@@ -156,7 +156,7 @@ class WizardOne extends React.Component{
               <textarea value={this.state.story} onChange={this.handleStoryChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>
             <div className="col l12">
-              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
+              <button className="btn waves-effect waves-light right cyan lighten-2" type="submit" onClick={this.handleClick} name="action">Next
               </button>
             </div>
           </div>
