@@ -1,5 +1,5 @@
 import React from 'react';
-const bcrypt = require('bcryptjs');
+import Cookies from 'universal-cookie';
 
 class HomeForm extends React.Component{
   constructor(props){
@@ -9,7 +9,7 @@ class HomeForm extends React.Component{
     this.setFirst = this.setFirst.bind(this)
     this.setLast = this.setLast.bind(this)
     this.setEmail = this.setEmail.bind(this)
-    this.setHashedPass = this.setHashedPass.bind(this)
+    this.setPass = this.setPass.bind(this)
 
     this.state = {
       first_name: '',
@@ -37,9 +37,9 @@ class HomeForm extends React.Component{
       })
     }
 
-    setHashedPass(input){
+    setPass(input){
       this.setState({
-        hashed_pass: bcrypt.hashSync(input.target.value, 10)
+        pass: input.target.value
       })
     }
 
@@ -54,16 +54,23 @@ class HomeForm extends React.Component{
              },
           body:JSON.stringify(this.state)
         })
-          .then(res => console.log('Form res', res));
-
+          .then(res => {
+            console.log('did i get here HomeForm json res');
+            res.json()})
+          .then( tokens => {
+            console.log('tokens on the front end',  tokens);
+            const cookies = new Cookies()
+            const userToken = cookies.set('user', tokens)
+            console.log('userToken', userToken);
+          })
     }
   // const {first_name, last_name, email, password} = this.state;
 
   render() {
 
     return (
-      <div>
-        <div className="homeForm container font1 col m6 l6 hide-on-small-and-down">
+
+        <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
 
@@ -85,7 +92,7 @@ class HomeForm extends React.Component{
           </div>
 
           <div className="input-field ">
-            <input id="password" onChange={this.setHashedPass} type="password" className="validate"/>
+            <input id="password" onChange={this.setPass} type="password" className="validate"/>
             <label htmlFor="password"> Password</label>
           </div>
 

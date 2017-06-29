@@ -1,6 +1,6 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 // import { Link } from 'react-router-dom';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -15,7 +15,6 @@ class HomeNav extends React.Component{
     super(props)
 
     this.setEmail = this.setEmail.bind(this)
-    // this.setHashedPass = this.setHashedPass.bind(this) 
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.setPass = this.setPass.bind(this)
 
@@ -31,22 +30,14 @@ class HomeNav extends React.Component{
       })
     }
 
-    // setHashedPass(input){
-    //   this.setState({
-    //     hashed_pass: bcrypt.hashSync(input.target.value, 10),
-    //   })
-    // }
-
     setPass(input){
       this.setState({
         pass: input.target.value
       })
     }
 
-
     handleLoginClick (event, res) {
       event.preventDefault()
-      console.log('this.state', this.state)
         fetch('/api/navLogin',{
           method:"POST",
           headers: {
@@ -61,7 +52,7 @@ class HomeNav extends React.Component{
            cookies.set('user', tokens[0])
            const userToken = cookies.set('user', tokens[0])
            const roleToken = cookies.set('role', tokens[1])
-           console.log('tokens', tokens)
+           console.log('userToken', userToken, 'roleToken', roleToken)
          })
     }
 

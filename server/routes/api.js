@@ -18,7 +18,6 @@ router.use('/homeForm', homeForm);
 router.use('/survey', survey);
 router.use('/wizard1', wizard1);
 router.use('/votes', votes);
-
 router.use('/navLogin', navLogin);
 
 module.exports = router;
