@@ -1,18 +1,19 @@
-import React from 'react';
-import Cookies from 'universal-cookie';
-import ToggleDisplay from 'react-toggle-display';
+import React from 'react'
+import Cookies from 'universal-cookie'
+import ToggleDisplay from 'react-toggle-display'
 
 
 class HomeForm extends React.Component{
   constructor(props){
     super(props)
 
-    this.submitClick = this.submitClick.bind(this);
+    this.submitClick = this.submitClick.bind(this)
     this.setFirst = this.setFirst.bind(this)
     this.setLast = this.setLast.bind(this)
     this.setEmail = this.setEmail.bind(this)
     this.setPass = this.setPass.bind(this)
     this.setShow = this.setShow.bind(this)
+    this.checkAdminPass = this.checkAdminPass.bind(this)
     // this.showAdmin = this.showAdmin.bind(this)
 
     this.state = {
@@ -20,7 +21,8 @@ class HomeForm extends React.Component{
       last_name: '',
       email: '',
       hashed_pass: '',
-      show: false
+      show: false,
+      adminPass: ''
     }
   }
 
@@ -54,6 +56,13 @@ class HomeForm extends React.Component{
       })
     }
 
+    checkAdminPass(input){
+      this.setState({
+        adminPass: input.target.value
+      })
+      console.log(this.state.adminPass);
+    }
+
 
     submitClick(event) {
       event.preventDefault()
@@ -67,13 +76,7 @@ class HomeForm extends React.Component{
           body:JSON.stringify(this.state)
         })
           .then(res => {
-            console.log('did i get here HomeForm json res');
-            res.json()})
-          .then( tokens => {
-            console.log('tokens on the front end',  tokens);
-            const cookies = new Cookies()
-            const userToken = cookies.set('user', tokens)
-            console.log('userToken', userToken);
+            console.log('successfully received res', res);
           })
     }
   // const {first_name, last_name, email, password} = this.state;
@@ -109,10 +112,9 @@ class HomeForm extends React.Component{
             <label htmlFor="password"> Password</label>
           </div>
 
-
           <ToggleDisplay if={this.state.show} tag="section">
           <div className="input-field ">
-              <input id="adminPass" onChange={this.setPass} type="password" className="validate"/>
+              <input id="adminPass" onChange={this.checkAdminPass} type="password" className="validate"/>
               <label htmlFor="adminPass">Admin Password</label>
           </div>
           </ToggleDisplay>

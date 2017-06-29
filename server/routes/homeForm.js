@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 require('dotenv');
 
 router.post('/', function(req, res, next){
-  // console.log('backend req', req.body)
+  console.log('backend req', req.body)
   knex('users')
         .returning('*')
         .insert({
@@ -15,20 +15,41 @@ router.post('/', function(req, res, next){
         'email': req.body.email,
         'hashed_pass': bcrypt.hashSync(req.body.pass, 10)
         })
-        .select('*')
         .then((data) => {
+          console.log('backend data', data);;
           delete req.body.pass
-          res.render('survey')
+          let adminPass = req.body.adminPass
+          console.log('adminPass', adminPass);
+          if (adminPass) {
+            // let userId = data[0].id
+            return getPass(adminPass)
+            // adminInsertRole(userId, adminPass)
+          }
+          res.render('/survey')
         })
-        // .then((data) => {
-        //   let tokens = setTokens(data)
-        //   console.log('tokens on the back end', tokens)
-        //   res.send(tokens)
-        // })
         .catch((error) => {
           next(error)
         })
     })
+
+    function getPass(adminPass){
+     return  knex('users')
+          .whereIn('id', 4)
+          .select('hashed_pass')
+          .then((passInfo) => {
+            let pass = passInfo[0].hashed_pass
+            if (bcrypt.compareSync(adminPass, pass)){
+                console.log('woohoo')
+            }
+          })
+    }
+
+    function adminInsertRole(id){
+      console.log('function call working!!!!');
+      // knex ('user_role')
+      //   .returning('*')
+      //   .where()
+    }
 
 
     function setTokens(user) {
