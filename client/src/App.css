@@ -95,7 +95,7 @@ div.container.propMain{
    width: 90vw;
 }
 .componentTitle {
-   font-size:3em;
+   font-size:2em;
    display: inline-block;
    margin-right: 24vw;
    margin-left: 15vw;
@@ -123,6 +123,10 @@ div.container.propMain{
    min-height: 30vh;
    max-height: 54vh;
 }
+.card .card-content .card-title{
+   font-size: 18px;
+   text-decoration: underline;
+}
 
 #upvote, #voteCount {
    display: inline-block;
@@ -137,6 +141,11 @@ div.container.propMain{
 #filter{
    margin-right: 9vw;
    width: 27vw;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+   color:#039be5;
+   float: right;
 }
 
 .row .col.s3{
@@ -205,8 +214,10 @@ transform: scale(.5); }
    .componentTitle {
       font-size:36px;
       display: block;
-      margin-top: 5px;
+      padding-top: 30px;
+      padding-bottom: 20px;
       text-align: center;
+      line-height: 8px;
       /*margin-right: 10vw;
       margin-left: 10vw;*/
    }
@@ -239,9 +250,26 @@ transform: scale(.5); }
       margin-left: 9px;
    }
 
-   .card .card-title{
-      font-size: 20px;
-      line-height: 10px;
+   .card .card-content .card-title{
+      font-size: 2em;
+      line-height: 24px;
+      font-weight: 500;
+      padding-top: 25px;
+      text-decoration: underline;
+   }
+
+   h4 {
+      font-weight: bold;
+      font-size: 24px;
+   }
+   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+      color:#039be5;
+      float: right;
+      font-size: 12px;
+   }
+
+   #modalText {
+      font-size: 25px;
    }
 
    #upvote, #voteCount {
@@ -252,6 +280,7 @@ transform: scale(.5); }
    .proposalSummary {
       min-height: 15vh;
       max-height: 70vh;
+      font-size: 20px;
       /*overflow: scroll*/
    }
 
@@ -261,7 +290,7 @@ transform: scale(.5); }
    }
 
    div.col.input-field.s3{
-      width: 80%;
+      width: 10px;
       display: block;
       text-align: center;
    }
@@ -311,9 +340,24 @@ transform: scale(.5); }
       max-height: 110vh;
    }
 
-   .card .card-title{
-      font-size: 20px;
-      line-height: 10px;
+   div.proposalItem.container{
+      margin-left: 9px;
+   }
+
+   .card .card-content .card-title{
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      text-decoration: underline;
+   }
+
+   h4 {
+      font-weight: bold;
+      font-size: 24px;
+   }
+
+   #modalText {
+      font-size: 25px;
    }
 
    #upvote, #voteCount {
@@ -324,7 +368,12 @@ transform: scale(.5); }
    .proposalSummary {
       min-height: 15vh;
       max-height: 70vh;
+      font-size: 20px;
       /*overflow: scroll*/
+   }
+   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+      color:#039be5;
+      float: right;
    }
 
    #filter{

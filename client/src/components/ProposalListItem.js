@@ -105,14 +105,19 @@ class ProposalListItem extends React.Component {
                    <Modal
                     key={this.props.proposal.id}
                   	header={this.props.proposal.title}
-                     trigger={ <a href="#" className="modalClick"
-                      >Click For More</a> }>
-                     <p>{this.props.proposal.story}</p>
+                     trigger={
+                        <div>
+                           <div id="voteCount"> {this.state.votes} </div>
+                           <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div>
+                           <a href="#" className="modalClick"
+                           >Click For More</a>
+                      </div>
+                     }>
+                      <br /><br />
+                     <p id="modalText">{this.props.proposal.story}</p>
                      <img src={this.state.images} width="300px"  />
                    </Modal>
                ]}>
-               <div id="voteCount"> {this.state.votes} </div>
-               <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div>
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
