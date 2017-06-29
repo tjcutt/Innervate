@@ -49,7 +49,6 @@ class ProposalListItem extends React.Component {
 
    updateVotes (){
       //adds one vote to the proposal if user upvotes it
-      console.log('updating');
       let proposalId = this.props.proposal.id
       let userId = 5
       let body = { proposalId, userId }
@@ -62,11 +61,9 @@ class ProposalListItem extends React.Component {
          body: JSON.stringify(body)
       }).then((res) => res.json())
       .then((res) => {
-         console.log('added this maybe',res)
          let valid = res
          let id = this.props.proposal.id
          let body = { id }
-         console.log('valid', valid);
          //this grabs the number of votes on a specific proposal
          fetch(`/api/votes/${id}`,{
             method:"POST",
@@ -81,7 +78,6 @@ class ProposalListItem extends React.Component {
             this.setState({
                votes: num
             })
-            console.log('this is the number', num);
             // console.log('can i get id?', id);
             if (valid){
             fetch(`/api/proposals/${id}`,{
@@ -92,7 +88,6 @@ class ProposalListItem extends React.Component {
                   },
             }).then(res => res.json())
                .then((res) => {
-                  console.log('this is vote res', res);
                })
             }
          })
