@@ -124,6 +124,7 @@ class HomeForm extends React.Component{
           <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2">Submit</button>
 
           </form>
+          </div>
       </div>
     );
   }

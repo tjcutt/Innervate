@@ -13,6 +13,9 @@ class ProposalList extends React.Component {
      this.filterProposals = this.filterProposals.bind(this)
    }
 
+   componentWillMount(){
+      this.sortProposals('created_at', this.props.proposals)
+   }
 
    sortProposals = (field, proposals) => {
       // console.log('|||| BEFORE sort', proposals);
