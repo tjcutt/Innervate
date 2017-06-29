@@ -9,6 +9,7 @@ class ProposalListItem extends React.Component {
 
      this.updateVotes = this.updateVotes.bind(this)
      this.getVotes = this.getVotes.bind(this)
+     this.timbo = this.timbo.bind(this)
 
      this.state = {
         images: [],
@@ -17,9 +18,21 @@ class ProposalListItem extends React.Component {
    }
 
    componentWillMount(){
-      console.log('VILL MOUNT');
       this.getVotes()
    }
+
+   shouldComponentUpdate(nextProps, nextState){
+   if (this.state.votes !== nextState.votes){
+      return true
+   }
+   if (this.props.proposal.title === nextProps.proposal.title) return false
+   return true
+   }
+
+   timbo(){
+      console.log('HOLY TITS');
+   }
+
 
    getImages(event){
       let id = this.props.proposal.id
@@ -87,11 +100,12 @@ class ProposalListItem extends React.Component {
    }
 
    render (){
+
+      this.getVotes()
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
                <Card className='cyan lighten-5 proposalsCard'
-               onChange={this.getVotes()}
                 textClassName='black-text' title= {this.props.proposal.title } actions={[
                    <Modal
                     key={this.props.proposal.id}
