@@ -13,21 +13,23 @@ class ProposalList extends React.Component {
      this.filterProposals = this.filterProposals.bind(this)
    }
 
+   componentWillMount(){
+      this.sortProposals('created_at', this.props.proposals)
+   }
 
    sortProposals = (field, proposals) => {
-     // Sorting ...
-     console.log('firing sort prop funk');
-     var sortedProposals = this.state.proposals.sort( (a, b) => {
-       console.log("IN sortProposals", field);
-       if (a[field] > b[field]) {
+      // console.log('|||| BEFORE sort', proposals);
+     let sortedProposals = this.state.proposals.sort( (a, b) => {
+      //   console.log("||||SORTING sortProposals", a[field], b[field]);
+       if (a[field] < b[field]) {
          return 1;
        }
-       if (a[field] < b[field]) {
+       if (a[field] > b[field]) {
          return -1;
        }
        return 0;
      });
-
+     console.log('!!!!! AFTER sortProposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
