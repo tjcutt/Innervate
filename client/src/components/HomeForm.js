@@ -103,7 +103,6 @@ class HomeForm extends React.Component{
           </form>
 
         </div>
-      </div>
     );
   }
 }
