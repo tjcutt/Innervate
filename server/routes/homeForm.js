@@ -21,7 +21,7 @@ router.post('/', function(req, res, next){
             let userId = data[0].id
             return getPass(adminPass, userId)
           }
-          // res.render('/survey')
+          res.send('hey')
         })
         .catch((error) => {
           next(error)

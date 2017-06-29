@@ -21,11 +21,12 @@ class HomeForm extends React.Component{
       email: '',
       hashed_pass: '',
       show: false,
-      adminPass: ''
+      adminPass: '',
       redirect: false
     }
   }
   handleRedirect(){
+    console.log('hey')
     if(this.state.redirect){
       return <Redirect to='/survey'></Redirect>;
     }
@@ -69,6 +70,7 @@ class HomeForm extends React.Component{
 
 
     submitClick(event) {
+      console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
       console.log('this.state', this.state)
         fetch('/api/homeForm',{
@@ -89,6 +91,7 @@ class HomeForm extends React.Component{
             this.setState({
               redirect:true
             })
+            console.log(this.state);
           })
     }
   // const {first_name, last_name, email, password} = this.state;
@@ -96,7 +99,6 @@ class HomeForm extends React.Component{
   render() {
     return (
 
-      <div>
         <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
@@ -130,11 +132,11 @@ class HomeForm extends React.Component{
           </div>
           </ToggleDisplay>
 
-          <a className="adminRef collapsible-header active" onClick={ () => this.setShow()} href="#">Admin?</a>
+          <a className="adminRef collapsible-header active" onClick={() => this.setShow()} href="#">Admin?</a>
 
 
 
-          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2">Submit</button>
+          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
 
           </form>
           {this.handleRedirect()}
