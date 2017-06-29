@@ -8,7 +8,8 @@ class ProposalListItem extends React.Component {
      super(props)
 
      this.updateVotes = this.updateVotes.bind(this)
-     this.reload = this.componentWillMount.bind(this)
+     this.getVotes = this.getVotes.bind(this)
+
      this.state = {
         images: [],
         votes: 0
@@ -16,30 +17,12 @@ class ProposalListItem extends React.Component {
    }
 
    componentWillMount(){
-      //fetching votes of each proposal
-      let id = this.props.proposal.id
-      let body = { id }
-      // console.log('id', id);
-      fetch(`/api/votes/${id}`,{
-         method:"POST",
-         headers: {
-             'Accept': 'application/json',
-             'Content-Type': 'application/json'
-            },
-         body: JSON.stringify(body)
-      })
-      .then(res => res.json())
-      .then(num => {
-         console.log('what id is votes', id, num);
-         this.setState({
-            votes: num
-         })
-      })
-
+      console.log('VILL MOUNT');
+      this.getVotes()
    }
 
    getImages(event){
-     let id = this.props.proposal.id
+      let id = this.props.proposal.id
      if (event.target.className == 'modalClick'){
         fetch(`/api/images/${id}`)
         .then(res => res.json())
@@ -55,7 +38,7 @@ class ProposalListItem extends React.Component {
       //adds one vote to the proposal if user upvotes it
       console.log('updating');
       let proposalId = this.props.proposal.id
-      let userId = 6
+      let userId = 5
       let body = { proposalId, userId }
       fetch('/api/votes',{
         method:"POST",
@@ -64,12 +47,14 @@ class ProposalListItem extends React.Component {
              'Content-Type': 'application/json'
            },
          body: JSON.stringify(body)
-      }).then((res) => res.json)
+      }).then((res) => res.json())
       .then((res) => {
-         console.log('FORCE',res)
+         console.log('added this maybe',res)
+         let valid = res
          let id = this.props.proposal.id
          let body = { id }
-         // console.log('id', id);
+         console.log('valid', valid);
+         //this grabs the number of votes on a specific proposal
          fetch(`/api/votes/${id}`,{
             method:"POST",
             headers: {
@@ -85,6 +70,7 @@ class ProposalListItem extends React.Component {
             })
             console.log('this is the number', num);
             // console.log('can i get id?', id);
+            if (valid){
             fetch(`/api/proposals/${id}`,{
                method:"POST",
                headers: {
@@ -95,6 +81,7 @@ class ProposalListItem extends React.Component {
                .then((res) => {
                   console.log('this is vote res', res);
                })
+            }
          })
       })
    }
@@ -103,7 +90,9 @@ class ProposalListItem extends React.Component {
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
-               <Card className='cyan lighten-5 proposalsCard' textClassName='black-text' title= {this.props.proposal.title } actions={[
+               <Card className='cyan lighten-5 proposalsCard'
+               onChange={this.getVotes()}
+                textClassName='black-text' title= {this.props.proposal.title } actions={[
                    <Modal
                     key={this.props.proposal.id}
                   	header={this.props.proposal.title}
@@ -123,6 +112,27 @@ class ProposalListItem extends React.Component {
          </div>
       )
    }
+
+   getVotes(){
+      let id = this.props.proposal.id
+      let body = { id }
+      fetch(`/api/votes/${id}`,{
+         method:"POST",
+         headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+            },
+         body: JSON.stringify(body)
+      })
+      .then(res => res.json())
+      .then(num => {
+         // console.log( this.props.proposal.title, id, num);
+         this.setState({
+            votes: num
+         })
+      })
+   }
+
 }
 
 

@@ -15,8 +15,9 @@ class ProposalList extends React.Component {
 
 
    sortProposals = (field, proposals) => {
+      // console.log('|||| BEFORE sort', proposals);
      let sortedProposals = this.state.proposals.sort( (a, b) => {
-       console.log("||||IN sortProposals", a[field], b[field]);
+      //   console.log("||||SORTING sortProposals", a[field], b[field]);
        if (a[field] < b[field]) {
          return 1;
        }
@@ -25,7 +26,7 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
-     console.log('!!!!! this is my sortProp arr', sortedProposals);
+   //   console.log('!!!!! AFTER sortProposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
