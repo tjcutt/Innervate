@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const jwt = require('jsonwebtoken')
 const knex = require('../knex')
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 require('dotenv');
 
@@ -14,14 +14,18 @@ router.post('/', function(req, res, next){
         'email': req.body.email,
         'hashed_pass': bcrypt.hashSync(req.body.pass, 10)
         })
+        .select('*')
         .then((data) => {
           delete req.body.pass
           let adminPass = req.body.adminPass
           if (adminPass.length > 0) {
             let userId = data[0].id
+            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', data[0]);
+
             return getPass(adminPass, userId)
+res.send(data[0])
           }
-          res.send('hey')
+
         })
         .catch((error) => {
           next(error)
@@ -55,11 +59,16 @@ router.post('/', function(req, res, next){
         })
     }
 
-    // function setTokens(user) {
-    //     let token = jwt.sign({
-    //         user: user
-    //     }, process.env.JWT_SECRET)
-    //     return token
-    // };
+    function setTokens(user) {
+        let token = jwt.sign({
+            user: user
+        }, process.env.JWT_SECRET)
+        let roleToken = jwt.sign({
+            role: user.role_id
+        }, process.env.JWT_SECRET)
+        return [token, roleToken]
+    };
+
+
 
 module.exports = router;

@@ -1,12 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
+const jwt = require('jsonwebtoken');
+var colors = require('colors');
 
 router.get('/', function(req, res, next) {
   res.send('i connect');
 });
 
 router.post('/', function(req, res, next){
+  // if (req.cookies.role) {
+  //   let role = jwt.verify(req.cookies.role, process.env.JWT_SECRET).role;
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
@@ -18,8 +22,12 @@ router.post('/', function(req, res, next){
           'email':"144@gmail.com",
           'referral_id': referral[0].id
         }).then((user) => {
+          console.log('what is this user info'.bgRed, user);
           knex('disorders')
-            .whereIn('name', req.body.values)
+            // .then(data=> {
+            //   console.log('disorders'.rainbow, data, 'values'.rainbow, req.body.disorders[0]);
+            // })
+            .where('name', req.body.disorders[0])
             .then((disorders) => {
               for(var i = 0; i < disorders.length; i++){
                 knex('user_disorder')
@@ -35,7 +43,8 @@ router.post('/', function(req, res, next){
                             .insert({
                               user_id:user[0].id,
                               role_id:role[0].id
-                            }).then((done) => {
+                            }).then((data) => {
+                              console.log('what data do i have', data);
                             })
                         })
                   })

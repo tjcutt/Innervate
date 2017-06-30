@@ -27,7 +27,6 @@ class HomeForm extends React.Component{
     }
   }
   handleRedirect(){
-    console.log('hey')
     if(this.state.redirect){
       return <Redirect to='/survey'></Redirect>;
     }
@@ -70,8 +69,11 @@ class HomeForm extends React.Component{
     }
 
 
-    submitClick(event) {
+
+    submitClick(event, res) {
+      // console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
+      // console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
           headers: {
@@ -80,18 +82,23 @@ class HomeForm extends React.Component{
              },
           body:JSON.stringify(this.state)
         })
-          .then(res => {
-            console.log(res);
-            res.json()
-          })
+          .then(res => res.json())
           .then(tokens => {
-            const cookies = new Cookies()
-            const userToken = cookies.set('user', tokens)
-            this.setState({
-              redirect:true
-            })
-            console.log(this.state);
+            console.log('tokens', tokens);
+            // this.setState({
+            //   redirect:true
+            // })
+            res.send(tokens)
           })
+          // .then(tokens => {
+          //   console.log('TOKENS?',tokens);
+          //   const cookies = new Cookies()
+          //   cookies.set('user', tokens)
+          //   this.setState({
+          //     redirect:true
+          //   })
+          //   console.log(this.state);
+          // })
     }
   // const {first_name, last_name, email, password} = this.state;
 
