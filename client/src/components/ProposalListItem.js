@@ -100,7 +100,7 @@ class ProposalListItem extends React.Component {
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
-               <Card className='cyan lighten-5 proposalsCard'
+               <Card className='grey lighten-4 proposalsCard'
                 textClassName='black-text' title="" actions={[
                    <Modal
                     key={this.props.proposal.id}
