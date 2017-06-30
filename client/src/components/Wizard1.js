@@ -2,6 +2,11 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import {
+  Step,
+  Stepper,
+  StepLabel,
+} from 'material-ui/Stepper';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const disorders = ["Stroke","Brain Injury","Alzheimer's Disease and Other Dementias","Epilepsy","Parkinson's Disease","Autism Spectrum Disorders and Other Neurodevelopmental Disorders","Multiple Sclerosis","ALS and Other Neurodegenerative Disorders","Spinal Cord Injury","Migraine/Pain"];
@@ -98,7 +103,7 @@ class WizardOne extends React.Component{
     const {disorders, afflictions, solutions, title, summary, story} = this.state;
     return (
       <MuiThemeProvider>
-        <div className="container">
+        <div className="container wizard1">
           <div className="row">
             <div id="bar">
               <div id="progress1">Part 1</div>

@@ -151,7 +151,7 @@ transform: scale(.5); }
 #progress1 {
   width: 33.3%;
   height: 30px;
-  background-color: #4CAF50;
+  background-color: #4dd0e1;
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
@@ -159,8 +159,13 @@ transform: scale(.5); }
 #progress2 {
   width: 66.7%;
   height: 30px;
-  background-color: #4CAF50;
+  background-color: #4dd0e1;
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
+}
+.container.wizard1{
+  font-family:"Montserrat", sans-serif;
+  width:75%;
+  padding-bottom:8%;
 }
