@@ -100,33 +100,36 @@ class ProposalListItem extends React.Component {
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
-               <Card className='cyan lighten-5 proposalsCard'
-                textClassName='black-text' title= { this.props.proposal.title } actions={[
-                   <Modal
-                    key={this.props.proposal.id}
-                  	header={this.props.proposal.title}
-                     trigger={
-                        <div>
-                           <div id="voteCount"> {this.state.votes} </div>
-                           <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div>
-                           <a href="#" className="modalClick"
-                           >Click For More</a>
-                      </div>
-                     }>
-                      <br /><br />
-                      <p id="modalText"> Summary:</p><br />
-                     <p id="modalText">{this.props.proposal.summary}</p>
-                     <br /><br />
-                      <p id="modalText"> Story:</p><br />
-                     <p id="modalText">{this.props.proposal.story}</p>
-                     <br /><br />
-                     <p id="modalText"> Images:</p><br />
-                     <img src={this.state.images} width="300px"  />
-                   </Modal>
-               ]}>
+               <Card className='grey lighten-4 proposalsCard'
+                textClassName='black-text' title="">
+               <h3 className="modalCardTitle">{this.props.proposal.title}</h3>
+               <br />
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
+               <div id="line" />
+               <div className="row cardBottom">
+                  <div id="voteCount"> {this.state.votes} </div>
+                  <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div> <Modal
+                      key={this.props.proposal.id}
+                       header={this.props.proposal.title}
+                       trigger={
+                          <div>
+                             <a href="#" className="modalClick"
+                             >click for more</a>
+                        </div>
+                       }>
+                        <br /><br />
+                        <p id="modalText"> Summary:</p><br />
+                       <p id="modalText" className="">{this.props.proposal.summary}</p>
+                       <br /><br />
+                        <p id="modalText"> Story:</p><br />
+                       <p id="modalText">{this.props.proposal.story}</p>
+                       <br /><br />
+                       <p id="modalText"> Images:</p><br />
+                       <img className="modalImg" src={this.state.images} width="300px"  />
+                     </Modal>
+                  </div>
                </Card>
             </Col>
          </div>

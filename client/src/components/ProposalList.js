@@ -62,8 +62,11 @@ class ProposalList extends React.Component {
          <div>
             <div className="row sortFilter">
                <div className="container">
-                  <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
-                  <Sort id="sort" proposals={this.props.proposals} sortProposals={this.sortProposals}  />
+                  <div className="row">
+                     <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
+                     <Sort id="sort" proposals={this.props.proposals} sortProposals={this.sortProposals}  />
+                     <button className="btn newBtn  light-blue darken-2">New Proposal</button>
+                  </div>
                </div>
             </div>
             <div className="">
