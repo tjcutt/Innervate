@@ -9,16 +9,12 @@ class Sort extends React.Component {
    //   this.sortProposals = this.sortProposals.bind(this)
    }
 
-  // sortProposals(field){
-  //   var proposals = this.props.proposals;
-  //   this.props.sortProposals(field, proposals);
-  // }
   render() {
          console.log("WE ARE IN SORT!!");
     // this.sortAds('created_at')
     return (
-      <div className="sort-section">
-         <Input s={4} type='select' label="Sort" defaultValue='' onChange={this.handleChange.bind(this)}>
+      <div className="sort-section sort">
+         <Input s={3} id="sort" type='select' label="Sort" defaultValue='' onChange={this.handleChange.bind(this)}>
             <option value='created_at'>New</option>
             <option value='votes'>Popular</option>
             <option value='something'>Something</option>

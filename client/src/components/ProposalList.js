@@ -29,7 +29,6 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
-     console.log('!!!!! AFTER sortProposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
@@ -47,7 +46,6 @@ class ProposalList extends React.Component {
 
 
    render(){
-      console.log('in render poposal list STATE', this.state.proposals);
 
       let el = null
       if (this.state.proposals.length > 0){
@@ -62,9 +60,11 @@ class ProposalList extends React.Component {
 
       return (
          <div>
-            <div className="row">
-               <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
-               <Sort proposals={this.props.proposals} sortProposals={this.sortProposals}  />
+            <div className="row sortFilter">
+               <div className="container">
+                  <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
+                  <Sort id="sort" proposals={this.props.proposals} sortProposals={this.sortProposals}  />
+               </div>
             </div>
             <div className="">
                {el}

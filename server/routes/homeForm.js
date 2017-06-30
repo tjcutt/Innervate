@@ -17,7 +17,7 @@ router.post('/', function(req, res, next){
         .then((data) => {
           delete req.body.pass
           let adminPass = req.body.adminPass
-          if (adminPass) {
+          if (adminPass.length > 0) {
             let userId = data[0].id
             return getPass(adminPass, userId)
           }
@@ -55,12 +55,11 @@ router.post('/', function(req, res, next){
         })
     }
 
-
-    function setTokens(user) {
-        let token = jwt.sign({
-            user: user
-        }, process.env.JWT_SECRET)
-        return token
-    };
+    // function setTokens(user) {
+    //     let token = jwt.sign({
+    //         user: user
+    //     }, process.env.JWT_SECRET)
+    //     return token
+    // };
 
 module.exports = router;
