@@ -129,11 +129,12 @@ div.row.sortFilter{
    min-height: 30vh;
    max-height: 50vh;
 }
-.card .card-content .card-title{
+.modalCardTitle{
    font-size: 18px;
    line-height: 24px;
-   text-decoration: underline;
+   /*text-decoration: underline;*/
    min-height: 44px;
+   color:#0074ac;
 }
 
 #upvote, #voteCount {
@@ -163,6 +164,10 @@ h4{
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
    color:#039be5;
    float: right;
+}
+
+span.card-title.grey-text.text-darken-4{
+   color: red;
 }
 
 .row .col.s3{
@@ -273,12 +278,14 @@ transform: scale(.5); }
       margin-left: 9px;
    }
 
-   .card .card-content .card-title{
+   .modalCardTitle{
       font-size: 2em;
       line-height: 24px;
       font-weight: 500;
       padding-top: 25px;
-      text-decoration: underline;
+      /*text-decoration: underline;*/
+      color:#0074ac;
+
    }
 
    h4 {
@@ -367,11 +374,13 @@ transform: scale(.5); }
       margin-left: 9px;
    }
 
-   .card .card-content .card-title{
+   .modalCardTitle{
       font-size: 18px;
       line-height: 24px;
       font-weight: 500;
-      text-decoration: underline;
+      /*text-decoration: underline;*/
+      color:#0074ac;
+
    }
 
    h4 {

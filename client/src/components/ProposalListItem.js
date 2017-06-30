@@ -101,7 +101,7 @@ class ProposalListItem extends React.Component {
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
                <Card className='cyan lighten-5 proposalsCard'
-                textClassName='black-text' title= { this.props.proposal.title } actions={[
+                textClassName='black-text' title="" actions={[
                    <Modal
                     key={this.props.proposal.id}
                   	header={this.props.proposal.title}
@@ -124,6 +124,8 @@ class ProposalListItem extends React.Component {
                      <img src={this.state.images} width="300px"  />
                    </Modal>
                ]}>
+               <h3 className="modalCardTitle">{this.props.proposal.title}</h3>
+               <br />
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
