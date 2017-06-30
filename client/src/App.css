@@ -15,6 +15,9 @@ html, body {
     background-image: url('./images/crossword.png');
 }
 
+p, div{
+   font-family: 'Montserrat', sans-serif;
+}
 /*Home Page*/
 /*for laptops and bigger screens*/
 @media (min-width: 800px) {
@@ -42,7 +45,7 @@ html, body {
 }
 
 .input-field {
-  margin: 8vh 8vh 0 8vh;
+  margin: 8vh 0 0 8vh;
 }
 
 .signupBtn {
@@ -101,23 +104,32 @@ div.container.propMain{
    width: 90vw;
 }
 .componentTitle {
-   font-size:2em;
+   color: #111;
+   font-family: 'Helvetica Neue',
+   sans-serif;
+   font-size: 60px;
+   font-weight: bold;
+   letter-spacing: -1px;
+   line-height: 1;
+   text-align: center;
+
+   /*font-size:2em;*/
    display: inline-block;
    margin-top: 20px;
-   margin-right: 24vw;
+   /*margin-right: 24vw;*/
    margin-left: 15vw;
    margin-bottom: -50px;
 }
 
-div.row.sortFilter{
-   margin-top: -30px;
-}
+   div.row.sortFilter{
+      margin-top: -30px;
+   }
 
-#newBtn {
+.newBtn {
    float: right;
    right: 0;
    display:  inline-block;
-   color: black
+   margin-top: 50px;
 }
 
 .proposalsRow{
@@ -147,6 +159,8 @@ div.row.sortFilter{
 #upvote, #voteCount {
    display: inline-block;
    margin-right: 1em;
+   padding-top: 20px;
+   margin-bottom: -30px;
 }
 
 .proposalSummary {
@@ -164,13 +178,29 @@ h4{
 }
 
 #filter{
-   margin-right: 9vw;
-   width: 27vw;
+   margin-right: 0vw;
+   width: 24vw;
+}
+.row .col.l6{
+   width:40%;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+#line{
+   text-decoration: underline;
+   content: "";
+   border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+   width: 100%;
+}
+
+.cardBottom{
+   margin-bottom: 0;
+}
+
+a {
    color:#039be5;
    float: right;
+   display: inline-block;
+   margin-top: -20px;
 }
 
 span.card-title.grey-text.text-darken-4{
@@ -289,20 +319,38 @@ transform: scale(.5); }
       font-size: 2em;
       line-height: 24px;
       font-weight: 500;
-      padding-top: 25px;
+      margin-bottom: -20px;
       /*text-decoration: underline;*/
       color:#0074ac;
+   }
 
+   .modalImg{
+      width:70vw;
    }
 
    h4 {
       font-weight: bold;
       font-size: 24px;
    }
-   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+
+   #line{
+      text-decoration: underline;
+      content: "";
+      border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+      width: 100%;
+      padding-top: 10px;
+   }
+
+   .container .row.cardBottom{
+      margin-bottom: 0;
+      margin-left: 0px;
+   }
+
+   a {
       color:#039be5;
       float: right;
-      font-size: 12px;
+      display: inline-block;
+      margin-top: -20px;
    }
 
    #modalText {
@@ -312,12 +360,15 @@ transform: scale(.5); }
    #upvote, #voteCount {
       display: inline-block;
       margin-right: 1em;
+      padding-top: 20px;
+      margin-bottom: -30px;
    }
 
    .proposalSummary {
       min-height: 15vh;
       max-height: 70vh;
       font-size: 20px;
+      display: none;
       /*overflow: scroll*/
    }
 
@@ -390,6 +441,18 @@ transform: scale(.5); }
       color:#0074ac;
 
    }
+   #line{
+      text-decoration: underline;
+      content: "";
+      border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+      width: 100%;
+      padding-top: 10px;
+   }
+
+   .container .row.cardBottom{
+      margin-bottom: 0;
+      margin-left: 0px;
+   }
 
    h4 {
       font-weight: bold;
@@ -403,6 +466,8 @@ transform: scale(.5); }
    #upvote, #voteCount {
       display: inline-block;
       margin-right: 1em;
+      padding-top: 20px;
+      margin-bottom: -30px;
    }
 
    .proposalSummary {
@@ -411,9 +476,11 @@ transform: scale(.5); }
       font-size: 20px;
       /*overflow: scroll*/
    }
-   .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating){
+   a {
       color:#039be5;
       float: right;
+      display: inline-block;
+      margin-top: -20px;
    }
 
    #filter{

@@ -39,7 +39,6 @@ class Proposals extends React.Component {
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> Proposals</div>
-               <button className="btn newBtn  light-blue lighten-2">New Proposal</button>
             </div>
             <ProposalList proposals={this.state.proposals}/>
          </div>
