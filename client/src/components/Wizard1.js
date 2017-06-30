@@ -2,6 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import {
   Step,
@@ -23,7 +24,8 @@ class WizardOne extends React.Component{
     solutions:[],
     title: '',
     story: '',
-    summary: ''
+    summary: '',
+    redirect:false
   };
 
   constructor(props){
@@ -35,8 +37,13 @@ class WizardOne extends React.Component{
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleStoryChange = this.handleStoryChange.bind(this)
     this.handleSummaryChange = this.handleSummaryChange.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
   }
-
+  handleRedirect(){
+    if(this.state.redirect){
+      return <Redirect to='/wizard2'></Redirect>;
+    }
+  }
   handleClick(event) {
     fetch('/api/wizard1',{
       method:"POST",
@@ -49,6 +56,9 @@ class WizardOne extends React.Component{
     .then(tokens => {
       const cookies = new Cookies()
       cookies.set('proposal_id', tokens.proposal_id)
+      this.setState({
+        redirect:true
+      })
     })
   }
 
@@ -104,10 +114,11 @@ class WizardOne extends React.Component{
     ));
   }
   render() {
-    const {disorders, afflictions, solutions, title, summary, story} = this.state;
+    const {disorders, afflictions, solutions, title, summary, story, redirect} = this.state;
     return (
       <MuiThemeProvider>
         <div className="container wizard1">
+          {this.handleRedirect()}
           <div className="row">
             <div id="bar">
               <div id="progress1">Part 1</div>

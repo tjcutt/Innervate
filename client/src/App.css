@@ -169,61 +169,7 @@ h4{
    margin-left: 4vw;
 }
 
-/* Survey CSS */
-input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after{
-  border: 2px solid #4dd0e1;
 }
-
-[type="radio"].with-gap:checked + label:after {
-border-radius: 50%;
-border: 2px solid #4dd0e1;
-background-color: #4dd0e1;
-z-index: 0;
--webkit-transform: scale(.5);
--moz-transform: scale(.5);
--ms-transform: scale(.5);
--o-transform: scale(.5);
-transform: scale(.5); }
-
-#selectfield{
-  font-family:"Montserrat", sans-serif;
-}
-.container.survey{
-  width:75%;
-  padding:3%;
-  padding-bottom:8%;
-}
-/* Wizard CSS */
-#bar {
-  width: 100%;
-  background-color: grey;
-  margin-top:50px;
-}
-#progress1 {
-  width: 33.3%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
-}
-#progress2 {
-  width: 66.7%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
-}
-
-.container.wizard1{
-  font-family:"Montserrat", sans-serif;
-  width:75%;
-  padding-bottom:8%;
-=======
-
-}
-
 /*for Iphones portrait*/
 
 @media (max-width: 450px) {
@@ -409,4 +355,57 @@ transform: scale(.5); }
       display: block;
       text-align: center;
    }
+}
+
+/* Survey CSS */
+input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after{
+  border: 2px solid #4dd0e1;
+}
+
+[type="radio"].with-gap:checked + label:after {
+border-radius: 50%;
+border: 2px solid #4dd0e1;
+background-color: #4dd0e1;
+z-index: 0;
+-webkit-transform: scale(.5);
+-moz-transform: scale(.5);
+-ms-transform: scale(.5);
+-o-transform: scale(.5);
+transform: scale(.5); }
+
+#selectfield{
+  font-family:"Montserrat", sans-serif;
+}
+.container.survey{
+  width:75%;
+  padding:3%;
+  padding-bottom:8%;
+}
+/* Wizard CSS */
+#bar {
+  width: 100%;
+  background-color: grey;
+  margin-top:50px;
+}
+#progress1 {
+  width: 33.3%;
+  height: 30px;
+  background-color: #4dd0e1;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}
+#progress2 {
+  width: 66.7%;
+  height: 30px;
+  background-color: #4dd0e1;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}
+
+.container.wizard1{
+  font-family:"Montserrat", sans-serif;
+  width:75%;
+  padding-bottom:8%;
 }

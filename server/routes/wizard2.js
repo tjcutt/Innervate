@@ -7,77 +7,71 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
- console.log(req.body)
+ knex("proposals")
+  .where('id', req.cookies.proposal_id)
+  .update('info', req.body.info)
+  .returning('*')
+  .then((proposal) => {
+    let proposal_id = proposal[0].id;
+    return insertIAV(proposal_id, req.body)
+  })
  res.send('no');
 })
 
-function insertDAS(proposal_id, request) {
+function insertIAV(proposal_id, request) {
  return Promise.all([
-   insertDisorders(proposal_id, request.disorders),
-   insertAfflictions(proposal_id, request.afflictions),
-   insertSolutions(proposal_id, request.solutions)
+   insertImages(proposal_id, request.images),
+   insertArticles(proposal_id, request.articles),
+   insertVideos(proposal_id, request.videos)
   ])
   .then(function(results) {
-   let [disorders, afflictions, solutions] = results;
+   let [images, articles, videos] = results;
    return results;
   })
 }
 
-function insertDisorders(proposal_id, reqDisorders) {
- return knex('disorders')
-  .whereIn('name', reqDisorders)
-  .then((disorders) => {
+function insertImages(proposal_id, reqImages) {
    return Promise.all(
-    disorders.map(function(disorder) {
-     return knex('proposal_disorder')
+    reqImages.map(function(image) {
+     return knex('images')
       .insert({
        proposal_id: proposal_id,
-       disorder_id: disorder.id
+       url:image
       })
       .returning('*')
       .then((result) => {
-       console.log("PUSH IT", result[0]);
        return result[0]
       })
     }))
-  })
 }
 
-function insertAfflictions(proposal_id, reqAfflictions) {
- return knex('afflictions')
-  .whereIn('name', reqAfflictions)
-  .then((afflictions) => {
+function insertArticles(proposal_id, reqArticles) {
    return Promise.all(
-    afflictions.map(function(affliction) {
-     return knex('proposal_affliction')
+    reqArticles.map(function(article) {
+     return knex('articles')
       .insert({
        proposal_id: proposal_id,
-       affliction_id: affliction.id
+       url:article
       })
       .returning('*')
       .then((result) => {
        return result[0]
       })
     }))
-  })
 }
 
-function insertSolutions(proposal_id, reqSolutions) {
- return knex('solutions')
-  .whereIn('name', reqSolutions)
-  .then((solutions) => {
+function insertVideos(proposal_id, reqVideos) {
    return Promise.all(
-    solutions.map(function(solution) {
-     return knex('proposal_solution')
+    reqVideos.map(function(video) {
+     return knex('videos')
       .insert({
        proposal_id: proposal_id,
-       solution_id: solution.id
+       url:video
       })
       .returning('*')
       .then((result) => {
        return result[0]
       })
     }))
-  })
 }
 module.exports = router;
