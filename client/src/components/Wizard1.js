@@ -2,6 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Cookies from 'universal-cookie';
 import {
   Step,
   Stepper,
@@ -44,7 +45,11 @@ class WizardOne extends React.Component{
            'Content-Type': 'application/json'
          },
       body:JSON.stringify(this.state)
-    }).then(res => console.log(res))
+    }).then(res => res.json())
+    .then(tokens => {
+      const cookies = new Cookies()
+      cookies.set('proposal_id', tokens.proposal_id)
+    })
   }
 
   handleDisorderChange(event, index, disorders){
@@ -66,7 +71,6 @@ class WizardOne extends React.Component{
     this.setState({summary: event.target.value});
   }
   disorderItems(values) {
-    console.log(values)
     return disorders.map((name) => (
       <MenuItem
         key={name}

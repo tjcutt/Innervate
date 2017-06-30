@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
- console.log(req.body)
  knex('proposals')
   .returning('*')
   .insert({
@@ -22,7 +21,9 @@ router.post('/', function(req, res, next) {
    let proposal_id = proposal[0].id;
    return insertDAS(proposal_id, req.body)
   })
- res.send('no');
+  .then((proposals) => {
+    res.send({proposal_id: proposals[0][0].proposal_id});
+  })
 })
 
 function insertDAS(proposal_id, request) {
@@ -50,7 +51,6 @@ function insertDisorders(proposal_id, reqDisorders) {
       })
       .returning('*')
       .then((result) => {
-       console.log("PUSH IT", result[0]);
        return result[0]
       })
     }))
