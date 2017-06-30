@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -13,7 +14,10 @@ class Survey extends React.Component {
   state = {
     disorders: [],
     role: 'Patient',
-    referral: 'Baylor University'
+    referral: 'Baylor University',
+    userCookie: '',
+    roleCookie: ''
+
   };
 
   constructor(props){
@@ -22,6 +26,16 @@ class Survey extends React.Component {
     this.handleRoleChange = this.handleRoleChange.bind(this)
     this.handleReferralChange = this.handleReferralChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.componentWillMount = this.componentWillMount.bind(this)
+
+  }
+
+  componentWillMount(){
+    const cookies = new Cookies()
+    this.setState({
+      userCookie: cookies.get('user'),
+    })
+    console.log('mmmmm cookies', this.state.userCookie);
   }
 
   handleChange(event, index, disorders){
@@ -49,16 +63,31 @@ class Survey extends React.Component {
     ));
   }
 
+  // handleCookie(cookies){
+  //   const cookies = new Cookies()
+  //    this.setState({
+  //      userCookie:
+  //    })
+  // }
+
   handleClick(event) {
+    console.log('this is not my beautiful house', this.state);
+
     fetch('/api/survey',{
       method:"POST",
+      credentials: 'include',
       headers: {
            'Accept': 'application/json',
            'Content-Type': 'application/json'
          },
       body:JSON.stringify(this.state)
-    }).then(res => console.log(res))
+    })
+    .then((res) => res.json())
+    .then(data =>{ console.log('this is your data', data)
+      return data})
   }
+
+
   render(){
     const {disorders, role, referral} = this.state;
     return (

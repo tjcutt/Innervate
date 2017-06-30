@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs')
 require('dotenv');
 
 router.post('/', function(req, res, next){
+  console.log('We have made it to the homeForm page post');
   knex('users')
         .returning('*')
         .insert({
@@ -16,21 +17,33 @@ router.post('/', function(req, res, next){
         })
         .select('*')
         .then((data) => {
+          console.log('we have made it to the first then passing data within homeForm');
+          let ultimateData = data
+          console.log('here is req.body', req.body)
+          ;
           delete req.body.pass
+
+          console.log('here is our req.body.adminPass', req.body.adminPass);
           let adminPass = req.body.adminPass
+          console.log('we have made it to adminPass', adminPass
+          );
+
           if (adminPass.length > 0) {
             let userId = data[0].id
-            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', data[0]);
-
+            console.log('we have made it to capture this userId before we are returning getPass', userId);
             return getPass(adminPass, userId)
-res.send(data[0])
+          } else {
+            console.log('eyah data', data);
+            let tokens = setTokens(data[0]);
+            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', tokens);
+            res.send({tokens:tokens})
           }
+            })
+            .catch((error) => {
+              next(error)
+        })
+        })
 
-        })
-        .catch((error) => {
-          next(error)
-        })
-    })
 
     function getPass(adminPass, id){
      return  knex('users')
@@ -41,6 +54,7 @@ res.send(data[0])
             if (bcrypt.compareSync(adminPass, pass)){
                 adminInsertRole(id)
             }
+            return pass;
           })
     }
 
@@ -54,20 +68,28 @@ res.send(data[0])
         })
         .returning('*')
         .then((data)=> {
+          let roleId = data[0].role_id
+          console.log('data shiz biz', roleId);
+          return roleId
           // SEND THEM TO DATA ANALYTICS OR PROPOSAL page
-          res.end
         })
     }
 
     function setTokens(user) {
+      console.log('this is your user', user);
         let token = jwt.sign({
             user: user
         }, process.env.JWT_SECRET)
-        let roleToken = jwt.sign({
-            role: user.role_id
-        }, process.env.JWT_SECRET)
-        return [token, roleToken]
-    };
+        console.log('is there a user.role_id', user.role_id);
+        // if (user.role_id) {
+        //   let roleToken = jwt.sign({
+        //       role: user.role_id
+
+        // })
+      // }
+        return token
+      }
+    // };
 
 
 

@@ -65,7 +65,6 @@ class HomeForm extends React.Component{
       this.setState({
         adminPass: input.target.value
       })
-      console.log(this.state.adminPass);
     }
 
 
@@ -76,36 +75,28 @@ class HomeForm extends React.Component{
       // console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
+          credentials:'include',
           headers: {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
              },
           body:JSON.stringify(this.state)
         })
-          .then(res => res.json())
+          .then((res) => res.json())
           .then(tokens => {
             console.log('tokens', tokens);
-            // this.setState({
-            //   redirect:true
-            // })
-            res.send(tokens)
+            const cookies = new Cookies()
+            cookies.set('user', tokens)
+            this.setState({
+             redirect:true
+           })
           })
-          // .then(tokens => {
-          //   console.log('TOKENS?',tokens);
-          //   const cookies = new Cookies()
-          //   cookies.set('user', tokens)
-          //   this.setState({
-          //     redirect:true
-          //   })
-          //   console.log(this.state);
-          // })
     }
-  // const {first_name, last_name, email, password} = this.state;
 
   render() {
     return (
 
-        <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
+        <div className="homeForm container font1 col m5 l5 hide-on-med-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
 

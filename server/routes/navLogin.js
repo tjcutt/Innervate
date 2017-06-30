@@ -21,11 +21,6 @@ router.post('/', function(req, res, next) {
                 res.send(tokens);
               }
         })
-        // .then((data) => {
-        //
-        //       // console.log('It works!!!');
-        //       // res.redirect('/proposals')
-        // }})
         .catch((error) => {
             next(error)
         })

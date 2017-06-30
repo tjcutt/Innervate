@@ -9,8 +9,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  // if (req.cookies.role) {
-  //   let role = jwt.verify(req.cookies.role, process.env.JWT_SECRET).role;
+  let userInfo = jwt.verify(req.cookies.user, process.env.JWT_SECRET).user
+  console.log('this is not my beautiful wife'.america);
+  console.log('this is your user info'.rainbow, userInfo);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
