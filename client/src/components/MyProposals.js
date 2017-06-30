@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ProposalList from './ProposalList'
+import MyProposalList from './MyProposalList'
 
-class Proposals extends React.Component {
+class MyProposals extends React.Component {
    constructor(props) {
      super(props)
      this.state = {
@@ -11,11 +11,12 @@ class Proposals extends React.Component {
    }
 
    componentWillMount() {
-      fetch(`/api/proposals`, {
+      fetch(`/api/proposals/4`, {
          credentials:'include'
       })
       .then(res => res.json())
       .then(proposals => {
+         console.log('my props', proposals);
          this.setState({
           proposals:proposals
          })
@@ -26,25 +27,24 @@ class Proposals extends React.Component {
          return (
             <div className="container propMain">
                <div className="row">
-                  <div className="componentTitle"> Proposals</div>
+                  <div className="componentTitle"> My Proposals</div>
+                  <button className="btn newBtnMy  light-blue darken-2">New Proposal</button>
                </div>
             </div>
          )
-
       }
-
       return (
-      <div>
          <div className="container propMain">
             <div className="row">
-               <div className="componentTitle"> Proposals</div>
+               <div className="componentTitle"> My Proposals</div>
+               <button className="btn newBtnMy  light-blue darken-2">New Proposal</button>
             </div>
-            <ProposalList proposals={this.state.proposals}/>
+            <MyProposalList proposals={this.state.proposals}/>
          </div>
-      </div>
       )
+
    }
 
 }
 
-export default Proposals
+export default MyProposals

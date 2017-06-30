@@ -131,6 +131,12 @@ div.container.propMain{
    display:  inline-block;
    margin-top: 50px;
 }
+.newBtnMy {
+   float: right;
+   margin-right: 60px;
+   display:  inline-block;
+   margin-top: 50px;
+}
 
 .proposalsRow{
    margin-left: 5vw;
@@ -212,6 +218,58 @@ span.card-title.grey-text.text-darken-4{
 }
 
 }
+
+[type="radio"].with-gap:checked + label:after {
+border-radius: 50%;
+border: 2px solid #4dd0e1;
+background-color: #4dd0e1;
+z-index: 0;
+-webkit-transform: scale(.5);
+-moz-transform: scale(.5);
+-ms-transform: scale(.5);
+-o-transform: scale(.5);
+transform: scale(.5); }
+
+#selectfield{
+  font-family:"Montserrat", sans-serif;
+}
+.container.survey{
+  width:75%;
+  padding:3%;
+  padding-bottom:8%;
+}
+
+}
+/* Wizard CSS */
+#bar {
+  width: 100%;
+  background-color: grey;
+  margin-top:50px;
+}
+#progress1 {
+  width: 33.3%;
+  height: 30px;
+  background-color: #4dd0e1;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}
+#progress2 {
+  width: 66.7%;
+  height: 30px;
+  background-color: #4dd0e1;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}
+
+.container.wizard1{
+  font-family:"Montserrat", sans-serif;
+  width:75%;
+  padding-bottom:8%;
+
+}
+
 /*for Iphones portrait*/
 
 @media (max-width: 450px) {
@@ -243,6 +301,11 @@ span.card-title.grey-text.text-darken-4{
       font-size: 14px;
    }
 
+   .newBtnMy {
+      float: right;
+      margin-right: 60px;
+      display:  inline-block;
+   }
    .proposalsRow{
       margin-left: 5vw;
       margin-right: 5vw;
@@ -345,8 +408,7 @@ span.card-title.grey-text.text-darken-4{
       display: block;
       margin-top: 5px;
       text-align: center;
-      /*margin-right: 10vw;
-      margin-left: 10vw;*/
+      margin-right: 0;
    }
 
    .newBtn {
@@ -356,6 +418,15 @@ span.card-title.grey-text.text-darken-4{
       margin: auto;
       margin-top: 15px;
       margin-bottom: -18px;
+      font-size: 14px;
+   }
+   .newBtnMy {
+      display: block;
+      text-align: center;
+      /*margin-left: 20vw;*/
+      margin: auto;
+      margin-top: 15px;
+      margin-bottom: 0px;
       font-size: 14px;
    }
 

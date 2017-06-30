@@ -11,6 +11,18 @@ router.get('/', function(req, res, next) {
       })
 });
 
+router.get('/:id', (req, res) => {
+   console.log('inside');
+   let id = req.params.id
+   knex ('proposals')
+      .where('id', id)
+      .then ((props) => {
+         console.log('my props', props);
+         res.json(props)
+      })
+
+})
+
 router.post('/:id', (req, res) => {
    let id = req.params.id
    knex('proposals')

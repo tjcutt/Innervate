@@ -42,7 +42,7 @@ router.post('/', function(req, res, next){
 
     function adminInsertRole(id){
       console.log('id', id);
-        console.log('function call working!!!!');
+        console.log('function call working!!!!'.rainbow);
       knex ('user_role')
         .insert({
           'user_id': id,

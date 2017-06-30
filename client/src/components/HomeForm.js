@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router-dom';
 import ToggleDisplay from 'react-toggle-display';
 
+
 class HomeForm extends React.Component{
   constructor(props){
     super(props)
@@ -70,9 +71,7 @@ class HomeForm extends React.Component{
 
 
     submitClick(event) {
-      console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
-      console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
           headers: {
