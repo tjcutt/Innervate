@@ -60,7 +60,7 @@ class ProposalList extends React.Component {
 
       return (
          <div>
-            <div className="row">
+            <div className="row sortFilter">
                <div className="container">
                   <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
                   <Sort id="sort" proposals={this.props.proposals} sortProposals={this.sortProposals}  />

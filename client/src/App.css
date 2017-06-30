@@ -97,8 +97,14 @@ div.container.propMain{
 .componentTitle {
    font-size:2em;
    display: inline-block;
+   margin-top: 20px;
    margin-right: 24vw;
    margin-left: 15vw;
+   margin-bottom: -50px;
+}
+
+div.row.sortFilter{
+   margin-top: -30px;
 }
 
 #newBtn {
@@ -121,11 +127,13 @@ div.container.propMain{
 
 .proposalsCard {
    min-height: 30vh;
-   max-height: 54vh;
+   max-height: 50vh;
 }
 .card .card-content .card-title{
    font-size: 18px;
+   line-height: 24px;
    text-decoration: underline;
+   min-height: 44px;
 }
 
 #upvote, #voteCount {
@@ -135,7 +143,16 @@ div.container.propMain{
 
 .proposalSummary {
    height: 25vh;
-   /*overflow: scroll*/
+   overflow: hidden;
+}
+
+h4{
+   font-size: 27px;
+   text-decoration: underline;
+}
+
+#modalText {
+   font-size: 20px;
 }
 
 #filter{
@@ -269,7 +286,7 @@ transform: scale(.5); }
    }
 
    #modalText {
-      font-size: 25px;
+      font-size: 18px;
    }
 
    #upvote, #voteCount {
@@ -357,7 +374,7 @@ transform: scale(.5); }
    }
 
    #modalText {
-      font-size: 25px;
+      font-size: 18px;
    }
 
    #upvote, #voteCount {

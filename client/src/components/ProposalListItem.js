@@ -9,7 +9,6 @@ class ProposalListItem extends React.Component {
 
      this.updateVotes = this.updateVotes.bind(this)
      this.getVotes = this.getVotes.bind(this)
-     this.timbo = this.timbo.bind(this)
 
      this.state = {
         images: [],
@@ -25,21 +24,22 @@ class ProposalListItem extends React.Component {
    if (this.state.votes !== nextState.votes){
       return true
    }
-   if (this.props.proposal.title === nextProps.proposal.title) return false
-   return true
+   if (this.props.proposal.title === nextProps.proposal.title){
+      if (this.state.images !== nextState.images) return true
+      else return false
    }
-
-   timbo(){
-      console.log('HOLY TITS');
+   return true
    }
 
 
    getImages(event){
+      console.log('CLIKING');
       let id = this.props.proposal.id
      if (event.target.className == 'modalClick'){
         fetch(`/api/images/${id}`)
         .then(res => res.json())
         .then(images => {
+           console.log('IMAGES?', images);
            this.setState({
              images:images
           })
@@ -95,13 +95,13 @@ class ProposalListItem extends React.Component {
    }
 
    render (){
-
+      console.log('state images!!', this.state.images);
       this.getVotes()
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
                <Card className='cyan lighten-5 proposalsCard'
-                textClassName='black-text' title= {this.props.proposal.title } actions={[
+                textClassName='black-text' title= { this.props.proposal.title } actions={[
                    <Modal
                     key={this.props.proposal.id}
                   	header={this.props.proposal.title}
@@ -114,7 +114,13 @@ class ProposalListItem extends React.Component {
                       </div>
                      }>
                       <br /><br />
+                      <p id="modalText"> Summary:</p><br />
+                     <p id="modalText">{this.props.proposal.summary}</p>
+                     <br /><br />
+                      <p id="modalText"> Story:</p><br />
                      <p id="modalText">{this.props.proposal.story}</p>
+                     <br /><br />
+                     <p id="modalText"> Images:</p><br />
                      <img src={this.state.images} width="300px"  />
                    </Modal>
                ]}>
