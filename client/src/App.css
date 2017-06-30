@@ -519,7 +519,7 @@ input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+la
 [type="radio"].with-gap:checked + label:after {
 border-radius: 50%;
 border: 2px solid #4dd0e1;
-background-color: #4dd0e1;
+background-color: black;
 z-index: 0;
 -webkit-transform: scale(.5);
 -moz-transform: scale(.5);
@@ -531,10 +531,34 @@ transform: scale(.5); }
   font-family:"Montserrat", sans-serif;
 }
 .container.survey{
+  background-color: rgba(136, 136, 136, 0.08);
+  border: 2px solid rgba(136, 136, 136, 0.41);
+  border-radius: 5px;
   width:75%;
   padding:3%;
   padding-bottom:8%;
+  margin-top: 5vh;
 }
+
+.nextBtn{
+   display: block;
+}
+
+h3.center{
+   font-size: 33px;
+}
+
+.selectDisorder{
+   margin-bottom: -25px;
+   margin-left: 20px;
+}
+
+#otherLable{
+   margin-top: 20px;
+   margin-left: 40px;
+}
+
+
 /* Wizard CSS */
 #bar {
   width: 100%;
