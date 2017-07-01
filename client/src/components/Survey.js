@@ -63,16 +63,9 @@ class Survey extends React.Component {
     ));
   }
 
-  // handleCookie(cookies){
-  //   const cookies = new Cookies()
-  //    this.setState({
-  //      userCookie:
-  //    })
-  // }
-
   handleClick(event) {
-    console.log('this is not my beautiful house', this.state);
-    console.log('mmmmm cookies', this.state.userCookie);
+    // console.log('this is not my beautiful house', this.state);
+    // console.log('mmmmm cookies', this.state.userCookie);
 
     fetch('/api/survey',{
       method:"POST",
@@ -83,9 +76,11 @@ class Survey extends React.Component {
          },
       body:JSON.stringify(this.state)
     })
-    .then((res) => res.json())
-    .then(data =>{ console.log('this is your data', data)
-      return data})
+    .then(role =>{
+    // console.log('hey i have role set', role);
+    const cookies = new Cookies()
+    cookies.set('role', role)
+      })
   }
 
 

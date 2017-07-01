@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
-// const jwtVer = require('express-jwt');
 const colors = require('colors');
 
 router.get('/', function(req, res, next) {
@@ -10,49 +9,54 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  // let userInfo = jwt.verify(req.cookies.user, process.env.JWT_SECRET).user
-  console.log('this is not my beautiful wife'.america, req.body);
-  console.log('userCookie'.zebra, req.body.userCookie);
   let userInfo = jwt.verify(req.body.userCookie.tokens, process.env.JWT_SECRET)
-  console.log('is the jwt decodd?????'.rainbow, userInfo);
-
   let user = userInfo.user
-  console.log('no way, i got your user'.america, user);
-  // console.log('this is your user info'.rainbow, userInfo);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
+
       knex('users')
         .returning('*')
         .insert({
-          'first_name':"Megan",
-          'last_name':"Gross",
-          'email':"144@gmail.com",
+          'first_name': user.first_name,
+          'last_name': user.last_name,
+          'email':user.email,
           'referral_id': referral[0].id
-        }).then((user) => {
-          console.log('what is this user info'.bgRed, user);
+        })
+        .then((user) => {
+
           knex('disorders')
-            // .then(data=> {
-            //   console.log('disorders'.rainbow, data, 'values'.rainbow, req.body.disorders[0]);
-            // })
+            .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
               for(var i = 0; i < disorders.length; i++){
+
                 knex('user_disorder')
                   .returning('*')
                   .insert({
                     disorder_id:disorders[i].id,
                     user_id:user[0].id
-                  }).then((user_disorder)=>{
+                  })
+                  .then((user_disorder)=>{
+
                       knex('roles')
                         .where('name', req.body.role)
                         .then((role) => {
+
                           knex('user_role')
+                            .returning('*')
                             .insert({
                               user_id:user[0].id,
                               role_id:role[0].id
-                            }).then((data) => {
-                              console.log('what data do i have', data);
+                            })
+                            .then((data) => {
+                              let roleData = data[0].role_id
+                              let role = jwt.sign({
+                                  role: roleData
+                              }, process.env.JWT_SECRET)
+                                // console.log('gots my role'.cyan, role);
+                                // return role
+                              res.send(role);
                             })
                         })
                   })
@@ -60,7 +64,6 @@ router.post('/', function(req, res, next){
             })
         })
     })
-    res.send('no');
 })
 
 module.exports = router;

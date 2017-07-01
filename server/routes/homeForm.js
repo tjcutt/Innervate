@@ -22,7 +22,8 @@ router.post('/', function(req, res, next){
           console.log('here is req.body', req.body)
           ;
           delete req.body.pass
-
+          // delete 'hashed_pass'
+          // need to delete hashed pass from jwt
           console.log('here is our req.body.adminPass', req.body.adminPass);
           let adminPass = req.body.adminPass
           console.log('we have made it to adminPass', adminPass

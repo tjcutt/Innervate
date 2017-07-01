@@ -85,6 +85,7 @@ class HomeForm extends React.Component{
           .then((res) => res.json())
           .then(tokens => {
             console.log('tokens', tokens);
+            // delete tokens.hashed_pass
             const cookies = new Cookies()
             cookies.set('user', tokens)
             this.setState({
