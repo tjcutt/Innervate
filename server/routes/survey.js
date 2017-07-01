@@ -9,12 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  let userInfo = jwt.verify(req.body.userCookie.tokens, process.env.JWT_SECRET)
+  let userInfo = jwt.verify(req.body.userCookie.userToken, process.env.JWT_SECRET)
   let user = userInfo.user
+  console.log('this is the userinfo'.america, user);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
-
       knex('users')
         .returning('*')
         .insert({

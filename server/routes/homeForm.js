@@ -17,27 +17,22 @@ router.post('/', function(req, res, next){
         })
         .select('*')
         .then((data) => {
-          console.log('we have made it to the first then passing data within homeForm');
-          let ultimateData = data
-          console.log('here is req.body', req.body)
-          ;
           delete req.body.pass
-          // delete 'hashed_pass'
-          // need to delete hashed pass from jwt
-          console.log('here is our req.body.adminPass', req.body.adminPass);
+          delete data[0].hashed_pass
+          console.log('the good stuff (data)'.america, data);
+          let user = data[0]
           let adminPass = req.body.adminPass
-          console.log('we have made it to adminPass', adminPass
-          );
-
+          let userId = user.id
           if (adminPass.length > 0) {
-            let userId = data[0].id
+
             console.log('we have made it to capture this userId before we are returning getPass', userId);
             return getPass(adminPass, userId)
           } else {
-            console.log('eyah data', data);
-            let tokens = setTokens(data[0]);
-            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', tokens);
-            res.send({tokens:tokens})
+            let userToken = jwt.sign({
+                user: user
+            }, process.env.JWT_SECRET)
+            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', userToken);
+            res.send({userToken: userToken})
           }
             })
             .catch((error) => {
@@ -46,7 +41,9 @@ router.post('/', function(req, res, next){
         })
 
 
+
     function getPass(adminPass, id){
+      if (adminPass.length > 0)
      return  knex('users')
           .whereIn('id', 4)
           .select('hashed_pass')
@@ -69,15 +66,21 @@ router.post('/', function(req, res, next){
         })
         .returning('*')
         .then((data)=> {
-          let roleId = data[0].role_id
-          console.log('data shiz biz', roleId);
-          return roleId
-          // SEND THEM TO DATA ANALYTICS OR PROPOSAL page
+          console.log('this is the data we have'.america, data[0].role_id);
+          let roleData = data[0].role_id
+          let role = jwt.sign({
+              role: roleData
+          }, process.env.JWT_SECRET)
+            console.log('gots my role'.cyan, role);
+            return role
+          // res.send(role);
         })
     }
 
     function setTokens(user) {
       console.log('this is your user', user);
+
+
         let token = jwt.sign({
             user: user
         }, process.env.JWT_SECRET)

@@ -21,6 +21,7 @@ const disordersArray = [
 ];
 
 class Survey extends React.Component {
+<<<<<<< HEAD
     state = {
         disorders: [],
         role: 'Patient',
@@ -167,7 +168,6 @@ class Survey extends React.Component {
             </MuiThemeProvider>
         )
     }
-
 }
 
 export default Survey
