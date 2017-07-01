@@ -1,4 +1,12 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+import {
+  Step,
+  Stepper,
+  StepLabel,
+} from 'material-ui/Stepper';
 
 class WizardTwo extends React.Component {
   state = {
@@ -8,7 +16,9 @@ class WizardTwo extends React.Component {
     videos:[],
     articleUrl: '',
     articles:[],
-    info: ''
+    info: '',
+    finished:false,
+    stepIndex:1
   };
 
   constructor(props){
@@ -24,6 +34,10 @@ class WizardTwo extends React.Component {
     this.handleArticleChange = this.handleArticleChange.bind(this)
     this.addArticle = this.addArticle.bind(this)
     this.createArticles = this.createArticles.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
+  }
+  handleRedirect(){
+
   }
   handleClick(event){
     fetch('/api/wizard2',{
@@ -91,67 +105,78 @@ class WizardTwo extends React.Component {
     })
   }
   render(){
-    const {info, articleUrl, articles, videoUrl, videos, imageUrl, images} = this.state;
+    const {info, articleUrl, articles, videoUrl, videos, imageUrl, images, finished, stepIndex} = this.state;
     return (
-      <div className="container">
-        <div className="row">
-          <div id="bar">
-            <div id="progress2">Part 2</div>
+      <MuiThemeProvider>
+        <div className="container wizard2">
+          <div className="row">
+            <Stepper activeStep={stepIndex}>
+              <Step>
+                <StepLabel>Getting Started</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Provide More Information</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Done</StepLabel>
+              </Step>
+            </Stepper>
+          </div>
+          <div className="row">
+            <h3 className="center-align" id="gstarted">More Info</h3><br/>
+          <h5>Add images</h5>
+            <div className="col l11">
+              <input value={this.state.imageUrl} onChange={this.handleImageChange} placeholder="Enter image URL" type="text" className="validate"/>
+            </div>
+            <div className="col l1">
+              <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addImage}><i className="material-icons">add</i></a>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col l12">
+              {this.createImages(this.state.images)}
+            </div>
+          </div>
+          <div className="row">
+          <h5>Add videos</h5>
+            <div className="col l11">
+              <input value={this.state.videoUrl} onChange={this.handleVideoChange} placeholder="Enter video URL" type="text" className="validate"/>
+            </div>
+            <div className="col l1">
+              <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addVideo}><i className="material-icons">add</i></a>
+            </div>
+          </div>
+          <div className="row">
+            <ul className="collection">
+              {this.createVideos(this.state.videos)}
+            </ul>
+          </div>
+          <div className="row">
+          <h5>Add articles</h5>
+            <div className="col l11">
+              <input value={this.state.articleUrl} onChange={this.handleArticleChange} placeholder="Enter article URL" type="text" className="validate"/>
+            </div>
+            <div className="col l1">
+              <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addArticle}><i className="material-icons">add</i></a>
+            </div>
+          </div>
+          <div className="row">
+            <ul className="collection">
+              {this.createArticles(this.state.articles)}
+            </ul>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <h5>Any additional info...</h5>
+              <textarea value={this.state.info} onChange={this.handleInfoChange} id="textarea1" className="materialize-textarea"></textarea>
+            </div>
+            <div className="col l12">
+              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
+              </button>
+            </div>
           </div>
         </div>
-        <div className="row">
-        <h5>Add images</h5>
-          <div className="col l11">
-            <input value={this.state.imageUrl} onChange={this.handleImageChange} placeholder="Enter image URL" type="text" className="validate"/>
-          </div>
-          <div className="col l1">
-            <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addImage}><i className="material-icons">add</i></a>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col l12">
-            {this.createImages(this.state.images)}
-          </div>
-        </div>
-        <div className="row">
-        <h5>Add videos</h5>
-          <div className="col l11">
-            <input value={this.state.videoUrl} onChange={this.handleVideoChange} placeholder="Enter video URL" type="text" className="validate"/>
-          </div>
-          <div className="col l1">
-            <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addVideo}><i className="material-icons">add</i></a>
-          </div>
-        </div>
-        <div className="row">
-          <ul className="collection">
-            {this.createVideos(this.state.videos)}
-          </ul>
-        </div>
-        <div className="row">
-        <h5>Add articles</h5>
-          <div className="col l11">
-            <input value={this.state.articleUrl} onChange={this.handleArticleChange} placeholder="Enter article URL" type="text" className="validate"/>
-          </div>
-          <div className="col l1">
-            <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addArticle}><i className="material-icons">add</i></a>
-          </div>
-        </div>
-        <div className="row">
-          <ul className="collection">
-            {this.createArticles(this.state.articles)}
-          </ul>
-        </div>
-        <div className="row">
-          <div className="input-field col s12">
-            <h5>Any additional info...</h5>
-            <textarea value={this.state.info} onChange={this.handleInfoChange} id="textarea1" className="materialize-textarea"></textarea>
-          </div>
-          <div className="col l12">
-            <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
-            </button>
-          </div>
-        </div>
-      </div>
+      </MuiThemeProvider>
     )
   }
 

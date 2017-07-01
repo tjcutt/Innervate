@@ -25,7 +25,9 @@ class WizardOne extends React.Component{
     title: '',
     story: '',
     summary: '',
-    redirect:false
+    redirect:false,
+    finished:false,
+    stepIndex:0
   };
 
   constructor(props){
@@ -114,17 +116,26 @@ class WizardOne extends React.Component{
     ));
   }
   render() {
-    const {disorders, afflictions, solutions, title, summary, story, redirect} = this.state;
+    const {disorders, afflictions, solutions, title, summary, story, redirect, finished, stepIndex} = this.state;
     return (
       <MuiThemeProvider>
         <div className="container wizard1">
           {this.handleRedirect()}
           <div className="row">
-            <div id="bar">
-              <div id="progress1">Part 1</div>
-            </div>
+            <Stepper activeStep={stepIndex}>
+              <Step>
+                <StepLabel>Getting Started</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Provide More Information</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Done</StepLabel>
+              </Step>
+            </Stepper>
           </div>
           <div className="row">
+            <h3 className="center-align" id="gstarted">Getting Started</h3><br/>
             <div className="col l12">
               <h5>Enter a title for your proposal</h5>
               <input value={this.state.title} onChange={this.handleTitleChange} placeholder="Enter title..." type="text" className="validate"/>
@@ -134,7 +145,7 @@ class WizardOne extends React.Component{
               <input value={this.state.summary} onChange={this.handleSummaryChange} placeholder="Enter summary..." type="text" className="validate"/>
               <h5>Specify the neurological disorder your proposal targets:</h5>
             </div>
-            <div className="col l8">
+            <div className="col l12">
               <SelectField
                 multiple={true}
                 fullWidth={true}
@@ -144,12 +155,14 @@ class WizardOne extends React.Component{
                 {this.disorderItems(disorders)}
               </SelectField>
             </div>
-            <div className="col l4">
+            <div className="col l2">
               <p>
                 <input className="with-gap" name="other" type="radio" id="other" />
                 <label htmlFor="other">Other: </label>
-                <input id="first_name" type="text" className="validate right"/>
               </p>
+            </div>
+            <div className="col l12">
+              <input id="first_name" type="text" className="validate right"/>
             </div>
             <div className="col l6">
               <SelectField

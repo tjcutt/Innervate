@@ -471,14 +471,6 @@ transform: scale(.5); }
   background-color: grey;
   margin-top:50px;
 }
-#progress1 {
-  width: 33.3%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
-}
 #progress2 {
   width: 66.7%;
   height: 30px;
@@ -490,6 +482,22 @@ transform: scale(.5); }
 
 .container.wizard1{
   font-family:"Montserrat", sans-serif;
-  width:75%;
-  padding-bottom:8%;
+  width:45%;
+  border-left:1px solid rgb(212, 212, 212);
+  border-right:1px solid rgb(212, 212, 212);
+  background-color:white;
+  padding-left:1%;
+  padding-right:1%;
+}
+.container.wizard2{
+  font-family:"Montserrat", sans-serif;
+  width:45%;
+  border-left:1px solid rgb(212, 212, 212);
+  border-right:1px solid rgb(212, 212, 212);
+  background-color:white;
+  padding-left:3%;
+  padding-right:3%;
+}
+#gstarted{
+  font-size:40px;
 }
