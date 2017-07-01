@@ -3,7 +3,6 @@ const router = express.Router()
 const knex = require('../knex')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-var colors = require('colors');
 require('dotenv')
 
 router.post('/', function(req, res, next) {
