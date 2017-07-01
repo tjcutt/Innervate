@@ -18,6 +18,35 @@ html, body {
 p, div{
    font-family: 'Montserrat', sans-serif;
 }
+
+.ChartSelector {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.GraphTitle{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   color: #111;
+   font-family: 'Helvetica Neue', sans-serif;
+   font-size: 60px;
+   font-weight: bold;
+   letter-spacing: -1px;
+   line-height: 1;
+   text-align: center;
+
+   /*font-size:2em;*/
+   display: inline-block;
+   margin-top: 20px;
+   /*margin-right: 24vw;*/
+   margin-bottom: -50px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+   color: #0074ac;
+}
 /*Home Page*/
 /*for laptops and bigger screens*/
 @media (min-width: 800px) {

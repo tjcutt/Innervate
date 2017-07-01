@@ -8,6 +8,7 @@ const wizard1 = require('./wizard1');
 const wizard2 = require('./wizard2');
 const votes = require('./votes');
 const navLogin = require('./navLogin');
+const userRole = require('./userRole');
 
 const express = require(`express`);
 const router = express.Router();
@@ -21,5 +22,6 @@ router.use('/wizard1', wizard1);
 router.use('/wizard2', wizard2);
 router.use('/votes', votes);
 router.use('/navLogin', navLogin);
+router.use('/userRole', userRole);
 
 module.exports = router;
