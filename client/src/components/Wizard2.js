@@ -18,7 +18,8 @@ class WizardTwo extends React.Component {
     articles:[],
     info: '',
     finished:false,
-    stepIndex:1
+    stepIndex:1,
+    redirect:false
   };
 
   constructor(props){
@@ -37,7 +38,9 @@ class WizardTwo extends React.Component {
     this.handleRedirect = this.handleRedirect.bind(this)
   }
   handleRedirect(){
-
+    if(this.state.redirect){
+      return <Redirect to='/wizard3'></Redirect>;
+    }
   }
   handleClick(event){
     fetch('/api/wizard2',{
@@ -48,7 +51,11 @@ class WizardTwo extends React.Component {
            'Content-Type': 'application/json'
          },
       body:JSON.stringify(this.state)
-    }).then(res => console.log(res))
+    }).then(res => {
+      this.setState({
+        redirect:true
+      })
+    })
   }
   handleInfoChange(event){
     this.setState({info: event.target.value});
@@ -105,10 +112,11 @@ class WizardTwo extends React.Component {
     })
   }
   render(){
-    const {info, articleUrl, articles, videoUrl, videos, imageUrl, images, finished, stepIndex} = this.state;
+    const {info, articleUrl, articles, videoUrl, videos, imageUrl, images, finished, stepIndex, redirect} = this.state;
     return (
       <MuiThemeProvider>
         <div className="container wizard2">
+          {this.handleRedirect()}
           <div className="row">
             <Stepper activeStep={stepIndex}>
               <Step>

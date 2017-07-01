@@ -7,6 +7,7 @@ import Survey from './components/Survey.js'
 import HomeForm from './components/HomeForm.js'
 import WizardOne from './components/Wizard1.js'
 import WizardTwo from './components/Wizard2.js'
+import WizardThree from './components/Wizard3.js'
 import MyProposals from './components/MyProposals'
 // import HomeNav from './components/HomeNav.js'
 import registerServiceWorker from './registerServiceWorker';
@@ -23,6 +24,7 @@ ReactDOM.render(
       <Route path="/homeForm" component={HomeForm}></Route>
       <Route path="/wizard1" component={WizardOne}></Route>
       <Route path="/wizard2" component={WizardTwo}></Route>
+      <Route path="/wizard3" component={WizardThree}></Route>
     </div>
 
   </BrowserRouter>,

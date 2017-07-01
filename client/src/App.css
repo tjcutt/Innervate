@@ -605,6 +605,24 @@ h3.center{
   padding-left:3%;
   padding-right:3%;
 }
+.container.wizard3{
+  font-family:"Montserrat", sans-serif;
+  width:45%;
+  border-left:1px solid rgb(212, 212, 212);
+  border-right:1px solid rgb(212, 212, 212);
+  background-color:white;
+  padding-left:3%;
+  padding-right:3%;
+  padding-bottom:8%;
+  height:100vh;
+}
 #gstarted{
   font-size:40px;
+}
+#congrats{
+  padding-top:100px;
+  font-size:40px;
+}
+#done{
+  padding-top:95px;
 }
