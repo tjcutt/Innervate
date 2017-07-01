@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router-dom';
 import ToggleDisplay from 'react-toggle-display';
 
+
 class HomeForm extends React.Component{
   constructor(props){
     super(props)
@@ -26,7 +27,6 @@ class HomeForm extends React.Component{
     }
   }
   handleRedirect(){
-    console.log('hey')
     if(this.state.redirect){
       return <Redirect to='/survey'></Redirect>;
     }
@@ -65,41 +65,39 @@ class HomeForm extends React.Component{
       this.setState({
         adminPass: input.target.value
       })
-      console.log(this.state.adminPass);
     }
 
 
-    submitClick(event) {
-      console.log('sdfljkfsdjklsdjlkf');
+
+    submitClick(event, res) {
+      // console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
-      console.log('this.state', this.state)
+      // console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
+          credentials:'include',
           headers: {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
              },
           body:JSON.stringify(this.state)
         })
-          .then(res => {
-            console.log(res);
-            res.json()
-          })
+          .then((res) => res.json())
           .then(tokens => {
+            console.log('tokens', tokens);
+            // delete tokens.hashed_pass
             const cookies = new Cookies()
-            const userToken = cookies.set('user', tokens)
+            cookies.set('user', tokens)
             this.setState({
-              redirect:true
-            })
-            console.log(this.state);
+             redirect:true
+           })
           })
     }
-  // const {first_name, last_name, email, password} = this.state;
 
   render() {
     return (
 
-        <div className="homeForm container font1 col m5 l5 hide-on-small-and-down">
+        <div className="homeForm container font1 col m5 l5 hide-on-med-and-down">
 
           <form className="signpForm" onSubmit={this.submitClick}>
 

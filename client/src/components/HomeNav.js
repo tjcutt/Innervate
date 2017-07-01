@@ -48,11 +48,10 @@ class HomeNav extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
+           console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
-           const userToken = cookies.set('user', tokens[0])
-           const roleToken = cookies.set('role', tokens[1])
-           console.log('userToken', userToken, 'roleToken', roleToken)
+           cookies.set('role', tokens[1])
          })
     }
 
@@ -64,7 +63,7 @@ class HomeNav extends React.Component{
             <div className="nav-wrapper font1 cyan lighten-3">
               <a className="logo smMargin">NPI</a>
 
-              <ul id="nav-mobile" className="right col s5 hide-on-small-and-down">
+              <ul id="nav-mobile" className="right col s12 hide-on-small-and-down">
 
                 <li className="input-field col s6">
                  <input placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
