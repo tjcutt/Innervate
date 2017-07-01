@@ -7,7 +7,7 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/npi_db'
   },
-  production{
+  production: {
     client:'pg',
     connection: process.env.DATABASE_URL
   }
