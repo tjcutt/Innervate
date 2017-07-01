@@ -35,7 +35,7 @@ class Survey extends React.Component {
     this.setState({
       userCookie: cookies.get('user'),
     })
-    console.log('mmmmm cookies', this.state.userCookie);
+
   }
 
   handleChange(event, index, disorders){
@@ -72,6 +72,7 @@ class Survey extends React.Component {
 
   handleClick(event) {
     console.log('this is not my beautiful house', this.state);
+    console.log('mmmmm cookies', this.state.userCookie);
 
     fetch('/api/survey',{
       method:"POST",

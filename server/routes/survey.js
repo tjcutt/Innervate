@@ -1,17 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
-var colors = require('colors');
+// const jwtVer = require('express-jwt');
+const colors = require('colors');
 
 router.get('/', function(req, res, next) {
   res.send('i connect');
 });
 
 router.post('/', function(req, res, next){
-  let userInfo = jwt.verify(req.cookies.user, process.env.JWT_SECRET).user
-  console.log('this is not my beautiful wife'.america);
-  console.log('this is your user info'.rainbow, userInfo);
+  // let userInfo = jwt.verify(req.cookies.user, process.env.JWT_SECRET).user
+  console.log('this is not my beautiful wife'.america, req.body);
+  console.log('userCookie'.zebra, req.body.userCookie);
+  let userInfo = jwt.verify(req.body.userCookie.tokens, process.env.JWT_SECRET)
+  console.log('is the jwt decodd?????'.rainbow, userInfo);
+
+  let user = userInfo.user
+  console.log('no way, i got your user'.america, user);
+  // console.log('this is your user info'.rainbow, userInfo);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
