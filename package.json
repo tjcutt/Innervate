@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 node ./bin/www"
+    "start": "node server/bin/www",
+    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build && cd ../server && knex migrate:rollback && knex migrate:latest && knex seed:run;",
+    "nodemon": "node server/app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,5 +20,8 @@
     "pg": "^6.4.0",
     "serve-favicon": "~2.4.2",
     "universal-cookie-express": "^2.0.5"
+  },
+  "engines":{
+    "node": "v6.8.0"
   }
 }
