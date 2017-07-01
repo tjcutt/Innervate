@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server/bin/www",
-    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build && cd ../server && knex migrate:rollback && knex migrate:latest && knex seed:run;",
+    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm start && cd ../server && knex migrate:rollback && knex migrate:latest && knex seed:run;",
     "nodemon": "node server/app.js"
   },
   "dependencies": {
