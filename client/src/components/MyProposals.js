@@ -37,8 +37,8 @@ class MyProposals extends React.Component {
          )
       }
       return (
-        <div className = "row">
-          <Nav />
+        <div>
+         <Nav />
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> My Proposals</div>
