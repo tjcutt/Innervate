@@ -10,7 +10,7 @@ import WizardTwo from './components/Wizard2.js'
 import WizardThree from './components/Wizard3.js'
 import MyProposals from './components/MyProposals'
 // import HomeNav from './components/HomeNav.js'
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 
@@ -32,4 +32,4 @@ ReactDOM.render(
   document.getElementById('root')
 
 );
-registerServiceWorker();
+// registerServiceWorker();
