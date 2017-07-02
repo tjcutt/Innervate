@@ -23,12 +23,16 @@ class HomeForm extends React.Component{
       hashed_pass: '',
       show: false,
       adminPass: '',
-      redirect: false
+      redirect: false,
+      redirectReviewer: false
     }
   }
   handleRedirect(){
     if(this.state.redirect){
       return <Redirect to='/survey'></Redirect>;
+    } else if (this.state.redirectReviewer){
+//REPLACE WITH REDIRECT TO DATA ANALYTICS PAGE?
+      return <Redirect to='/proposals'></Redirect>
     }
   }
     setFirst(input){
@@ -70,9 +74,7 @@ class HomeForm extends React.Component{
 
 
     submitClick(event, res) {
-      // console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
-      // console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
           credentials:'include',
@@ -84,10 +86,15 @@ class HomeForm extends React.Component{
         })
           .then((res) => res.json())
           .then(tokens => {
-            console.log('tokens', tokens);
-            // delete tokens.hashed_pass
+            console.log('working');;
             const cookies = new Cookies()
-            cookies.set('user', tokens)
+            cookies.set('user', tokens[0])
+            if (tokens.length >1){
+              cookies.set('role', tokens[1])
+              this.setState({
+                redirectReviewer:true
+              })
+            }
             this.setState({
              redirect:true
            })

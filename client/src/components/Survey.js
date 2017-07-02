@@ -167,7 +167,6 @@ class Survey extends React.Component {
             </MuiThemeProvider>
         )
     }
-
 }
 
 export default Survey

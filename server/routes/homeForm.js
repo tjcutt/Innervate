@@ -7,6 +7,8 @@ require('dotenv');
 
 router.post('/', function(req, res, next){
   console.log('We have made it to the homeForm page post');
+  let userToken = null
+  let roleToken = null
   knex('users')
         .returning('*')
         .insert({
@@ -17,81 +19,47 @@ router.post('/', function(req, res, next){
         })
         .select('*')
         .then((data) => {
-          console.log('we have made it to the first then passing data within homeForm');
-          let ultimateData = data
-          console.log('here is req.body', req.body)
-          ;
           delete req.body.pass
-          // delete 'hashed_pass'
-          // need to delete hashed pass from jwt
-          console.log('here is our req.body.adminPass', req.body.adminPass);
+          delete data[0].hashed_pass
+          console.log('the good stuff (data)'.america, data);
+          let user = data[0]
           let adminPass = req.body.adminPass
-          console.log('we have made it to adminPass', adminPass
-          );
-
+          let userId = user.id
+          userToken = jwt.sign({
+              user: user
+          }, process.env.JWT_SECRET)
           if (adminPass.length > 0) {
-            let userId = data[0].id
-            console.log('we have made it to capture this userId before we are returning getPass', userId);
-            return getPass(adminPass, userId)
-          } else {
-            console.log('eyah data', data);
-            let tokens = setTokens(data[0]);
-            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', tokens);
-            res.send({tokens:tokens})
+            knex('users')
+                 .whereIn('id', 4)
+                 .select('hashed_pass')
+                 .then((passInfo) => {
+                   let pass = passInfo[0].hashed_pass
+                   if (bcrypt.compareSync(adminPass, pass)){
+                     knex ('user_role')
+                         .insert({
+                           'user_id': userId,
+                           'role_id': 5
+                         })
+                         .returning('*')
+                         .then((data)=> {
+                           let roleData = data[0].role_id
+                           roleToken = jwt.sign({
+                               role: roleData
+                           }, process.env.JWT_SECRET)
+                             console.log('gots my role'.cyan, roleToken, 'userToken'.blue, userToken);
+                             res.send([userToken, roleToken])
+                         })
+                     }
+
+                   })
+          }else {
+            res.send([userToken])
           }
-            })
-            .catch((error) => {
-              next(error)
         })
+        .catch((error) => {
+        next(error)
         })
-
-
-    function getPass(adminPass, id){
-     return  knex('users')
-          .whereIn('id', 4)
-          .select('hashed_pass')
-          .then((passInfo) => {
-            let pass = passInfo[0].hashed_pass
-            if (bcrypt.compareSync(adminPass, pass)){
-                adminInsertRole(id)
-            }
-            return pass;
-          })
-    }
-
-    function adminInsertRole(id){
-      console.log('id', id);
-        console.log('function call working!!!!'.rainbow);
-      knex ('user_role')
-        .insert({
-          'user_id': id,
-          'role_id': 5
-        })
-        .returning('*')
-        .then((data)=> {
-          let roleId = data[0].role_id
-          console.log('data shiz biz', roleId);
-          return roleId
-          // SEND THEM TO DATA ANALYTICS OR PROPOSAL page
-        })
-    }
-
-    function setTokens(user) {
-      console.log('this is your user', user);
-        let token = jwt.sign({
-            user: user
-        }, process.env.JWT_SECRET)
-        console.log('is there a user.role_id', user.role_id);
-        // if (user.role_id) {
-        //   let roleToken = jwt.sign({
-        //       role: user.role_id
-
-        // })
-      // }
-        return token
-      }
-    // };
-
+  })
 
 
 module.exports = router;

@@ -18,14 +18,102 @@ html, body {
 p, div{
    font-family: 'Montserrat', sans-serif;
 }
+
+.ChartSelector {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.GraphTitle{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   color: #111;
+   font-family: 'Helvetica Neue', sans-serif;
+   font-size: 60px;
+   font-weight: bold;
+   letter-spacing: -1px;
+   line-height: 1;
+   text-align: center;
+
+   /*font-size:2em;*/
+   display: inline-block;
+   margin-top: 20px;
+   /*margin-right: 24vw;*/
+   margin-bottom: -50px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+   color: #0074ac;
+}
+
+.logo {
+  display: inline-block;
+  float: left
+}
+
+.smMargin {
+  margin: 10px;
+}
+
+/*Home Page*/
+.font1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.lgText{
+  font-size: 1.1em;
+}
+
+.logo {
+  color: #424242 ;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+.nav-wrapper {
+  width: 100%;
+}
+/*.homeNavInput {
+padding: 8px;*/
+/*overflow: hidden;*/
+/*margin: 10px;*/
+/*border: 2px solid black;
+}
+
+.homeNavBtn {
+ border: 2px solid black;
+}*/
+
+/*Change placeholder color*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:#7f7f7f ;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #7f7f7f ;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #7f7f7f ;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #7f7f7f ;
+}
+
+label {
+  color: #9e9e9e ;
+}
+
+
 /*Home Page*/
 /*for laptops and bigger screens*/
 @media (min-width: 800px) {
 
 
-.smMargin {
-  margin: 10px;
-}
+
+
 
 .material-icons {
   margin: auto;
@@ -63,39 +151,6 @@ p, div{
 /*TYPOGRAPHY*/
 
 
-/*Home Page*/
-.font1 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.lgText{
-  font-size: 1.1em;
-}
-
-.logo {
-  color: #424242 ;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-}
-
-/*Change placeholder color*/
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #424242 ;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #424242 ;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #424242 ;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #424242 ;
-}
-
-label {
-  color: #424242 ;
-}
 
 
 div.container.propMain{
@@ -272,6 +327,8 @@ transform: scale(.5); }
 /*for Iphones portrait*/
 
 @media (max-width: 450px) {
+
+
    div.container.propMain{
       width: 80vw;;
    }
@@ -401,6 +458,10 @@ transform: scale(.5); }
      margin-bottom: 5vh;
    }
 
+   .GraphTitle{
+      font-size: 30px;
+   }
+
 }
 
 /*for Iphones landscape*/
@@ -520,6 +581,10 @@ transform: scale(.5); }
       display: block;
       text-align: center;
    }
+   .GraphTitle{
+      font-size: 40px;
+   }
+
 }
 
 /* Survey CSS */

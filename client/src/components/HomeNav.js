@@ -1,13 +1,6 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
-// const bcrypt = require('bcryptjs');
-
-// import { Link } from 'react-router-dom';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// import AppBar from 'material-ui/AppBar';
-// import TextField from 'material-ui/TextField';
+import { Redirect } from 'react-router-dom';
 
 class HomeNav extends React.Component{
 
@@ -17,12 +10,20 @@ class HomeNav extends React.Component{
     this.setEmail = this.setEmail.bind(this)
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.setPass = this.setPass.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
 
     this.state = {
       email: '',
-      hashed_pass: ''
+      hashed_pass: '',
+      redirect: false
     }
 }
+
+    handleRedirect(){
+      if(this.state.redirect){
+        return <Redirect to='/proposals'></Redirect>
+      }
+    }
 
     setEmail(input){
       this.setState({
@@ -48,10 +49,13 @@ class HomeNav extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
-           console.log(tokens);
+          //  console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
            cookies.set('role', tokens[1])
+           this.setState({
+             redirect:true
+           })
          })
     }
 
@@ -61,26 +65,27 @@ class HomeNav extends React.Component{
        <div>
         <nav>
             <div className="nav-wrapper font1 cyan lighten-3">
-              <a className="logo smMargin">NPI</a>
+              <a className="logo smMargin">Innervate</a>
 
               <ul id="nav-mobile" className="right col s12 hide-on-small-and-down">
 
-                <li className="input-field col s6">
-                 <input placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
-                 <label htmlFor="first_name"></label>
+                <li className="input-field homeNavInput col s5">
+                 <input id="loginEmail" placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
+                 <label htmlFor="loginEmail"></label>
                 </li>
 
-                <li className="input-field col s5">
+                <li className="input-field homeNavInput col s5">
                   <input placeholder="Enter your password" onChange={this.setPass} className="homeInput validate" type="password"/>
                   <label htmlFor="first_name">First Name</label>
                 </li>
 
                 <li> <a onClick={this.handleLoginClick}
-                   className="waves-effect waves-light btn grey darken-2">Login</a></li>
+                   className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
 
               </ul>
             </div>
           </nav>
+          {this.handleRedirect()}
         </div>
     );
   }

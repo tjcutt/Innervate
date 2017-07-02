@@ -9,6 +9,7 @@ import WizardOne from './components/Wizard1.js'
 import WizardTwo from './components/Wizard2.js'
 import WizardThree from './components/Wizard3.js'
 import MyProposals from './components/MyProposals'
+import Charts from './components/Charts'
 // import HomeNav from './components/HomeNav.js'
 // import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -25,6 +26,8 @@ ReactDOM.render(
       <Route path="/wizard1" component={WizardOne}></Route>
       <Route path="/wizard2" component={WizardTwo}></Route>
       <Route path="/wizard3" component={WizardThree}></Route>
+      <Route path="/charts" component={Charts}></Route>
+
     </div>
 
   </BrowserRouter>,
