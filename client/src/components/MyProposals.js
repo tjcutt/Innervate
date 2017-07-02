@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Nav from './Nav'
 import MyProposalList from './MyProposalList'
 
 class MyProposals extends React.Component {
@@ -25,15 +25,20 @@ class MyProposals extends React.Component {
    render(){
       if (this.state.proposals.length == 0){
          return (
+           <div className="row">
+             <Nav />
             <div className="container propMain">
                <div className="row">
                   <div className="componentTitle"> My Proposals</div>
                   <button className="btn newBtnMy  light-blue darken-2">New Proposal</button>
                </div>
             </div>
+          </div>
          )
       }
       return (
+        <div className = "row">
+          <Nav />
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> My Proposals</div>
@@ -41,6 +46,7 @@ class MyProposals extends React.Component {
             </div>
             <MyProposalList proposals={this.state.proposals}/>
          </div>
+        </div>
       )
 
    }

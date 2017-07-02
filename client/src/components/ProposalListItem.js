@@ -110,12 +110,12 @@ class ProposalListItem extends React.Component {
                <div id="line" />
                <div className="row cardBottom">
                   <div id="voteCount"> {this.state.votes} </div>
-                  <div id="upvote" data="1" onClick={ this.updateVotes }> updoot </div> <Modal
+                  <div id="upvote" data="1" onClick={ this.updateVotes }> upvote </div> <Modal
                       key={this.props.proposal.id}
                        header={this.props.proposal.title}
                        trigger={
                           <div>
-                             <a href="#" className="modalClick"
+                             <a href="#" id="modalClick" className="modalClick"
                              >click for more</a>
                         </div>
                        }>

@@ -10,7 +10,6 @@ constructor(props){
    super(props)
 
    this.selectData = this.selectData.bind(this)
-
    this.state= {
      hasCookies:false,
       chartData: {

@@ -2,7 +2,7 @@ import React from 'react'
 import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router-dom';
 import ProposalList from './ProposalList'
-
+import Nav from './Nav';
 class Proposals extends React.Component {
    constructor(props) {
      super(props)
@@ -50,6 +50,7 @@ class Proposals extends React.Component {
 
       return (
       <div>
+        <Nav />
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> Proposals</div>
