@@ -31,6 +31,7 @@ class HomeForm extends React.Component{
     if(this.state.redirect){
       return <Redirect to='/survey'></Redirect>;
     } else if (this.state.redirectReviewer){
+//REPLACE WITH REDIRECT TO DATA ANALYTICS PAGE?
       return <Redirect to='/proposals'></Redirect>
     }
   }
@@ -73,9 +74,7 @@ class HomeForm extends React.Component{
 
 
     submitClick(event, res) {
-      // console.log('sdfljkfsdjklsdjlkf');
       event.preventDefault();
-      // console.log('this.state', this.state)
         fetch('/api/homeForm',{
           method:"POST",
           credentials:'include',
@@ -87,7 +86,7 @@ class HomeForm extends React.Component{
         })
           .then((res) => res.json())
           .then(tokens => {
-            console.log('tokens', tokens);
+            console.log('working');;
             const cookies = new Cookies()
             cookies.set('user', tokens[0])
             if (tokens.length >1){

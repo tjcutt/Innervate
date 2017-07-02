@@ -56,78 +56,10 @@ router.post('/', function(req, res, next){
             res.send([userToken])
           }
         })
-        // .then(data => {
-        //       console.log('what data do we get after our if else call'.rainbow, data);})
         .catch((error) => {
         next(error)
         })
-        })
-
-
-
-    function getPass(adminPass, id, userToken){
-     return  knex('users')
-          .whereIn('id', 4)
-          .select('hashed_pass')
-          .then((passInfo) => {
-            let pass = passInfo[0].hashed_pass
-            if (bcrypt.compareSync(adminPass, pass)){
-              knex ('user_role')
-                  .insert({
-                    'user_id': id,
-                    'role_id': 5
-                  })
-                  .returning('*')
-                  .then((data)=> {
-                    let roleData = data[0].role_id
-                    roleToken = jwt.sign({
-                        role: roleData
-                    }, process.env.JWT_SECRET)
-                      console.log('gots my role'.cyan, roleToken, 'userToken'.blue, userToken);
-                      res.send([roleToken, userToken])
-                  })
-              }
-            })
-          }
-    //       })
-    // }
-
-    function adminInsertRole(id){
-        console.log('function call working!!!!'.rainbow);
-    return knex ('user_role')
-        .insert({
-          'user_id': id,
-          'role_id': 5
-        })
-        .returning('*')
-        .then((data)=> {
-          let roleData = data[0].role_id
-          roleToken = jwt.sign({
-              role: roleData
-          }, process.env.JWT_SECRET)
-            console.log('gots my role'.cyan, roleToken);
-            return roleToken
-        })
-    }
-
-    // function setTokens(user) {
-    //   console.log('this is your user', user);
-
-
-      //   let roleToken = jwt.sign({
-      //       user: user
-      //   }, process.env.JWT_SECRET)
-      //   console.log('is there a user.role_id', user.role_id);
-      //   // if (user.role_id) {
-      //   //   let roleToken = jwt.sign({
-      //   //       role: user.role_id
-      //
-      //   // })
-      // // }
-      //   return token
-      // }
-    // };
-
+  })
 
 
 module.exports = router;

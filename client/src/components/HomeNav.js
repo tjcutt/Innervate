@@ -1,13 +1,6 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
-// const bcrypt = require('bcryptjs');
-
-// import { Link } from 'react-router-dom';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// import AppBar from 'material-ui/AppBar';
-// import TextField from 'material-ui/TextField';
+import { Redirect } from 'react-router-dom';
 
 class HomeNav extends React.Component{
 
@@ -17,12 +10,20 @@ class HomeNav extends React.Component{
     this.setEmail = this.setEmail.bind(this)
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.setPass = this.setPass.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
 
     this.state = {
       email: '',
-      hashed_pass: ''
+      hashed_pass: '',
+      redirect: false
     }
 }
+
+    handleRedirect(){
+      if(this.state.redirect){
+        return <Redirect to='/proposals'></Redirect>
+      }
+    }
 
     setEmail(input){
       this.setState({
@@ -48,10 +49,13 @@ class HomeNav extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
-           console.log(tokens);
+          //  console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
            cookies.set('role', tokens[1])
+           this.setState({
+             redirect:true
+           })
          })
     }
 
@@ -81,6 +85,7 @@ class HomeNav extends React.Component{
               </ul>
             </div>
           </nav>
+          {this.handleRedirect()}
         </div>
     );
   }

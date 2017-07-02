@@ -54,13 +54,11 @@ router.post('/', function(req, res, next){
                               let role = jwt.sign({
                                   role: roleData
                               }, process.env.JWT_SECRET)
-                                // console.log('gots my role'.cyan, role);
-                                // return role
                               res.send(role);
                             })
                         })
                   })
-              }
+                }
             })
         })
     })
