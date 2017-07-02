@@ -430,6 +430,10 @@ transform: scale(.5); }
      margin-bottom: 5vh;
    }
 
+   .GraphTitle{
+      font-size: 30px;
+   }
+
 }
 
 /*for Iphones landscape*/
@@ -549,6 +553,10 @@ transform: scale(.5); }
       display: block;
       text-align: center;
    }
+   .GraphTitle{
+      font-size: 40px;
+   }
+
 }
 
 /* Survey CSS */
