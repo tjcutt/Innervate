@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { Pie } from 'react-chartjs-2'
 import ChartSelector from './ChartSelector'
-import {
- Redirect
-} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Nav from "./Nav"
+
 class Charts extends React.Component {
 constructor(props){
    super(props)
@@ -76,6 +76,7 @@ render(){
    return (
       <div>
         {this.handleRedirect()}
+         <Nav  />
          <div className="GraphTitle"> Data Analytics</div>
          <ChartSelector selectData={this.selectData} />
          <div className="chart">
