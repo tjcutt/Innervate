@@ -11,7 +11,7 @@ constructor(props){
 
    this.selectData = this.selectData.bind(this)
    this.state= {
-     hasCookies:false,
+     hasCookies:true,
       chartData: {
          labels: [],
          datasets: [
