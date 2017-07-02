@@ -1,30 +1,45 @@
 import React from 'react'
-
+import Cookies from 'universal-cookie';
+import { Redirect } from 'react-router-dom';
 import ProposalList from './ProposalList'
 
 class Proposals extends React.Component {
    constructor(props) {
      super(props)
      this.state = {
-       proposals:[]
+       proposals:[],
+       hasCookies:true
      }
    }
 
    componentWillMount() {
-      fetch(`/api/proposals`, {
+     const cookies = new Cookies()
+     if(!cookies.get('user')){
+       this.setState({
+         hasCookies:false
+       })
+     }else{
+       fetch(`/api/proposals`, {
          credentials:'include'
-      })
-      .then(res => res.json())
-      .then(proposals => {
+       })
+       .then(res => res.json())
+       .then(proposals => {
          this.setState({
-          proposals:proposals
+           proposals:proposals
          })
-      })
+       })
+     }
+   }
+   handleRedirect(){
+     if(!this.state.hasCookies){
+       return <Redirect to='/'></Redirect>;
+     }
    }
    render(){
       if (this.state.proposals.length == 0){
          return (
             <div className="container propMain">
+              {this.handleRedirect()}
                <div className="row">
                   <div className="componentTitle"> Proposals</div>
                </div>

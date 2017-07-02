@@ -19,7 +19,8 @@ class WizardTwo extends React.Component {
     info: '',
     finished:false,
     stepIndex:1,
-    redirect:false
+    redirect:false,
+    hasCookies:true
   };
 
   constructor(props){
@@ -37,7 +38,20 @@ class WizardTwo extends React.Component {
     this.createArticles = this.createArticles.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
   }
+  componentWillMount() {
+      const cookies = new Cookies()
+      if(!cookies.get('user')){
+        this.setState({
+          hasCookies:false
+        })
+      }else{
+        this.setState({userCookie: cookies.get('user')})
+      }
+  }
   handleRedirect(){
+    if(!this.state.hasCookies){
+      return <Redirect to='/'></Redirect>;
+    }
     if(this.state.redirect){
       return <Redirect to='/wizard3'></Redirect>;
     }

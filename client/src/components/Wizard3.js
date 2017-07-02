@@ -12,18 +12,36 @@ import {
 class WizardThree extends React.Component {
  state = {
    stepIndex:2,
-   finished:false
+   finished:false,
+   hasCookies:true
  };
+
 
  constructor(props) {
   super(props);
  }
+ componentWillMount() {
+     const cookies = new Cookies()
+     if(!cookies.get('user')){
+       this.setState({
+         hasCookies:false
+       })
+     }else{
+       this.setState({userCookie: cookies.get('user')})
+     }
+ }
+ handleRedirect(){
+   if(!this.state.hasCookies){
+     return <Redirect to='/'></Redirect>;
+   }
+ }
 
  render() {
-   const {finished, stepIndex} = this.state;
+   const {finished, stepIndex, hasCookies} = this.state;
   return (
     <MuiThemeProvider>
       <div className="container wizard3">
+        {this.handleRedirect()}
         <div className="row">
           <Stepper activeStep={stepIndex}>
             <Step>

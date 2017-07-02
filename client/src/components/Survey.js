@@ -27,7 +27,8 @@ class Survey extends React.Component {
         referral: 'Baylor University',
         userCookie: '',
         roleCookie: '',
-        redirect:false
+        redirect:false,
+        hasCookies:true
     };
 
     constructor(props) {
@@ -42,11 +43,20 @@ class Survey extends React.Component {
 
     componentWillMount() {
         const cookies = new Cookies()
-        this.setState({userCookie: cookies.get('user')})
+        if(!cookies.get('user')){
+          this.setState({
+            hasCookies:false
+          })
+        }else{
+          this.setState({userCookie: cookies.get('user')})
+        }
     }
     handleRedirect(){
       if(this.state.redirect){
         return <Redirect to='/proposals'></Redirect>;
+      }
+      if(!this.state.hasCookies){
+        return <Redirect to='/'></Redirect>;
       }
     }
     handleChange(event, index, disorders) {

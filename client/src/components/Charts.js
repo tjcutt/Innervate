@@ -1,7 +1,10 @@
 import React, { Component } from "react"
 import { Pie } from 'react-chartjs-2'
 import ChartSelector from './ChartSelector'
-
+import {
+ Redirect
+} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 class Charts extends React.Component {
 constructor(props){
    super(props)
@@ -9,7 +12,7 @@ constructor(props){
    this.selectData = this.selectData.bind(this)
 
    this.state= {
-
+     hasCookies:false,
       chartData: {
          labels: [],
          datasets: [
@@ -30,9 +33,22 @@ constructor(props){
    }
 }
 
-   componentWillMount(){
+componentWillMount() {
+    const cookies = new Cookies()
+    if(!cookies.get('user')){
+      this.setState({
+        hasCookies:false
+      })
+    }else{
+      this.setState({userCookie: cookies.get('user')})
       this.selectData('userRole')
-   }
+    }
+}
+handleRedirect(){
+  if(!this.state.hasCookies){
+    return <Redirect to='/'></Redirect>;
+  }
+}
 
    selectData = (selector) => {
       console.log('I AM SELECTOR:', selector)
@@ -60,6 +76,7 @@ render(){
    console.log('state', this.state);
    return (
       <div>
+        {this.handleRedirect()}
          <div className="GraphTitle"> Data Analytics</div>
          <ChartSelector selectData={this.selectData} />
          <div className="chart">

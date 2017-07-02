@@ -27,7 +27,8 @@ class WizardOne extends React.Component{
     summary: '',
     redirect:false,
     finished:false,
-    stepIndex:0
+    stepIndex:0,
+    hasCookies:true
   };
 
   constructor(props){
@@ -41,7 +42,20 @@ class WizardOne extends React.Component{
     this.handleSummaryChange = this.handleSummaryChange.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
   }
+  componentWillMount() {
+      const cookies = new Cookies()
+      if(!cookies.get('user')){
+        this.setState({
+          hasCookies:false
+        })
+      }else{
+        this.setState({userCookie: cookies.get('user')})
+      }
+  }
   handleRedirect(){
+    if(!this.state.hasCookies){
+      return <Redirect to='/'></Redirect>;
+    }
     if(this.state.redirect){
       return <Redirect to='/wizard2'></Redirect>;
     }
