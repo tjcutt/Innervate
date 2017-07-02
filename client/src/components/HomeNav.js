@@ -65,22 +65,22 @@ class HomeNav extends React.Component{
        <div>
         <nav>
             <div className="nav-wrapper font1 cyan lighten-3">
-              <a className="logo smMargin">NPI</a>
+              <a className="logo smMargin">Innervate</a>
 
               <ul id="nav-mobile" className="right col s12 hide-on-small-and-down">
 
-                <li className="input-field col s6">
-                 <input placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
-                 <label htmlFor="first_name"></label>
+                <li className="input-field homeNavInput col s5">
+                 <input id="loginEmail" placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
+                 <label htmlFor="loginEmail"></label>
                 </li>
 
-                <li className="input-field col s5">
+                <li className="input-field homeNavInput col s5">
                   <input placeholder="Enter your password" onChange={this.setPass} className="homeInput validate" type="password"/>
                   <label htmlFor="first_name">First Name</label>
                 </li>
 
                 <li> <a onClick={this.handleLoginClick}
-                   className="waves-effect waves-light btn grey darken-2">Login</a></li>
+                   className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
 
               </ul>
             </div>
