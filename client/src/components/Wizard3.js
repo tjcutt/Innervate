@@ -17,7 +17,6 @@ class WizardThree extends React.Component {
 
  constructor(props) {
   super(props);
-
  }
 
  render() {

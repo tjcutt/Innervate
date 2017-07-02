@@ -31,12 +31,12 @@ app.use(logger(`dev`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, `../client/public`)));
+app.use(express.static(path.join(__dirname, `../client/build`)));
 
 app.use(`/api`, api);
 
 app.get(`*`, (req, res) => {
-  res.sendFile(path.join(__dirname, `../client/public`, `index.html`));
+  res.sendFile(path.join(__dirname, `../client/build`, `index.html`));
 });
 
 // catch 404 and forward to error handler
