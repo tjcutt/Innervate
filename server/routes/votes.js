@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
+const jwt = require('jsonwebtoken');
 
 router.post('/:id', (req, res, next) => {
    //this grabs the number of votes on a specific proposal
@@ -16,7 +17,10 @@ router.post('/:id', (req, res, next) => {
 })
 
 router.post('/', function(req, res, next) {
-   let userId = req.body.userId
+   console.log('rec COOKIES', req.cookies.user);
+   let cookieJWT = req.cookies.user
+   let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
+   let userId = userCookieId.user.user_id
    let proposalId = req.body.proposalId
    let body =
         { 'proposal_id': proposalId,
@@ -27,13 +31,11 @@ router.post('/', function(req, res, next) {
    .where("proposal_id", proposalId)
    .where("active", true)
    .then((data) => {
-      console.log('this is data', data);
-      if (data.length > 0) console.log('DONT ADD',data[0]), res.send('false')
+      if (data.length > 0) res.send('false')
       else {
          knex('votes')
             .insert(body)
             .then ((data) => {
-               console.log('ADD',data[0]);
                res.send('true')
             })
       }

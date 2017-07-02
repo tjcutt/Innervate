@@ -1,5 +1,7 @@
 import React from 'react'
 import {Col, Card, Modal} from 'react-materialize'
+import Cookies from 'universal-cookie';
+
 // import { Link } from 'react-router-dom';
 
 
@@ -12,11 +14,14 @@ class ProposalListItem extends React.Component {
 
      this.state = {
         images: [],
-        votes: 0
+        votes: 0,
+        userCookie: ''
      }
    }
 
    componentWillMount(){
+      const cookies = new Cookies()
+      this.setState({userCookie: cookies.get('user')})
       this.getVotes()
    }
 
@@ -33,13 +38,11 @@ class ProposalListItem extends React.Component {
 
 
    getImages(event){
-      console.log('CLIKING');
       let id = this.props.proposal.id
      if (event.target.className == 'modalClick'){
         fetch(`/api/images/${id}`)
         .then(res => res.json())
         .then(images => {
-           console.log('IMAGES?', images);
            this.setState({
              images:images
           })
@@ -49,11 +52,18 @@ class ProposalListItem extends React.Component {
 
    updateVotes (){
       //adds one vote to the proposal if user upvotes it
+      console.log('thisSTATE COOKES', this.state.userCookie);
+      // fetch('/api/cookies')
+      // .then((data) => {
+      //    console.log('cookie data', data);
+      // })
+
       let proposalId = this.props.proposal.id
       let userId = 5
       let body = { proposalId, userId }
       fetch('/api/votes',{
         method:"POST",
+        credentials: 'include',
         headers: {
              'Accept': 'application/json',
              'Content-Type': 'application/json'
@@ -95,7 +105,6 @@ class ProposalListItem extends React.Component {
    }
 
    render (){
-      console.log('state images!!', this.state.images);
       this.getVotes()
       return (
          <div className="proposalItem container">
