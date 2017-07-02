@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
+const jwt = require('jsonwebtoken');
 
 /* GET All PROPOSALS. */
 router.get('/', function(req, res, next) {
@@ -12,10 +13,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', (req, res) => {
-   console.log('inside');
-   let id = req.params.id
+   let cookieJWT = req.cookies.user
+   let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
+   let userId = userCookieId.user.user_id
+
    knex ('proposals')
-      .where('id', id)
+      .where('user_id', userId)
       .then ((props) => {
          console.log('my props', props);
          res.json(props)

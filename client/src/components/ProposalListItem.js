@@ -51,16 +51,9 @@ class ProposalListItem extends React.Component {
    }
 
    updateVotes (){
-      //adds one vote to the proposal if user upvotes it
       console.log('thisSTATE COOKES', this.state.userCookie);
-      // fetch('/api/cookies')
-      // .then((data) => {
-      //    console.log('cookie data', data);
-      // })
-
       let proposalId = this.props.proposal.id
-      let userId = 5
-      let body = { proposalId, userId }
+      let body = { proposalId }
       fetch('/api/votes',{
         method:"POST",
         credentials: 'include',
