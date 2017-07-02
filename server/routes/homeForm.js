@@ -7,6 +7,8 @@ require('dotenv');
 
 router.post('/', function(req, res, next){
   console.log('We have made it to the homeForm page post');
+  let userToken = null
+  let roleToken = null
   knex('users')
         .returning('*')
         .insert({
@@ -23,76 +25,107 @@ router.post('/', function(req, res, next){
           let user = data[0]
           let adminPass = req.body.adminPass
           let userId = user.id
+          userToken = jwt.sign({
+              user: user
+          }, process.env.JWT_SECRET)
           if (adminPass.length > 0) {
+            knex('users')
+                 .whereIn('id', 4)
+                 .select('hashed_pass')
+                 .then((passInfo) => {
+                   let pass = passInfo[0].hashed_pass
+                   if (bcrypt.compareSync(adminPass, pass)){
+                     knex ('user_role')
+                         .insert({
+                           'user_id': userId,
+                           'role_id': 5
+                         })
+                         .returning('*')
+                         .then((data)=> {
+                           let roleData = data[0].role_id
+                           roleToken = jwt.sign({
+                               role: roleData
+                           }, process.env.JWT_SECRET)
+                             console.log('gots my role'.cyan, roleToken, 'userToken'.blue, userToken);
+                             res.send([userToken, roleToken])
+                         })
+                     }
 
-            console.log('we have made it to capture this userId before we are returning getPass', userId);
-            return getPass(adminPass, userId)
-          } else {
-            let userToken = jwt.sign({
-                user: user
-            }, process.env.JWT_SECRET)
-            console.log('!!!!! THIS IS YOUR DATA FROM HOMEFORM', userToken);
-            res.send({userToken: userToken})
+                   })
+          }else {
+            res.send([userToken])
           }
-            })
-            .catch((error) => {
-              next(error)
+        })
+        // .then(data => {
+        //       console.log('what data do we get after our if else call'.rainbow, data);})
+        .catch((error) => {
+        next(error)
         })
         })
 
 
 
-    function getPass(adminPass, id){
-      if (adminPass.length > 0)
+    function getPass(adminPass, id, userToken){
      return  knex('users')
           .whereIn('id', 4)
           .select('hashed_pass')
           .then((passInfo) => {
             let pass = passInfo[0].hashed_pass
             if (bcrypt.compareSync(adminPass, pass)){
-                adminInsertRole(id)
-            }
-            return pass;
-          })
-    }
+              knex ('user_role')
+                  .insert({
+                    'user_id': id,
+                    'role_id': 5
+                  })
+                  .returning('*')
+                  .then((data)=> {
+                    let roleData = data[0].role_id
+                    roleToken = jwt.sign({
+                        role: roleData
+                    }, process.env.JWT_SECRET)
+                      console.log('gots my role'.cyan, roleToken, 'userToken'.blue, userToken);
+                      res.send([roleToken, userToken])
+                  })
+              }
+            })
+          }
+    //       })
+    // }
 
     function adminInsertRole(id){
-      console.log('id', id);
         console.log('function call working!!!!'.rainbow);
-      knex ('user_role')
+    return knex ('user_role')
         .insert({
           'user_id': id,
           'role_id': 5
         })
         .returning('*')
         .then((data)=> {
-          console.log('this is the data we have'.america, data[0].role_id);
           let roleData = data[0].role_id
-          let role = jwt.sign({
+          roleToken = jwt.sign({
               role: roleData
           }, process.env.JWT_SECRET)
-            console.log('gots my role'.cyan, role);
-            return role
-          // res.send(role);
+            console.log('gots my role'.cyan, roleToken);
+            return roleToken
         })
     }
 
-    function setTokens(user) {
-      console.log('this is your user', user);
+    // function setTokens(user) {
+    //   console.log('this is your user', user);
 
 
-        let token = jwt.sign({
-            user: user
-        }, process.env.JWT_SECRET)
-        console.log('is there a user.role_id', user.role_id);
-        // if (user.role_id) {
-        //   let roleToken = jwt.sign({
-        //       role: user.role_id
-
-        // })
+      //   let roleToken = jwt.sign({
+      //       user: user
+      //   }, process.env.JWT_SECRET)
+      //   console.log('is there a user.role_id', user.role_id);
+      //   // if (user.role_id) {
+      //   //   let roleToken = jwt.sign({
+      //   //       role: user.role_id
+      //
+      //   // })
+      // // }
+      //   return token
       // }
-        return token
-      }
     // };
 
 
