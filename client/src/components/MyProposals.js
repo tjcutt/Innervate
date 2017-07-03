@@ -11,7 +11,7 @@ class MyProposals extends React.Component {
    }
 
    componentWillMount() {
-      fetch(`/api/proposals/4`, {
+      fetch(`/api/proposals/0`, {
          credentials:'include'
       })
       .then(res => res.json())
