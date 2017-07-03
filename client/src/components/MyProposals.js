@@ -25,8 +25,8 @@ class MyProposals extends React.Component {
    render(){
       if (this.state.proposals.length == 0){
          return (
-           <div>
-            <Nav />
+           <div >
+             <Nav />
             <div className="container propMain">
                <div className="row">
                   <div className="componentTitle"> My Proposals</div>
