@@ -16,6 +16,8 @@ class HomeForm extends React.Component{
     this.handleRedirect = this.handleRedirect.bind(this)
     this.setShow = this.setShow.bind(this)
     this.checkAdminPass = this.checkAdminPass.bind(this)
+    this.signupToggle = this.signupToggle.bind(this)
+    this.loginToggle = this.loginToggle.bind(this)
     this.state = {
       first_name: '',
       last_name: '',
@@ -24,7 +26,9 @@ class HomeForm extends React.Component{
       show: false,
       adminPass: '',
       redirect: false,
-      redirectReviewer: false
+      redirectReviewer: false,
+      signupShow: false,
+      loginShow: false
     }
   }
   handleRedirect(){
@@ -71,6 +75,17 @@ class HomeForm extends React.Component{
       })
     }
 
+    signupToggle(){
+      this.setState({
+        signupShow: !this.state.signupShow
+      })
+    }
+
+    loginToggle(){
+      this.setState({
+        signupShow: !this.state.signupShow
+      })
+    }
 
 
     submitClick(event, res) {
@@ -101,51 +116,143 @@ class HomeForm extends React.Component{
           })
     }
 
+    handleLoginClick (event, res) {
+      event.preventDefault()
+        fetch('/api/navLogin',{
+          method:"POST",
+          headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+             },
+          body:JSON.stringify(this.state)
+        })
+         .then(res => res.json())
+         .then( tokens => {
+          //  console.log(tokens);
+           const cookies = new Cookies()
+           cookies.set('user', tokens[0])
+           cookies.set('role', tokens[1])
+           this.setState({
+             redirect:true
+           })
+         })
+    }
+
   render() {
     return (
 
-        <div className="homeForm container font1 col m5 l5 hide-on-med-and-down">
+      <div >
+          <div className = "loginContainer container">
+              <div className="input-field  ">
+                  <input id="loginEmail" placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email" />
+                  <label htmlFor="loginEmail"></label>
+              </div>
 
-          <form className="signpForm" onSubmit={this.submitClick}>
+              <div className="input-field ">
+                  <input placeholder="Enter your password" onChange={this.setPass} className="homeInput validate" type="password" />
+                  <label htmlFor="first_name"></label>
+              </div>
 
-          <h4 className="center formSubtitle">Sign Up</h4>
+              <div> <a onClick={this.handleLoginClick} className="loginBtn waves-effect waves-light  center btn grey darken-2">Login</a></div>
 
-          <div className="input-field ">
-            <input id="first-name" onChange={this.setFirst} name="first-name" type="text" className="validate"/>
-            <label htmlFor="first-name"> First name</label>
+              {this.handleRedirect()}
           </div>
 
-          <div className="input-field ">
-            <input id="last-name" onChange={this.setLast} name="last-name" type="text" className="validate"/>
-            <label htmlFor="last-name"> Last name</label>
+          <div>
+              <div className="homeFormContainer container font1 col s8 m5 l5 ">
+
+                  <form className="signpForm" onSubmit={this.submitClick}>
+
+                      <h4 className="center formSubtitle">Sign Up</h4>
+
+                      <div className="input-field ">
+                          <input id="first-name" onChange={this.setFirst} name="first-name" type="text" className="validate" />
+                          <label htmlFor="first-name"> First name</label>
+                      </div>
+
+                      <div className="input-field ">
+                          <input id="last-name" onChange={this.setLast} name="last-name" type="text" className="validate" />
+                          <label htmlFor="last-name"> Last name</label>
+                      </div>
+
+                      <div className="input-field ">
+                          <input id="email" onChange={this.setEmail} name="email" type="email" className="validate" />
+                          <label htmlFor="email"> Email</label>
+                      </div>
+
+                      <div className="input-field ">
+                          <input id="password" onChange={this.setPass} type="password" className="validate" />
+                          <label htmlFor="password"> Password</label>
+                      </div>
+
+                      <ToggleDisplay if={this.state.show} tag="section">
+                          <div className="input-field ">
+                              <input id="adminPass" onChange={this.checkAdminPass} type="password" className="validate" />
+                              <label htmlFor="adminPass">Admin Password</label>
+                          </div>
+                      </ToggleDisplay>
+
+                      <a className="adminRef collapsible-header active" onClick={()=> this.setShow()} href="#">Admin?</a>
+
+                      <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
+
+                  </form>
+                  {this.handleRedirect()}
+              </div>
+
+              <div className="signupStatement">
+                  <h5 className="statement center">If you do not have an account,</h5>
+                  <h5 className="statement center">please signup below </h5>
+               </div>
+
+              <button className=" center waves-effect waves-light btn lgSignupBtn grey darken-2" onClick={()=> this.signupToggle()}> Sign Up</button>
+
+              <ToggleDisplay if={this.state.signupShow} tag="section">
+                  <div className="homeForm container font1 col s12 m5 l5">
+
+                      <form className="signpForm" onSubmit={this.submitClick}>
+
+                          <h4 className="center formSubtitle">Sign Up</h4>
+
+                          <div className="input-field ">
+                              <input id="first-name" onChange={this.setFirst} name="first-name" type="text" className="validate" />
+                              <label htmlFor="first-name"> First name</label>
+                          </div>
+
+                          <div className="input-field ">
+                              <input id="last-name" onChange={this.setLast} name="last-name" type="text" className="validate" />
+                              <label htmlFor="last-name"> Last name</label>
+                          </div>
+
+                          <div className="input-field ">
+                              <input id="email" onChange={this.setEmail} name="email" type="email" className="validate" />
+                              <label htmlFor="email"> Email</label>
+                          </div>
+
+                          <div className="input-field ">
+                              <input id="password" onChange={this.setPass} type="password" className="validate" />
+                              <label htmlFor="password"> Password</label>
+                          </div>
+
+                          <ToggleDisplay if={this.state.show} tag="section">
+                              <div className="input-field ">
+                                  <input id="adminPass" onChange={this.checkAdminPass} type="password" className="validate" />
+                                  <label htmlFor="adminPass">Admin Password</label>
+                              </div>
+                          </ToggleDisplay>
+
+                          <a className="adminRef collapsible-header active" onClick={()=> this.setShow()} href="#">Admin?</a>
+
+                          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
+
+                      </form>
+
+                      {this.handleRedirect()}
+
+                  </div>
+              </ToggleDisplay>
           </div>
-
-          <div className="input-field ">
-            <input id="email" onChange={this.setEmail} name="email" type="email" className="validate"/>
-            <label htmlFor="email"> Email</label>
-          </div>
-
-          <div className="input-field ">
-            <input id="password" onChange={this.setPass} type="password" className="validate"/>
-            <label htmlFor="password"> Password</label>
-          </div>
-
-          <ToggleDisplay if={this.state.show} tag="section">
-          <div className="input-field ">
-              <input id="adminPass" onChange={this.checkAdminPass} type="password" className="validate"/>
-              <label htmlFor="adminPass">Admin Password</label>
-          </div>
-          </ToggleDisplay>
-
-          <a className="adminRef collapsible-header active" onClick={() => this.setShow()} href="#">Admin?</a>
-
-
-
-          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
-
-          </form>
-          {this.handleRedirect()}
-        </div>
+      </div>
     );
   }
 }

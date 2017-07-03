@@ -66,6 +66,66 @@ p, div{
   font-family: 'Montserrat', sans-serif;
 }
 
+
+
+/*HomeForm Elements*/
+
+
+.loginContainer {
+  height: 220px;
+}
+
+.loginBtn {
+  display: block;
+  margin: 0 auto;
+  float: none;
+  width: 140px;
+}
+
+.homeFormContainer {
+  margin: 0 auto;
+}
+
+.lgSignupBtn {
+  display: block;
+  margin: 15px auto;
+}
+
+.loginInput {
+  max-width: 200px;
+}
+
+.signupStatement {
+  margin: 0 auto;
+}
+
+@media (min-width: 600px){
+  .loginContainer {
+    display: none;
+  }
+
+  .lgSignupBtn {
+    display: none;
+  }
+
+  .signupStatement {
+    display: none;
+  }
+}
+
+@media (max-width: 600px){
+  .homeFormContainer {
+    display: none;
+  }
+
+  .homeInfoContainer {
+    display: none;
+  }
+
+}
+
+
+
 .lgText{
   font-size: 1.1em;
 }
@@ -78,9 +138,6 @@ p, div{
 }
 
 
-.nav-wrapper {
-  width: 100%;
-}
 /*.homeNavInput {
 padding: 8px;*/
 /*overflow: hidden;*/

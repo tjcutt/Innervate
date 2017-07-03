@@ -5,7 +5,7 @@ class HomeInfo extends React.Component{
   render() {
     return (
       <div>
-        <div className="homeInfo font1 col s12 m12 l7">
+        <div className="homeInfoContainer font1 col s12 m12 l7 ">
 
         <br/>
         <div className="smMargin">

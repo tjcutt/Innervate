@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <HomeNav />
-        <div className="row">
+        <div className = "row">
         <HomeInfo />
         <HomeForm />
         </div>
