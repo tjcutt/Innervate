@@ -133,7 +133,7 @@ class Survey extends React.Component {
                     <h5>Specify the neurological disorder you have or care of:</h5><br/>
                     <div className="row">
                         <div className="row selectDisorder">
-                            <div className="col s12 m6 l4">
+                            <div className="col s12 m12 l12">
                                 <SelectField id="selectfield" multiple={true} fullWidth={true} hintText="Select disorders" value={disorders} onChange={this.handleChange}>
                                     {this.menuItems(disorders)}
                                 </SelectField>
@@ -144,29 +144,35 @@ class Survey extends React.Component {
                                 <input className="with-gap col s12 m1 l1" name="other" type="radio" id="other"/>
                                 <label htmlFor="other col s12 m1 l1" id="otherLable">Other:
                                 </label>
-                                <input id="first_name" type="text" className="surveryInput validate right col s8 m8 l8"/>
+                                <input id="first_name" type="text" className="surveryInput validate right col s8 m8 l11"/>
                             </div>
                         </div>
                     </div>
 
                     <h5>Where did you hear about us?</h5><br/>
                     <div className="row">
-                        <div className="col s12 m12 l4">
+                        <div className="col s12 m12 l3">
                             <p>
                                 <input className="with-gap" name="referral" type="radio" id="baylor" value="Baylor University" checked={this.state.referral === 'Baylor University'} onChange={this.handleReferralChange}/>
                                 <label htmlFor="baylor">Baylor University</label>
                             </p>
                         </div>
-                        <div className="col s12 m12 l4">
+                        <div className="col s12 m12 l3">
                             <p>
                                 <input className="with-gap" name="referral" type="radio" id="cu-med" value="University of Colorado School of Medicine" checked={this.state.referral === 'University of Colorado School of Medicine'} onChange={this.handleReferralChange}/>
                                 <label htmlFor="cu-med">University of Colorado School of Medicine</label>
                             </p>
                         </div>
-                        <div className="col s12 m12 l4">
+                        <div className="col s12 m12 l3">
                             <p>
                                 <input className="with-gap" name="referral" type="radio" id="child-hosp" value="Children's Hospital Colorado" checked={this.state.referral === "Children's Hospital Colorado"} onChange={this.handleReferralChange}/>
                                 <label htmlFor="child-hosp">Children&#39;s Hospital Colorado</label>
+                            </p>
+                        </div>
+                        <div className="col s12 m12 l3">
+                            <p>
+                                <input className="with-gap" name="referral" type="radio" id="child-hosp"/>
+                                <label htmlFor="child-hosp">Other</label>
                             </p>
                         </div>
                         <br/>

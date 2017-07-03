@@ -169,7 +169,7 @@ class WizardOne extends React.Component{
                 {this.disorderItems(disorders)}
               </SelectField>
             </div>
-            <div className="col l2">
+            <div className="col l12">
               <p>
                 <input className="with-gap" name="other" type="radio" id="other" />
                 <label htmlFor="other">Other: </label>
@@ -178,26 +178,28 @@ class WizardOne extends React.Component{
             <div className="col l12">
               <input id="first_name" type="text" className="validate right"/>
             </div>
-            <div className="col l6">
-              <SelectField
-                multiple={true}
-                fullWidth={true}
-                hintText="Select challenges"
-                value={afflictions}
-                onChange={this.handleAfflictionChange}>
-                {this.afflictionItems(afflictions)}
-              </SelectField>
-            </div>
-            <div className="col l6">
-              <SelectField
-                multiple={true}
-                fullWidth={true}
-                hintText="Select solutions"
-                value={solutions}
-                onChange={this.handleSolutionChange}>
-                {this.solutionItems(solutions)}
-              </SelectField>
-            </div>
+              <div className="col l12">
+                <h5>Select the challenges your proposal aims to help:</h5>
+                <SelectField
+                  multiple={true}
+                  fullWidth={true}
+                  hintText="Select challenges"
+                  value={afflictions}
+                  onChange={this.handleAfflictionChange}>
+                  {this.afflictionItems(afflictions)}
+                </SelectField>
+              </div>
+              <div className="col l12">
+                <h5>Select the category of solutions your proposal fits most:</h5>
+                <SelectField
+                  multiple={true}
+                  fullWidth={true}
+                  hintText="Select solutions"
+                  value={solutions}
+                  onChange={this.handleSolutionChange}>
+                  {this.solutionItems(solutions)}
+                </SelectField>
+              </div>
             <div className="input-field col s12">
               <h5>Tell us your personal story/how this would benefit people</h5>
               <textarea value={this.state.story} onChange={this.handleStoryChange} id="textarea1" className="materialize-textarea"></textarea>
