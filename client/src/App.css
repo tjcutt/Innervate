@@ -58,29 +58,35 @@ p, div{
 }
 
 
-/*Home Page*/
-.font1 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/*HomeForm Elements*/
-
-
 /*OVERRIDING MATERIALIZE ON HOME PAGE=============*/
 
+/* label focus color */
+.navbarElements .input-field label {
+  color: rgba(255,255,255, 0.8) !important;
+}
+
+  .navbarElements .input-field input[type=text]:focus + label {
+    color: rgba(255,255,255, 0.8) !important;
+  }
+
+/*input field focus underline*/
+ .navbarElements .input-field input:focus {
+   border-bottom: 1px solid rgba(255,255,255, 0.8) !important;
+   box-shadow: 0 1px 0 0 rgba(255,255,255, 0.8) !important
+ }
 
 /* label focus color */
   .input-field input[type=text]:focus + label {
     color: rgba(2, 136,	209, 0.6) !important;
   }
 
-
-
+/*input field focus underline*/
  .input-field input:focus {
    border-bottom: 1px solid rgba(2, 136,	209, 0.6) !important;
    box-shadow: 0 1px 0 0 rgba(2, 136,	209, 0.6) !important
  }
 
+/*btn wave overrides*/
 .btn, .btn-large, .btn:clicked, .btn-large:visited {
   background-color: none;
 }
@@ -98,9 +104,39 @@ p, div{
 }
 /*================================*/
 
+
+/*Home Page  ======================*/
+.font1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*HomeForm Elements*/
+
+
 .lgHomeContainer {
   margin: 20px;
 }
+/*
+.brand-logo {
+  margin-left: 20px;
+}*/
+
+li.input-field.sideNavInput {
+  margin: 10px 15px 0 15px;
+}
+
+.sideNavInput input {
+  color: #424242;
+}
+
+.homeNav {
+  width: 100vw;
+}
+
+.homeNavBtn {
+  margin-right: 45px !important;
+}
+
 
 .loginContainer {
   height: 220px;
@@ -168,8 +204,10 @@ p, div{
 }
 
 
-/*Hide login, signup button, and intermediary statment*/
-@media (min-width: 800px){
+
+/*Hide login, signup button, and intermediary statment ========*/
+
+@media (min-width: 850px){
   .loginContainer {
     display: none;
   }
@@ -181,12 +219,25 @@ p, div{
   .signupStatement {
     display: none;
   }
+
   div.card-content{
      display: block;
  }
+
 }
 
-/*Hide main info and forms when below 850px*/
+@media screen (min-width: 601px)
+{
+  .sideNav, .sideNavIcon {
+    display: none;
+}
+
+}
+
+/*================================*/
+
+/*Hide main info and forms when below 850px ===========*/
+
 @media (max-width: 850px){
   .homeFormContainer {
     display: none;
@@ -195,7 +246,21 @@ p, div{
   .homeInfoContainer {
     display: none;
   }
+
 }
+
+@media screen (max-width: 601px){
+
+  .homeTopNavBtn {
+    display: none;
+  }
+
+  .homeNavInput {
+    display: none;
+  }
+}
+
+/*=============================*/
 
 
 .lgText{
@@ -209,7 +274,8 @@ p, div{
   letter-spacing: 0.1em;
 }
 
-/*Change placeholder color=======================*/
+/*Change placeholder color and placement =======================*/
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   text-align: center;
   color:#7f7f7f ;
@@ -225,6 +291,10 @@ p, div{
 :-moz-placeholder { /* Firefox 18- */
   text-align: center;
   color: #7f7f7f ;
+}
+
+.sideNavInput input::placeholder {
+  text-align: left;
 }
 /*======================================*/
 
