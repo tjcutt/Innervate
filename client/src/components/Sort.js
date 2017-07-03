@@ -29,15 +29,3 @@ class Sort extends React.Component {
 
 }
 export default Sort
-
-// onClick={this.sortProposals('votes')}
-// onClick={this.sortProposals('created_at')}
-// onClick={this.sortProposals('something')}
-
-
-
-// <h1>Sort by</h1>
-// {/* {this.sortAds.bind(this,'price')} */}
-// <div className="pill" onClick={this.sortAds.bind(this,'created_at')} >Date</div>
-// <div className="pill" onClick={this.sortAds.bind(this,'price')} >Price</div>
-// <div className="pill" onClick={this.sortAds.bind(this,'title')} >Title</div>

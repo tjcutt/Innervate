@@ -9,12 +9,9 @@ class ProposalList extends React.Component {
      super(props)
      this.state = {
        proposals: this.props.proposals,
-       redirect: false
      }
      this.sortProposals = this.sortProposals.bind(this)
      this.filterProposals = this.filterProposals.bind(this)
-     this.handleRedirect = this.handleRedirect.bind(this)
-     this.handleClick = this.handleClick.bind(this)
    }
 
    componentWillMount(){
@@ -33,19 +30,11 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
+     console.log('sorted proposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
-   handleRedirect(){
-     if(this.state.redirect){
-       return <Redirect to='/wizard1'></Redirect>;
-     }
-   }
-   handleClick(event) {
-    this.setState({
-     redirect:true
-    })
-   }
+
    filterProposals(term, proposals){
      let filteredProposals = []
      for (let prop of proposals) {
@@ -71,15 +60,15 @@ class ProposalList extends React.Component {
          el = ProposalItems
       }
 
+      console.log('reload')
       return (
          <div>
-           {this.handleRedirect()}
             <div className="row sortFilter">
                <div className="container">
                   <div className="row">
                      <Filter proposals={this.props.proposals} filterProposals={this.filterProposals.bind(this)}  />
                      <Sort id="sort" proposals={this.props.proposals} sortProposals={this.sortProposals}  />
-                     <button onClick={this.handleClick} className="btn newBtn  light-blue darken-2">New Proposal</button>
+                     <a href="wizard1"><button className="btn newBtn  light-blue darken-2">New Proposal</button></a>
                   </div>
                </div>
             </div>
