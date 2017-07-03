@@ -14,10 +14,10 @@ class ChartSelector extends React.Component {
    render() {
           console.log("WE ARE IN graphselector");
      // this.sortAds('created_at')
-     
+
      return (
        <div className="sort-section sort ChartSelector">
-          <Input s={8} m={8} l={8} id="sort" type='select' label="Datal Selector" defaultValue='' onChange={this.handleChange.bind(this)}>
+          <Input s={8} m={8} l={8} id="sort" type='select' label="Data Selector" defaultValue='' onChange={this.handleChange.bind(this)}>
              <option value='userRole'>Users by Role</option>
              <option value='proposalSolution'>Proposals by Solutions</option>
              <option value='proposalDisorder'>Proposals by Disorders</option>

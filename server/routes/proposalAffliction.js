@@ -9,7 +9,17 @@ router.get('/', (req, res) => {
       .groupBy('affliction_id')
       .count('*')
       .then((data) =>{
-         console.log('DATA afflictions', data);
+         let afflictionName = {
+            1: "Motor Skills",
+            2:"Sensory Deficits",
+            3: "Language/Speech Barriers",
+            4: "Safety Issues",
+            5:"Medication Adherence",
+            6: "Sleep Disturbance",
+            7:"Working",
+            8: "Transportation"
+         }
+         let namedData = data.map((el) => el.affliction_id = afflictionName[el.affliction_id])
          res.send(data)
       })
 
