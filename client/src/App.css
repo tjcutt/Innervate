@@ -57,33 +57,28 @@ p, div{
   float: left
 }
 
-.smMargin {
-  margin: 10px;
-}
 
 /*Home Page*/
 .font1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
 /*HomeForm Elements*/
 
+.lgHomeContainer {
+  margin: 20px;
+}
 
 .loginContainer {
   height: 220px;
+  margin: 25px auto;
 }
 
 .loginBtn {
   display: block;
-  margin: 0 auto;
+  margin: 15px auto;
   float: none;
   width: 140px;
-}
-
-.homeFormContainer {
-  margin: 0 auto;
 }
 
 .lgSignupBtn {
@@ -91,15 +86,70 @@ p, div{
   margin: 15px auto;
 }
 
+.signupStatement {
+  margin: 25px auto;
+}
+
 .loginInput {
   max-width: 200px;
 }
 
-.signupStatement {
-  margin: 0 auto;
+.signupForm {
+  padding: 0 40px 10px 5px;
 }
 
-@media (min-width: 600px){
+
+.formSubtitle {
+  margin-top: 20px;
+}
+
+.input-field {
+  margin: 8vh 0 0 8vh;
+}
+
+
+
+
+.bottomForm{
+  display: flex;
+  height: 40px;
+}
+
+/*.collapsible-header{
+  min-height: 0;
+  line-height: 30px;
+}*/
+
+/*.btn:focus .btn:active .btn-lrg:focus {
+  background-color: none;
+}
+
+.waves-teal {
+  background-color: none;
+}*/
+
+.adminRef {
+  flex: 1;
+  order: 2;
+  width: 30px;
+  text-align: center;
+  background-color: rgba(255,255,255, 0.9);
+  color: rgba(2,	136,	209, 0.6	);
+
+}
+
+.signupBtn {
+  margin: 0 20px;
+  flex: 1;
+  order: 1;
+  width: 30px;
+  text-align: center;
+
+}
+
+
+/*Hide login, signup button, and intermediary statment*/
+@media (min-width: 850px){
   .loginContainer {
     display: none;
   }
@@ -113,7 +163,8 @@ p, div{
   }
 }
 
-@media (max-width: 600px){
+/*Hide main info and forms when below 850px*/
+@media (max-width: 850px){
   .homeFormContainer {
     display: none;
   }
@@ -121,9 +172,7 @@ p, div{
   .homeInfoContainer {
     display: none;
   }
-
 }
-
 
 
 .lgText{
@@ -136,18 +185,6 @@ p, div{
   font-weight: 700;
   letter-spacing: 0.1em;
 }
-
-
-/*.homeNavInput {
-padding: 8px;*/
-/*overflow: hidden;*/
-/*margin: 10px;*/
-/*border: 2px solid black;
-}
-
-.homeNavBtn {
- border: 2px solid black;
-}*/
 
 /*Change placeholder color*/
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -201,11 +238,12 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
    display: none;
 }
 
-
+/*Icons on info cards*/
 .material-icons {
   margin: auto;
 }
 
+/*Info cards*/
 .card-image {
   display: inline-block;
   width: 7vw;
@@ -215,29 +253,9 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   display: inline-block;
 }
 
-.formSubtitle {
-  margin-top: 8vh;
-}
 
-.input-field {
-  margin: 8vh 0 0 8vh;
-}
-
-.signupBtn {
-  margin-left: 8vh;
-}
-
-.adminRef {
-  float: right;
-  margin-top: 0;
-  margin-right: 3vw;
-}
 
 /*=============================*/
-
-/*TYPOGRAPHY*/
-
-
 
 
 div.container.propMain{

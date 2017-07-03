@@ -159,9 +159,9 @@ class HomeForm extends React.Component{
           </div>
 
           <div>
-              <div className="homeFormContainer container font1 col s8 m5 l5 ">
+              <div className="homeFormContainer container font1 col m5 l5 ">
 
-                  <form className="signpForm" onSubmit={this.submitClick}>
+                  <form className="signupForm" onSubmit={this.submitClick}>
 
                       <h4 className="center formSubtitle">Sign Up</h4>
 
@@ -192,9 +192,12 @@ class HomeForm extends React.Component{
                           </div>
                       </ToggleDisplay>
 
-                      <a className="adminRef collapsible-header active" onClick={()=> this.setShow()} href="#">Admin?</a>
+                      <div className = "bottomForm">
+                      <button type="submit" className="waves-effect grey lighten-5 btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
 
-                      <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
+                      <button type="button" className="adminRef waves-effect waves-light btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
+
+                      </div>
 
                   </form>
                   {this.handleRedirect()}
@@ -205,7 +208,7 @@ class HomeForm extends React.Component{
                   <h5 className="statement center">please signup below </h5>
                </div>
 
-              <button className=" center waves-effect waves-light btn lgSignupBtn grey darken-2" onClick={()=> this.signupToggle()}> Sign Up</button>
+              <button className=" center  waves-effect waves-light btn lgSignupBtn grey darken-2" onClick={()=> this.signupToggle()}> Sign Up</button>
 
               <ToggleDisplay if={this.state.signupShow} tag="section">
                   <div className="homeForm container font1 col s12 m5 l5">
