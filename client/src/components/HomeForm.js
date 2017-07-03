@@ -195,7 +195,7 @@ class HomeForm extends React.Component{
                       <div className = "bottomForm">
                       <button type="submit" className="waves-effect grey lighten-5 btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
 
-                      <button type="button" className="adminRef waves-effect waves-light btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
+                      <button type="button" className="adminRef waves-effect btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
 
                       </div>
 
