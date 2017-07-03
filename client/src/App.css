@@ -45,7 +45,7 @@ p, div{
    display: inline-block;
    margin-top: 20px;
    /*margin-right: 24vw;*/
-   margin-bottom: -50px;
+   margin-bottom: 20px;
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
