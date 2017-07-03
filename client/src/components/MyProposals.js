@@ -30,8 +30,8 @@ class MyProposals extends React.Component {
             <div className="container propMain">
                <div className="row">
                   <div className="componentTitle"> My Proposals</div>
-                  <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
                </div>
+               <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
             </div>
           </div>
          )
@@ -40,10 +40,12 @@ class MyProposals extends React.Component {
         <div>
          <Nav />
          <div className="container propMain">
+         <div className="row">
             <div className="row">
                <div className="componentTitle"> My Proposals</div>
-               <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
             </div>
+            <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
+         </div>
             <MyProposalList proposals={this.state.proposals}/>
          </div>
         </div>
