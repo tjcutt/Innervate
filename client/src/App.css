@@ -104,10 +104,9 @@ p, div{
 }
 
 .input-field {
-  margin: 8vh 0 0 8vh;
+  margin: 10px 20px;
+  /*max-width: 200px;*/
 }
-
-
 
 
 .bottomForm{
@@ -188,15 +187,19 @@ p, div{
 
 /*Change placeholder color*/
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  text-align: center;
   color:#7f7f7f ;
 }
 ::-moz-placeholder { /* Firefox 19+ */
+  text-align: center;
   color: #7f7f7f ;
 }
 :-ms-input-placeholder { /* IE 10+ */
+  text-align: center;
   color: #7f7f7f ;
 }
 :-moz-placeholder { /* Firefox 18- */
+  text-align: center;
   color: #7f7f7f ;
 }
 
