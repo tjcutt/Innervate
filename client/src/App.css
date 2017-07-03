@@ -148,7 +148,7 @@ p, div{
 
 
 /*Hide login, signup button, and intermediary statment*/
-@media (min-width: 850px){
+@media (min-width: 800px){
   .loginContainer {
     display: none;
   }
@@ -160,6 +160,9 @@ p, div{
   .signupStatement {
     display: none;
   }
+  div.card-content{
+     display: block;
+ }
 }
 
 /*Hide main info and forms when below 850px*/
