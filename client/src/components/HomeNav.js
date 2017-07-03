@@ -64,7 +64,7 @@ class HomeNav extends React.Component{
     return (
        <div>
         <nav>
-            <div className="nav-wrapper font1 cyan lighten-3">
+            <div className="nav-wrapper white-text font1">
               <a className="logo smMargin">Innervate</a>
 
               <ul id="nav-mobile" className="right col s12 hide-on-small-and-down">
