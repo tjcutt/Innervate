@@ -50,6 +50,7 @@ class Proposals extends React.Component {
 
       return (
       <div>
+         {this.handleRedirect()}
         <Nav />
          <div className="container propMain">
             <div className="row">

@@ -10,7 +10,6 @@ class Sort extends React.Component {
    }
 
   render() {
-         console.log("WE ARE IN SORT!!");
     // this.sortAds('created_at')
     return (
       <div className="sort-section sort">
@@ -23,7 +22,6 @@ class Sort extends React.Component {
     )
   }
   handleChange(event){
-    console.log('01010 handle in sort field', event.target.value);
     let proposals = this.props.proposals
     let field = event.target.value
     this.props.sortProposals(field, proposals)

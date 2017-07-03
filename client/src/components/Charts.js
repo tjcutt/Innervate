@@ -72,7 +72,6 @@ handleRedirect(){
 
 
 render(){
-   console.log('state', this.state);
    return (
       <div>
         {this.handleRedirect()}

@@ -16,7 +16,7 @@ html, body {
 }
 
 nav{
-  background-color:#0288d1;
+  background-color:rgba(5, 115, 175, 0.64);
 }
 
 p, div{
@@ -110,13 +110,39 @@ label {
   color: #9e9e9e ;
 }
 
+/*hamburger menu disappear*/
+@media only screen and (min-width: 601px){
+   nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+      display: none;
+   }
+}
+
+@media only screen and (max-width: 601px){
+   a.brand-logo.left{
+      display: flex;
+      margin-left: 100px;
+      margin-top: 4px;
+   }
+
+   #sideNavTitle{
+      color: black;
+      font-size: 20px;
+      text-align: center;
+   }
+
+   /*.componentTitle{
+      margin-left: 30px;
+   }*/
+}
 
 /*Home Page*/
 /*for laptops and bigger screens*/
 @media (min-width: 800px) {
 
 
-
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+   display: none;
+}
 
 
 .material-icons {
@@ -466,6 +492,11 @@ transform: scale(.5); }
       font-size: 30px;
    }
 
+   #mobile-demo.side-nav {
+      width: 42vw;
+      background-image: url('./images/sayagata-400px.png');
+   }
+
 }
 
 /*for Iphones landscape*/
@@ -587,6 +618,11 @@ transform: scale(.5); }
    }
    .GraphTitle{
       font-size: 40px;
+   }
+
+   #mobile-demo.side-nav {
+      width: 42vw;
+      background-image: url('./images/sayagata-400px.png');
    }
 
 }
