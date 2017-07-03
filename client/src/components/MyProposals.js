@@ -11,7 +11,7 @@ class MyProposals extends React.Component {
    }
 
    componentWillMount() {
-      fetch(`/api/proposals/4`, {
+      fetch(`/api/proposals/0`, {
          credentials:'include'
       })
       .then(res => res.json())
@@ -25,12 +25,12 @@ class MyProposals extends React.Component {
    render(){
       if (this.state.proposals.length == 0){
          return (
-           <div>
-            <Nav />
+           <div >
+             <Nav />
             <div className="container propMain">
                <div className="row">
                   <div className="componentTitle"> My Proposals</div>
-                  <button className="btn newBtnMy  light-blue darken-2">New Proposal</button>
+                  <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
                </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ class MyProposals extends React.Component {
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> My Proposals</div>
-               <button className="btn newBtnMy  light-blue darken-2">New Proposal</button>
+               <a href="/wizard1"><button className="btn newBtnMy  light-blue darken-2">New Proposal</button></a>
             </div>
             <MyProposalList proposals={this.state.proposals}/>
          </div>
