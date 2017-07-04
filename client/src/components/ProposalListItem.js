@@ -114,7 +114,6 @@ class ProposalListItem extends React.Component {
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
-               <div> { el } </div>
                <div className="row cardBottom">
                <div id="line" />
                   <div id="voteCount"> {this.state.votes} </div>
@@ -140,6 +139,7 @@ class ProposalListItem extends React.Component {
                      </Modal>
                      </div>
                      <div id="line" className="marginLine" />
+                     <div className="center voteTitle"> Vote Breakdown</div>
                      <div className="roleVotes">
                         <div className="roleVote"> Patient: {this.state.roleVotes[1]? this.state.roleVotes[1] : 0} </div>
                         <div className="roleVote"> Caregiver: {this.state.roleVotes[2]? this.state.roleVotes[2] : 0} </div>
