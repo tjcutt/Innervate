@@ -115,10 +115,11 @@ class ProposalListItem extends React.Component {
                   { this.props.proposal.summary }
                </div>
                <div> { el } </div>
-               <div id="line" />
                <div className="row cardBottom">
+               <div id="line" />
                   <div id="voteCount"> {this.state.votes} </div>
-                  <div id="upvote" data="1" onClick={ this.updateVotes }> upvote </div> <Modal
+                  <div id="upvote" data="1" onClick={ this.updateVotes }> upvote </div>
+                  <Modal
                       key={this.props.proposal.id}
                        header={this.props.proposal.title}
                        trigger={
@@ -137,7 +138,18 @@ class ProposalListItem extends React.Component {
                        <p id="modalText"> Images:</p><br />
                        <img className="modalImg" src={this.state.images} width="300px"  />
                      </Modal>
-                  </div>
+                     </div>
+                     <div id="line" className="marginLine" />
+                     <div className="row roleVotes">
+                           <div className="roleVote"> Patient: {this.state.roleVotes[1]? this.state.roleVotes[1] : 0} </div>
+                           <div className="roleVote"> Caregiver: {this.state.roleVotes[2]? this.state.roleVotes[2] : 0} </div>
+                           <div className="roleVote"> Family: {this.state.roleVotes[3]? this.state.roleVotes[3] : 0} </div>
+                     </div>
+                     <div className="row roleVotes">
+                        <div className="roleVote"> Medical: {this.state.roleVotes[4]? this.state.roleVotes[4] : 0} </div>
+                        <div className="roleVote"> Reviewer: {this.state.roleVotes[5]? this.state.roleVotes[5] : 0} </div>
+                        <div className="roleVote"> Admin: {this.state.roleVotes[6]? this.state.roleVotes[6] : 0} </div>
+                     </div>
                </Card>
             </Col>
          </div>
