@@ -15,7 +15,8 @@ class ProposalListItem extends React.Component {
      this.state = {
         images: [],
         votes: 0,
-        userCookie: ''
+        userCookie: '',
+        roleVotes: {}
      }
    }
 
@@ -51,7 +52,6 @@ class ProposalListItem extends React.Component {
    }
 
    updateVotes (){
-      console.log('thisSTATE COOKES', this.state.userCookie);
       let proposalId = this.props.proposal.id
       let body = { proposalId }
       fetch('/api/votes',{
@@ -99,6 +99,10 @@ class ProposalListItem extends React.Component {
 
    render (){
       this.getVotes()
+      let el = null
+      // console.log('list item roleid', this.props.userRole);
+      if (this.props.userRole == 5) console.log('true'), el = <div> timbo tumbo </div>
+
       return (
          <div className="proposalItem container">
             <Col m={6} s={12} onClick={this.getImages.bind(this)}>
@@ -109,6 +113,7 @@ class ProposalListItem extends React.Component {
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
+               <div> { el } </div>
                <div id="line" />
                <div className="row cardBottom">
                   <div id="voteCount"> {this.state.votes} </div>

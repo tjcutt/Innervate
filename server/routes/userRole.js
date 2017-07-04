@@ -11,12 +11,14 @@ router.get('/', (req, res) => {
       .groupBy('role_id')
       .count('*')
       .then((data) =>{
+         console.log('object ', data);
          let roleName = {
             1: "Patient",
             2:"Caregiver",
             3: "Family",
             4: "Medical Professional"}
          let namedData = data.map((el) => el.role_id = roleName[el.role_id])
+         console.log('name obj', namedData);
          res.send(data)
       })
 

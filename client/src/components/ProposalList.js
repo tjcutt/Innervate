@@ -9,13 +9,17 @@ class ProposalList extends React.Component {
      super(props)
      this.state = {
        proposals: this.props.proposals,
+       userRole: ''
      }
      this.sortProposals = this.sortProposals.bind(this)
      this.filterProposals = this.filterProposals.bind(this)
+     this.getRole = this.getRole.bind(this)
+
    }
 
    componentWillMount(){
       this.sortProposals('created_at', this.props.proposals)
+      this.getRole()
    }
 
    sortProposals = (field, proposals) => {
@@ -30,7 +34,7 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
-     console.log('sorted proposals', sortedProposals);
+   //   console.log('sorted proposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
@@ -54,12 +58,11 @@ class ProposalList extends React.Component {
          let ProposalItems =
          this.state.proposals.map((proposal, i)=> {
             return (
-               <ProposalListItem key={i} data={i + 1} proposal={proposal} />
+               <ProposalListItem key={i} data={i + 1} proposal={proposal} userRole={this.state.userRole}  />
             )
          })
          el = ProposalItems
       }
-
       console.log('reload')
       return (
          <div>
@@ -77,6 +80,24 @@ class ProposalList extends React.Component {
             </div>
          </div>
       )
+   }
+
+   getRole(){
+      fetch(`/api/role/`,{
+         method:"GET",
+         credentials: 'include',
+         headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+            }
+      })
+      .then(res => res.json())
+      .then(data => {
+         // console.log( 'front end .then ID', data);
+         this.setState({
+            userRole: data
+         })
+      })
    }
 }
 

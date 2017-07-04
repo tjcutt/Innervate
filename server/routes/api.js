@@ -12,6 +12,8 @@ const userRole = require('./userRole');
 const proposalSolution = require('./proposalSolution');
 const proposalDisorder = require('./proposalDisorder');
 const proposalAffliction = require('./proposalAffliction');
+const role = require('./role');
+
 
 const express = require(`express`);
 const router = express.Router();
@@ -29,5 +31,6 @@ router.use('/userRole', userRole);
 router.use('/proposalSolution', proposalSolution);
 router.use('/proposalDisorder', proposalDisorder);
 router.use('/proposalAffliction', proposalAffliction);
+router.use('/role', role);
 
 module.exports = router;
