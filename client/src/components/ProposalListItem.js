@@ -99,9 +99,10 @@ class ProposalListItem extends React.Component {
 
    render (){
       this.getVotes()
+      console.log('this.state', this.state.roleVotes);
       let el = null
       // console.log('list item roleid', this.props.userRole);
-      if (this.props.userRole == 5) console.log('true'), el = <div> timbo tumbo </div>
+      if (this.props.userRole == 5) console.log('true'), el = <div> {this.state.roleVotes[1]} </div>
 
       return (
          <div className="proposalItem container">
@@ -156,8 +157,10 @@ class ProposalListItem extends React.Component {
       })
       .then(res => res.json())
       .then(num => {
-         // console.log( this.props.proposal.title, id, num);
+         let roleIdVotes = {}
+         for (var obj of num[1]) roleIdVotes[obj.role_id] = obj.count
          this.setState({
+            roleVotes: roleIdVotes,
             votes: num[0]
          })
       })

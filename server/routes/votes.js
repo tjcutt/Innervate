@@ -14,10 +14,10 @@ router.post('/:id', (req, res, next) => {
       .select(['user_role.role_id' ])
       .groupBy(['user_role.role_id' ])
          .then((num)=> {
-            let ans = num.reduce((acc, el) => acc + parseInt(el.count) ,0)
-            console.log('ansss', ans);
+            let votes = num.reduce((acc, el) => acc + parseInt(el.count) ,0)
+            console.log('votesss', votes);
             console.log('tprop id and count', proposalId, num);
-            res.json([ans, num])
+            res.json([votes, num])
          })
 })
 
