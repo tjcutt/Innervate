@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
             3: "Family",
             4: "Medical Professional"}
          let namedData = data.map((el) => el.role_id = roleName[el.role_id])
-         console.log('name obj', namedData);
          res.send(data)
       })
 

@@ -158,7 +158,7 @@ class ProposalListItem extends React.Component {
       .then(num => {
          // console.log( this.props.proposal.title, id, num);
          this.setState({
-            votes: num
+            votes: num[0]
          })
       })
    }
