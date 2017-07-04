@@ -397,13 +397,15 @@ h4{
 
 .roleVotes {
    display: flex;
-   justify-content: space-around;
    flex-wrap: wrap;
+   /*margin-left: 0;*/
+   justify-content: space-between;
 }
 
 .roleVote {
-   flex: 1;
-   justify-content: space-between;
+   flex: 1 1 auto;;
+   margin: 3px 5px;
+   /*box-sizing: border-box;*/
 }
 
 #modalClick{
@@ -555,6 +557,23 @@ transform: scale(.5); }
       padding-top: 10px;
    }
 
+   .marginLine{
+      margin-top: 10px;
+      margin-bottom: 10px;
+   }
+   .roleVotes {
+      display: flex;
+      flex-wrap: wrap;
+      /*margin-left: 0;*/
+      justify-content: space-between;
+   }
+
+   .roleVote {
+      flex: 1 1 auto;;
+      margin: 3px 5px;
+      /*box-sizing: border-box;*/
+   }
+
    .container .row.cardBottom{
       margin-bottom: 0;
       margin-left: 0px;
@@ -689,6 +708,23 @@ transform: scale(.5); }
       border-bottom: 1px solid rgba(133, 133, 133, 0.57);
       width: 100%;
       padding-top: 10px;
+   }
+
+   .marginLine{
+      margin-top: 10px;
+      margin-bottom: 10px;
+   }
+   .roleVotes {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 3px 5px;
+      justify-content: space-between;
+   }
+
+   .roleVote {
+      width:30%;
+      /*margin: 0 5px;*/
+      /*box-sizing: border-box;*/
    }
 
    .container .row.cardBottom{
