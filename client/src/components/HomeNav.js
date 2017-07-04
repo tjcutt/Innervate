@@ -61,31 +61,51 @@ class HomeNav extends React.Component{
 
   render() {
     return (
-       <div>
-        <nav>
-            <div className="nav-wrapper white-text font1">
-              <a className="logo smMargin">Innervate</a>
 
-              <ul id="nav-mobile" className="right col s12 hide-on-small-and-down">
+      <div>
+          <nav>
+              <div className="nav-wrapper homeNav">
 
-                <li className="input-field homeNavInput col s5">
-                 <input id="loginEmail" placeholder="Enter your email" onChange={this.setEmail} className="homeInput validate" type="email"/>
-                 <label htmlFor="loginEmail"></label>
-                </li>
+                  <a href="#!" className="brand-logo left">Innervate</a>
 
-                <li className="input-field homeNavInput col s5">
-                  <input placeholder="Enter your password" onChange={this.setPass} className="homeInput validate" type="password"/>
-                  <label htmlFor="first_name">First Name</label>
-                </li>
+                  <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons sideNavIcon hamburger">menu</i></a>
+                  <ul className="right navbarElements hide-on-small-and-down">
 
-                <li> <a onClick={this.handleLoginClick}
-                   className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
+                      <li className="input-field homeNavInput col s5">
+                          <input id="loginEmail" onChange={this.setEmail} className="homeInput validate" type="email" />
+                          <label htmlFor="loginEmail">Email</label>
+                      </li>
 
-              </ul>
-            </div>
+                      <li className="input-field homeNavInput col s5">
+                          <input onChange={this.setPass} className="homeInput validate" type="password" />
+                          <label htmlFor="first_name">Password</label>
+                      </li>
+
+                      <li> <a onClick={this.handleLoginClick} className="waves-effect waves-light homeTopNavBtn btn grey darken-2">Login</a></li>
+
+                  </ul>
+
+                  <div className="side-nav sideNav" id="mobile-demo">
+                      <ul>
+                          <p id="sideNavTitle" className="sideNavTitle"> Login </p>
+                          <li className="input-field sideNavInput">
+                              <input id="loginEmail" placeholder="Email" onChange={this.setEmail} className="homeInput validate" type="email" />
+
+                          </li>
+
+                          <li className="input-field sideNavInput">
+                                <input onChange={this.setPass} placeholder="Password" className="homeInput validate" type="password" />
+
+                          </li>
+
+                          <li> <a  onClick={this.handleLoginClick} className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
+                      </ul>
+                  </div>
+              </div>
           </nav>
+
           {this.handleRedirect()}
-        </div>
+      </div>
     );
   }
 
