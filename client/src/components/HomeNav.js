@@ -49,7 +49,6 @@ class HomeNav extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
-          //  console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
            cookies.set('role', tokens[1])

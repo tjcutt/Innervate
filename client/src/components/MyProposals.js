@@ -9,7 +9,6 @@ class MyProposals extends React.Component {
        proposals:[]
      }
    }
-
    componentWillMount() {
       fetch(`/api/proposals/0`, {
          credentials:'include'
