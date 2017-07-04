@@ -102,7 +102,22 @@ class ProposalListItem extends React.Component {
       console.log('this.state', this.state.roleVotes);
       let el = null
       // console.log('list item roleid', this.props.userRole);
-      if (this.props.userRole == 5) console.log('true'), el = <div> {this.state.roleVotes[1]} </div>
+      if (this.props.userRole == 5){
+         console.log('TRUUUUE');
+         el = (
+         <div>
+            <div id="line" className="marginLine" />
+            <div className="center voteTitle"> Vote Breakdown</div>
+            <div className="roleVotes">
+               <div className="roleVote"> Patient: {this.state.roleVotes[1]? this.state.roleVotes[1] : 0} </div>
+               <div className="roleVote"> Caregiver: {this.state.roleVotes[2]? this.state.roleVotes[2] : 0} </div>
+               <div className="roleVote"> Family: {this.state.roleVotes[3]? this.state.roleVotes[3] : 0} </div>
+               <div className="roleVote"> Medical: {this.state.roleVotes[4]? this.state.roleVotes[4] : 0} </div>
+               <div className="roleVote"> Reviewer: {this.state.roleVotes[5]? this.state.roleVotes[5] : 0} </div>
+               <div className="roleVote"> Admin: {this.state.roleVotes[6]? this.state.roleVotes[6] : 0} </div>
+            </div>
+         </div>)
+      }
 
       return (
          <div className="proposalItem container">
@@ -138,16 +153,7 @@ class ProposalListItem extends React.Component {
                        <img className="modalImg" src={this.state.images} width="300px"  />
                      </Modal>
                      </div>
-                     <div id="line" className="marginLine" />
-                     <div className="center voteTitle"> Vote Breakdown</div>
-                     <div className="roleVotes">
-                        <div className="roleVote"> Patient: {this.state.roleVotes[1]? this.state.roleVotes[1] : 0} </div>
-                        <div className="roleVote"> Caregiver: {this.state.roleVotes[2]? this.state.roleVotes[2] : 0} </div>
-                        <div className="roleVote"> Family: {this.state.roleVotes[3]? this.state.roleVotes[3] : 0} </div>
-                        <div className="roleVote"> Medical: {this.state.roleVotes[4]? this.state.roleVotes[4] : 0} </div>
-                        <div className="roleVote"> Reviewer: {this.state.roleVotes[5]? this.state.roleVotes[5] : 0} </div>
-                        <div className="roleVote"> Admin: {this.state.roleVotes[6]? this.state.roleVotes[6] : 0} </div>
-                     </div>
+                        { el }
                </Card>
             </Col>
          </div>
