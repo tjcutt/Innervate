@@ -224,17 +224,22 @@ li.input-field.sideNavInput {
      display: block;
  }
 
-}
-
-@media screen (min-width: 601px)
-{
-  .sideNav, .sideNavIcon {
-    display: none;
-}
+ .newBtnMy{
+    display: inline-block;
+    margin-top: -100px;
 
 }
 
-/*================================*/
+.newBtn{
+   display: inline-block;
+   margin-top: -100px;
+
+}
+
+}
+
+
+
 
 /*Hide main info and forms when below 850px ===========*/
 
@@ -247,18 +252,27 @@ li.input-field.sideNavInput {
     display: none;
   }
 
+   .newBtnMy{
+      display: block;
+      margin-top: 21px;
+   }
+
+   .newBtn{
+         display: block;
+         margin-top: 21px;
+      }
+
+
+     .homeTopNavBtn {
+       display: none;
+     }
+
+     .homeNavInput {
+       display: none;
+     }
+
 }
 
-@media screen (max-width: 601px){
-
-  .homeTopNavBtn {
-    display: none;
-  }
-
-  .homeNavInput {
-    display: none;
-  }
-}
 
 /*=============================*/
 

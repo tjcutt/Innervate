@@ -11,7 +11,7 @@ router.post('/:id', (req, res, next) => {
       .count('active')
       .where('active', true)
       .then((num)=> {
-         console.log('this is counts number', num[0]);
+         console.log('tprop id and count', proposalId, num[0]);
          res.send(num[0].count)
       })
 })
@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
    console.log('rec COOKIES', req.cookies.user);
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
-   let userId = userCookieId.user.user_id
+   let userId = userCookieId.user.id
    let proposalId = req.body.proposalId
    let body =
         { 'proposal_id': proposalId,

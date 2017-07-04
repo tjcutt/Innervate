@@ -50,8 +50,8 @@ class Proposals extends React.Component {
 
       return (
       <div>
-         {this.handleRedirect()}
-        <Nav />
+
+     <Nav />
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> Proposals</div>

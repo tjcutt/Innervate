@@ -15,7 +15,9 @@ router.get('/', function(req, res, next) {
 router.get('/:id', (req, res) => {
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
-   let userId = userCookieId.user.user_id
+   console.log('USER ID before decode', userCookieId);
+   let userId = userCookieId.user.id
+   console.log('USER ID after decode', userId);
 
    knex ('proposals')
       .where('user_id', userId)
