@@ -79,7 +79,7 @@ class ProposalListItem extends React.Component {
          .then(res => res.json())
          .then(num => {
             this.setState({
-               votes: num
+               votes: num[0]
             })
             // console.log('can i get id?', id);
             if (valid){
@@ -99,9 +99,25 @@ class ProposalListItem extends React.Component {
 
    render (){
       this.getVotes()
+      console.log('this.state', this.state.roleVotes);
       let el = null
       // console.log('list item roleid', this.props.userRole);
-      if (this.props.userRole == 5) console.log('true'), el = <div> timbo tumbo </div>
+      if (this.props.userRole == 5){
+         console.log('TRUUUUE');
+         el = (
+         <div>
+            <div id="line" className="marginLine" />
+            <div className="center voteTitle"> Vote Breakdown</div>
+            <div className="roleVotes">
+               <div className="roleVote"> Patient: {this.state.roleVotes[1]? this.state.roleVotes[1] : 0} </div>
+               <div className="roleVote"> Caregiver: {this.state.roleVotes[2]? this.state.roleVotes[2] : 0} </div>
+               <div className="roleVote"> Family: {this.state.roleVotes[3]? this.state.roleVotes[3] : 0} </div>
+               <div className="roleVote"> Medical: {this.state.roleVotes[4]? this.state.roleVotes[4] : 0} </div>
+               <div className="roleVote"> Reviewer: {this.state.roleVotes[5]? this.state.roleVotes[5] : 0} </div>
+               <div className="roleVote"> Admin: {this.state.roleVotes[6]? this.state.roleVotes[6] : 0} </div>
+            </div>
+         </div>)
+      }
 
       return (
          <div className="proposalItem container">
@@ -113,11 +129,11 @@ class ProposalListItem extends React.Component {
                <div className="proposalSummary">
                   { this.props.proposal.summary }
                </div>
-               <div> { el } </div>
-               <div id="line" />
                <div className="row cardBottom">
+               <div id="line" />
                   <div id="voteCount"> {this.state.votes} </div>
-                  <div id="upvote" data="1" onClick={ this.updateVotes }> upvote </div> <Modal
+                  <div id="upvote" data="1" onClick={ this.updateVotes }> upvote </div>
+                  <Modal
                       key={this.props.proposal.id}
                        header={this.props.proposal.title}
                        trigger={
@@ -136,7 +152,8 @@ class ProposalListItem extends React.Component {
                        <p id="modalText"> Images:</p><br />
                        <img className="modalImg" src={this.state.images} width="300px"  />
                      </Modal>
-                  </div>
+                     </div>
+                        { el }
                </Card>
             </Col>
          </div>
@@ -144,6 +161,7 @@ class ProposalListItem extends React.Component {
    }
 
    getVotes(){
+      console.log('error yet???');
       let id = this.props.proposal.id
       let body = { id }
       fetch(`/api/votes/${id}`,{
@@ -156,9 +174,12 @@ class ProposalListItem extends React.Component {
       })
       .then(res => res.json())
       .then(num => {
-         // console.log( this.props.proposal.title, id, num);
+         console.log('HOW BOUT NOW??');
+         let roleIdVotes = {}
+         for (var obj of num[1]) roleIdVotes[obj.role_id] = obj.count
          this.setState({
-            votes: num
+            roleVotes: roleIdVotes,
+            votes: num[0]
          })
       })
    }

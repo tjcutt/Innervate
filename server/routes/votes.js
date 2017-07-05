@@ -7,13 +7,18 @@ router.post('/:id', (req, res, next) => {
    //this grabs the number of votes on a specific proposal
    let proposalId = req.body.id
    knex('votes')
+      .join('user_role',' user_role.user_id', 'votes.user_id')
       .where('proposal_id', proposalId)
       .count('active')
       .where('active', true)
-      .then((num)=> {
-         console.log('tprop id and count', proposalId, num[0]);
-         res.send(num[0].count)
-      })
+      .select(['user_role.role_id' ])
+      .groupBy(['user_role.role_id' ])
+         .then((num)=> {
+            let votes = num.reduce((acc, el) => acc + parseInt(el.count) ,0)
+            console.log('votesss', votes);
+            console.log('prop id and count', proposalId, num);
+            res.send([votes, num])
+         })
 })
 
 router.post('/', function(req, res, next) {
@@ -43,5 +48,15 @@ router.post('/', function(req, res, next) {
 });
 
 
+
+
+// knex('votes')
+//    .where('proposal_id', proposalId)
+//    .count('active')
+//    .where('active', true)
+//    .then((num)=> {
+//       console.log('tprop id and count', proposalId, num[0]);
+//       res.send(num[0].count)
+//    })
 
 module.exports = router;

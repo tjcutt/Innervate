@@ -6,13 +6,15 @@ const bcrypt = require('bcryptjs')
 require('dotenv')
 
 router.post('/', function(req, res, next) {
-    // console.log('auth', req.body)
+    console.log('auth', req.body)
     knex('users')
+        .returning('*')
         .join('user_role', 'user_role.user_id', 'users.id')
         .join('roles', 'user_role.role_id', 'roles.id')
         .where('email', req.body.email)
         .select('*')
         .then((data) => {
+          console.log('##########our data', data);
           if (bcrypt.compareSync(req.body.pass, data[0].hashed_pass)) {
             delete req.body.pass
                 let tokens = setTokens(data[0])

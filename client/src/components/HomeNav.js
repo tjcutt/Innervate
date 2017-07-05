@@ -14,7 +14,7 @@ class HomeNav extends React.Component{
 
     this.state = {
       email: '',
-      hashed_pass: '',
+      pass: '',
       redirect: false
     }
   }

@@ -58,89 +58,25 @@ p, div{
 }
 
 
-/*OVERRIDING MATERIALIZE ON HOME PAGE=============*/
-
-/* label focus color */
-.navbarElements .input-field label {
-  color: rgba(255,255,255, 0.8) !important;
-}
-
-  .navbarElements .input-field input[type=text]:focus + label {
-    color: rgba(255,255,255, 0.8) !important;
-  }
-
-/*input field focus underline*/
- .navbarElements .input-field input:focus {
-   border-bottom: 1px solid rgba(255,255,255, 0.8) !important;
-   box-shadow: 0 1px 0 0 rgba(255,255,255, 0.8) !important
- }
-
-/* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: rgba(2, 136,	209, 0.6) !important;
-  }
-
-/*input field focus underline*/
- .input-field input:focus {
-   border-bottom: 1px solid rgba(2, 136,	209, 0.6) !important;
-   box-shadow: 0 1px 0 0 rgba(2, 136,	209, 0.6) !important
- }
-
-/*btn wave overrides*/
-.btn, .btn-large, .btn:clicked, .btn-large:visited {
-  background-color: none;
-}
-
-.waves-effect, .waves-effect:focus, .waves-effect:active {
-  background-color: rgba(255,255,255, 0.8);
-}
-
- .waves-effect:visited {
-  background-color: rgba(230,255,255, 0.8)
-}
-
-.waves-effect:hover {
-  background-color: rgba(255,255,255, 0.6) ;
-}
-/*================================*/
-
-
-/*Home Page  ======================*/
+/*Home Page*/
 .font1 {
   font-family: 'Montserrat', sans-serif;
 }
 
 /*HomeForm Elements*/
 
-
 .lgHomeContainer {
   margin: 20px;
 }
-/*
-.brand-logo {
-  margin-left: 20px;
-}*/
-
-li.input-field.sideNavInput {
-  margin: 10px 15px 0 15px;
-}
-
-.sideNavInput input {
-  color: #424242;
-}
-
-.homeNav {
-  width: 100vw;
-}
-
-.homeNavBtn {
-  margin-right: 45px !important;
-}
-
 
 .loginContainer {
   height: 220px;
   margin: 25px auto;
+}
+
+.btmHomeForm {
+  width: 60%;
+  padding: 20px;
 }
 
 .loginBtn {
@@ -168,6 +104,7 @@ li.input-field.sideNavInput {
 }
 
 
+
 .formSubtitle {
   margin-top: 20px;
 }
@@ -183,6 +120,18 @@ li.input-field.sideNavInput {
   height: 40px;
 }
 
+/*.collapsible-header{
+  min-height: 0;
+  line-height: 30px;
+}*/
+
+/*.btn:focus .btn:active .btn-lrg:focus {
+  background-color: none;
+}
+
+.waves-teal {
+  background-color: none;
+}*/
 
 .adminRef {
   flex: 1;
@@ -190,26 +139,28 @@ li.input-field.sideNavInput {
   width: 30px;
   text-align: center;
   background-color: rgba(255,255,255, 0.9);
-  color: rgba(2, 136,	209, 0.6);
+  color: rgba(2,	136,	209, 0.6	);
 
 }
 
 .signupBtn {
-  margin: 0 20px;
+  margin: 0 10px;
   flex: 1;
   order: 1;
-  width: 30px;
-  text-align: center;
+  width: 20px;
+  /*text-align: center;*/
 
 }
 
 
-
-/*Hide login, signup button, and intermediary statment ========*/
-
-@media (min-width: 850px){
+/*Hide login, signup button, and intermediary statment*/
+@media (min-width: 800px){
   .loginContainer {
     display: none;
+  }
+
+  .btmHomeForm {
+    display:none;
   }
 
   .lgSignupBtn {
@@ -219,11 +170,9 @@ li.input-field.sideNavInput {
   .signupStatement {
     display: none;
   }
-
   div.card-content{
      display: block;
  }
-
  .newBtnMy{
     display: inline-block;
     margin-top: -100px;
@@ -238,12 +187,8 @@ li.input-field.sideNavInput {
 
 }
 
-
-
-
-/*Hide main info and forms when below 850px ===========*/
-
-@media (max-width: 850px){
+/*Hide main info and forms when below 850px*/
+@media (max-width: 800px){
   .homeFormContainer {
     display: none;
   }
@@ -251,7 +196,6 @@ li.input-field.sideNavInput {
   .homeInfoContainer {
     display: none;
   }
-
    .newBtnMy{
       display: block;
       margin-top: 21px;
@@ -262,19 +206,7 @@ li.input-field.sideNavInput {
          margin-top: 21px;
       }
 
-
-     .homeTopNavBtn {
-       display: none;
-     }
-
-     .homeNavInput {
-       display: none;
-     }
-
 }
-
-
-/*=============================*/
 
 
 .lgText{
@@ -282,14 +214,13 @@ li.input-field.sideNavInput {
 }
 
 .logo {
-  color: #fff ;
+  color: #424242 ;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
 
-/*Change placeholder color and placement =======================*/
-
+/*Change placeholder color*/
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   text-align: center;
   color:#7f7f7f ;
@@ -307,13 +238,13 @@ li.input-field.sideNavInput {
   color: #7f7f7f ;
 }
 
-.sideNavInput input::placeholder {
-  text-align: left;
-}
-/*======================================*/
-
 label {
   color: #9e9e9e ;
+}
+
+.voteTitle {
+   margin-bottom: 5px;
+   text-decoration: underline;
 }
 
 /*hamburger menu disappear*/
@@ -423,7 +354,7 @@ div.container.propMain{
 
 .proposalsCard {
    min-height: 30vh;
-   max-height: 55vh;
+   max-height: 70vh;
 }
 .modalCardTitle{
    font-size: 18px;
@@ -470,8 +401,26 @@ h4{
    width: 100%;
 }
 
+.marginLine{
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
 .cardBottom{
    margin-bottom: 0;
+}
+
+.roleVotes {
+   display: flex;
+   flex-wrap: wrap;
+   /*margin-left: 0;*/
+   justify-content: space-between;
+}
+
+.roleVote {
+   width: 30%;
+   margin: 3px 5px;
+   /*box-sizing: border-box;*/
 }
 
 #modalClick{
@@ -623,6 +572,23 @@ transform: scale(.5); }
       padding-top: 10px;
    }
 
+   .marginLine{
+      margin-top: 10px;
+      margin-bottom: 10px;
+   }
+   .roleVotes {
+      display: flex;
+      flex-wrap: wrap;
+      /*margin-left: 0;*/
+      justify-content: space-between;
+   }
+
+   .roleVote {
+      flex: 1 1 auto;;
+      margin: 3px 5px;
+      /*box-sizing: border-box;*/
+   }
+
    .container .row.cardBottom{
       margin-bottom: 0;
       margin-left: 0px;
@@ -757,6 +723,23 @@ transform: scale(.5); }
       border-bottom: 1px solid rgba(133, 133, 133, 0.57);
       width: 100%;
       padding-top: 10px;
+   }
+
+   .marginLine{
+      margin-top: 10px;
+      margin-bottom: 10px;
+   }
+   .roleVotes {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 3px 5px;
+      justify-content: space-between;
+   }
+
+   .roleVote {
+      width:30%;
+      /*margin: 0 5px;*/
+      /*box-sizing: border-box;*/
    }
 
    .container .row.cardBottom{
@@ -917,22 +900,4 @@ h3.center{
 }
 #done{
   padding-top:95px;
-}
-
-.card.horizontal{
-  background-color:transparent;
-  border:none;
-  border-radius:none;
-}
-
-#heyhey{
-  border:none;
-  box-shadow: none;
-}
-
-h5.subtitle{
-  font-size:30px;
-}
-h3.innervate{
-  font-size:35px;
 }
