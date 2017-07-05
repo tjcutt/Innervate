@@ -8,17 +8,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
+  console.log(req.body);
   let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
   let user = userInfo.user
+  if(req.body.referral == 'otherRef'){
+    req.body.referral = 'Other'
+  }
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
       knex('users')
+        .where('id', user.id)
         .returning('*')
-        .insert({
-          'first_name': user.first_name,
-          'last_name': user.last_name,
-          'email':user.email,
+        .update({
           'referral_id': referral[0].id
         })
         .then((user) => {
@@ -37,7 +39,6 @@ router.post('/', function(req, res, next){
                       knex('roles')
                         .where('name', req.body.role)
                         .then((role) => {
-                           console.log('role', role);
                           knex('user_role')
                             .returning('*')
                             .insert({
@@ -49,7 +50,6 @@ router.post('/', function(req, res, next){
                               let role = jwt.sign({
                                   role: roleData
                               }, process.env.JWT_SECRET)
-                              console.log('STRING', role);
                               res.send({role:role});
                             })
                         })

@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs')
 require('dotenv');
 
 router.post('/', function(req, res, next){
-  console.log('We have made it to the homeForm page post');
   let userToken = null
   let roleToken = null
   knex('users')
@@ -21,7 +20,6 @@ router.post('/', function(req, res, next){
         .then((data) => {
           delete req.body.pass
           delete data[0].hashed_pass
-          console.log('the good stuff (data)', data);
           let user = data[0]
           let adminPass = req.body.adminPass
           let userId = user.id
@@ -46,7 +44,6 @@ router.post('/', function(req, res, next){
                            roleToken = jwt.sign({
                                role: roleData
                            }, process.env.JWT_SECRET)
-                             console.log('gots my role'.cyan, roleToken, 'userToken'.blue, userToken);
                              res.send([userToken, roleToken])
                          })
                      }
