@@ -16,7 +16,6 @@ class Sort extends React.Component {
          <Input s={3} id="sort" type='select' label="Sort" defaultValue='' onChange={this.handleChange.bind(this)}>
             <option value='created_at'>New</option>
             <option value='votes'>Popular</option>
-            <option value='something'>Something</option>
          </Input>
       </div>
     )
