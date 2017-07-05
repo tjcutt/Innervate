@@ -8,9 +8,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
+<<<<<<< HEAD
   let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
   let user = userInfo.user
   console.log('this is the userinfo', user);
+=======
+  console.log('this is the req.body', req.body.userCookie);
+  let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
+  let user = userInfo
+  console.log('this is your user info', userInfo);
+>>>>>>> lower signup form styling
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
@@ -28,6 +35,7 @@ router.post('/', function(req, res, next){
             .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
+              console.log('yay disorders', disorders);
               for(var i = 0; i < disorders.length; i++){
                 knex('user_disorder')
                   .returning('*')
@@ -48,13 +56,12 @@ router.post('/', function(req, res, next){
                               role_id:role[0].id
                             })
                             .then((data) => {
-                              //  console.log('data', data);
                               let roleData = data[0].role_id
                               let role = jwt.sign({
                                   role: roleData
                               }, process.env.JWT_SECRET)
                               console.log('STRING', role);
-                              
+
                               res.send({role:role});
                             })
                         })
