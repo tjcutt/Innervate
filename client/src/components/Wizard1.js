@@ -150,16 +150,16 @@ class WizardOne extends React.Component{
           </div>
           <div className="row">
             <h3 className="center-align" id="gstarted">Getting Started</h3><br/>
-            <div className="col l12">
+            <div className="col s12">
               <h5>Enter a title for your proposal</h5>
               <input value={this.state.title} onChange={this.handleTitleChange} placeholder="Enter title..." type="text" className="validate"/>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <h5>Describe your proposal in three sentences or less...</h5>
               <input value={this.state.summary} onChange={this.handleSummaryChange} placeholder="Enter summary..." type="text" className="validate"/>
               <h5>Specify the neurological disorder your proposal targets:</h5>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <SelectField
                 multiple={true}
                 fullWidth={true}
@@ -169,16 +169,16 @@ class WizardOne extends React.Component{
                 {this.disorderItems(disorders)}
               </SelectField>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <p>
                 <input className="with-gap" name="other" type="radio" id="other" />
                 <label htmlFor="other">Other: </label>
               </p>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <input id="first_name" type="text" className="validate right"/>
             </div>
-              <div className="col l12">
+              <div className="col s12">
                 <h5>Select the challenges your proposal aims to help:</h5>
                 <SelectField
                   multiple={true}
@@ -189,7 +189,7 @@ class WizardOne extends React.Component{
                   {this.afflictionItems(afflictions)}
                 </SelectField>
               </div>
-              <div className="col l12">
+              <div className="col s12">
                 <h5>Select the category of solutions your proposal fits most:</h5>
                 <SelectField
                   multiple={true}
@@ -204,7 +204,7 @@ class WizardOne extends React.Component{
               <h5>Tell us your personal story/how this would benefit people</h5>
               <textarea value={this.state.story} onChange={this.handleStoryChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <button className="btn waves-effect waves-light right cyan lighten-2" type="submit" onClick={this.handleClick} name="action">Next
               </button>
             </div>
