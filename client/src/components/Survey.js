@@ -81,15 +81,17 @@ class Survey extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
-        }).then(role => {
-            // console.log('hey i have role set', role);
+        })
+        .then(res => res.json())
+         .then(role => {
+            console.log('NO JK LEMON IS', role);
             const cookies = new Cookies()
-            cookies.set('role', role)
+            cookies.set('role', role.role)
+            this.setState({
+               redirect:true
+            })
+        })
 
-        })
-        this.setState({
-          redirect:true
-        })
     }
 
     render() {

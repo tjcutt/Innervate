@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  let userInfo = jwt.verify(req.body.userCookie.userToken, process.env.JWT_SECRET)
+  let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
   let user = userInfo.user
-  console.log('this is the userinfo'.america, user);
+  console.log('this is the userinfo', user);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
@@ -23,13 +23,12 @@ router.post('/', function(req, res, next){
           'referral_id': referral[0].id
         })
         .then((user) => {
-
+           console.log('user from survey', user);
           knex('disorders')
             .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
               for(var i = 0; i < disorders.length; i++){
-
                 knex('user_disorder')
                   .returning('*')
                   .insert({
@@ -37,11 +36,11 @@ router.post('/', function(req, res, next){
                     user_id:user[0].id
                   })
                   .then((user_disorder)=>{
-
+                     console.log('user disorder', user_disorder);
                       knex('roles')
                         .where('name', req.body.role)
                         .then((role) => {
-
+                           console.log('role', role);
                           knex('user_role')
                             .returning('*')
                             .insert({
@@ -49,11 +48,14 @@ router.post('/', function(req, res, next){
                               role_id:role[0].id
                             })
                             .then((data) => {
+                              //  console.log('data', data);
                               let roleData = data[0].role_id
                               let role = jwt.sign({
                                   role: roleData
                               }, process.env.JWT_SECRET)
-                              res.send(role);
+                              console.log('STRING', role);
+                              
+                              res.send({role:role});
                             })
                         })
                   })

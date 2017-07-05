@@ -21,7 +21,7 @@ router.post('/', function(req, res, next){
         .then((data) => {
           delete req.body.pass
           delete data[0].hashed_pass
-          console.log('the good stuff (data)'.america, data);
+          console.log('the good stuff (data)', data);
           let user = data[0]
           let adminPass = req.body.adminPass
           let userId = user.id
