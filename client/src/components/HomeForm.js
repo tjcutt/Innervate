@@ -18,11 +18,12 @@ class HomeForm extends React.Component{
     this.checkAdminPass = this.checkAdminPass.bind(this)
     this.signupToggle = this.signupToggle.bind(this)
     this.loginToggle = this.loginToggle.bind(this)
+
     this.state = {
       first_name: '',
       last_name: '',
       email: '',
-      hashed_pass: '',
+      pass: '',
       show: false,
       adminPass: '',
       redirect: false,
@@ -39,6 +40,7 @@ class HomeForm extends React.Component{
       return <Redirect to='/proposals'></Redirect>
     }
   }
+  
     setFirst(input){
       this.setState({
         first_name: input.target.value
@@ -55,12 +57,16 @@ class HomeForm extends React.Component{
       this.setState({
         email: input.target.value
       })
+      console.log('proof that we do set email state', this.state.email);
+
     }
 
     setPass(input){
       this.setState({
         pass: input.target.value
       })
+      console.log('proof that we do set pass state', this.state.email);
+
     }
 
     setShow(){
@@ -117,6 +123,7 @@ class HomeForm extends React.Component{
     }
 
     handleLoginClick (event, res) {
+      console.log('our state', this.state);
       event.preventDefault()
         fetch('/api/navLogin',{
           method:"POST",
