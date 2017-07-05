@@ -171,8 +171,8 @@ class Survey extends React.Component {
                         </div>
                         <div className="col s12 m12 l3">
                             <p>
-                                <input className="with-gap" name="referral" type="radio" id="child-hosp"/>
-                                <label htmlFor="child-hosp">Other</label>
+                                <input className="with-gap" name="referral" type="radio" value="otherRef" checked={this.state.referral === "otherRef"} onChange={this.handleReferralChange} id="otherRef"/>
+                                <label htmlFor="otherRef">Other</label>
                             </p>
                         </div>
                         <br/>

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
   let userInfo = jwt.verify(req.body.userCookie.userToken, process.env.JWT_SECRET)
   let user = userInfo.user
-  console.log('this is the userinfo'.america, user);
+  console.log(req.body);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
@@ -23,13 +23,11 @@ router.post('/', function(req, res, next){
           'referral_id': referral[0].id
         })
         .then((user) => {
-
           knex('disorders')
             .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
               for(var i = 0; i < disorders.length; i++){
-
                 knex('user_disorder')
                   .returning('*')
                   .insert({
@@ -37,11 +35,12 @@ router.post('/', function(req, res, next){
                     user_id:user[0].id
                   })
                   .then((user_disorder)=>{
-
+                      if(req.body.role === 'otherRef'){
+                        req.body.role = 'Other';
+                      }
                       knex('roles')
                         .where('name', req.body.role)
                         .then((role) => {
-
                           knex('user_role')
                             .returning('*')
                             .insert({

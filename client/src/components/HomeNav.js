@@ -17,7 +17,7 @@ class HomeNav extends React.Component{
       hashed_pass: '',
       redirect: false
     }
-}
+  }
 
     handleRedirect(){
       if(this.state.redirect){
@@ -98,7 +98,7 @@ class HomeNav extends React.Component{
 
                           </li>
 
-                          <li> <a  onClick={this.handleLoginClick} className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
+                          <li> <a onClick={this.handleLoginClick} className="waves-effect waves-light homeNavBtn btn grey darken-2">Login</a></li>
                       </ul>
                   </div>
               </div>

@@ -7,6 +7,8 @@ exports.seed = function(knex) {
                 name: 'University of Colorado School of Medicine'
             }, {
                 name: `Children's Hospital Colorado`
+            },{
+              name:'Other'
             }]);
         });
 };
