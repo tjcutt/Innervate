@@ -8,15 +8,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  console.log(req.body);
+  // console.log(req.body);
   let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
   let user = userInfo.user
   if(req.body.referral == 'otherRef'){
     req.body.referral = 'Other'
   }
+  console.log(req.body);
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
+      console.log(referral);
       knex('users')
         .where('id', user.id)
         .returning('*')

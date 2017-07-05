@@ -197,6 +197,7 @@ p, div {
     .loginContainer {
         display: none;
     }
+
     .btmHomeForm {
         display: none;
     }
@@ -216,7 +217,24 @@ p, div {
     .newBtn {
         display: inline-block;
         margin-top: -100px;
+        font-size: 12px;
     }
+
+    .flexxy {
+      margin-top: 12px;
+      display: flex;
+   }
+
+   .select-wrapper input.select-dropdown{
+      min-width: 150px;
+   }
+.row .col.s3 {
+   width: 60%;
+}
+
+   .flexu{
+      width: 30%;
+   }
 }
 
 
@@ -367,7 +385,7 @@ label {
         margin-top: 20px;
         /*margin-right: 24vw;*/
         margin-left: 15vw;
-        margin-bottom: -50px;
+        margin-bottom: 30px;
     }
     div.row.sortFilter {
         margin-top: -30px;

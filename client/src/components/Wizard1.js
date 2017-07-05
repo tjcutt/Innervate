@@ -63,6 +63,7 @@ class WizardOne extends React.Component{
   handleClick(event) {
     fetch('/api/wizard1',{
       method:"POST",
+      credentials:"include",
       headers: {
            'Accept': 'application/json',
            'Content-Type': 'application/json'
