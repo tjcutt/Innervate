@@ -25,7 +25,6 @@ router.get('/:id', (req, res) => {
          console.log('my props', props);
          res.json(props)
       })
-
 })
 
 router.post('/:id', (req, res) => {
