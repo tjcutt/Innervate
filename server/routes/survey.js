@@ -8,16 +8,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-<<<<<<< HEAD
   let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
   let user = userInfo.user
   console.log('this is the userinfo', user);
-=======
-  console.log('this is the req.body', req.body.userCookie);
-  let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
-  let user = userInfo
-  console.log('this is your user info', userInfo);
->>>>>>> lower signup form styling
   knex('referrals')
     .where('name', req.body.referral)
     .then((referral) => {
