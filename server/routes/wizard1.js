@@ -1,21 +1,27 @@
 var express = require('express');
 var router = express.Router();
 const knex = require('../knex');
+const jwt = require('jsonwebtoken');
+
 
 router.get('/', function(req, res, next) {
  res.send('i connect');
 });
 
 router.post('/', function(req, res, next) {
+   let cookieJWT = req.cookies.user
+   let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
+   let userId = userCookieId.user.id
+   console.log('userID', userId);
  knex('proposals')
   .returning('*')
   .insert({
-   user_id: 1,
+   user_id: userId,
    title: req.body.title,
    story: req.body.story,
    summary: req.body.summary,
-   created_by_user_id: 1,
-   edited_by_user_id: 1
+   created_by_user_id: userId,
+   edited_by_user_id: userId
   })
   .then((proposal) => {
    let proposal_id = proposal[0].id;
