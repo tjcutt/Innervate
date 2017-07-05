@@ -39,7 +39,8 @@ class Proposals extends React.Component {
    render(){
       if (this.state.proposals.length == 0){
          return (
-            <div>
+
+           <div>
             <Nav />
             <div className="container propMain">
               {this.handleRedirect()}
