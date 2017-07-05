@@ -7,7 +7,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 
+
 /*=============================*/
+
 
 /*STYLING*/
 
@@ -15,115 +17,115 @@ html, body {
     background-image: url('./images/crossword.png');
 }
 
-nav{
-  background-color:rgba(5, 115, 175, 0.64);
+nav {
+    background-color: rgba(5, 115, 175, 0.64);
 }
 
-p, div{
-   font-family: 'Montserrat', sans-serif;
+p, div {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ChartSelector {
-   width: 100%;
-   display: flex;
-   justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.GraphTitle{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   color: #111;
-   font-family: 'Helvetica Neue', sans-serif;
-   font-size: 60px;
-   font-weight: bold;
-   letter-spacing: -1px;
-   line-height: 1;
-   text-align: center;
-
-   /*font-size:2em;*/
-   display: inline-block;
-   margin-top: 20px;
-   /*margin-right: 24vw;*/
-   margin-bottom: 20px;
+.GraphTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+    /*font-size:2em;*/
+    display: inline-block;
+    margin-top: 20px;
+    /*margin-right: 24vw;*/
+    margin-bottom: 20px;
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
-   color: #0074ac;
+    color: #0074ac;
 }
 
 .logo {
-  display: inline-block;
-  float: left
+    display: inline-block;
+    float: left
 }
 
 
 /*Home Page*/
+
 .font1 {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 /*HomeForm Elements*/
 
 .lgHomeContainer {
-  margin: 20px;
+    margin: 20px;
 }
 
 .loginContainer {
-  height: 220px;
-  margin: 25px auto;
+    height: 220px;
+    margin: 25px auto;
 }
 
 .btmHomeForm {
-  width: 60%;
-  padding: 20px;
+    width: 60%;
+    padding: 20px;
 }
 
 .loginBtn {
-  display: block;
-  margin: 15px auto;
-  float: none;
-  width: 140px;
+    display: block;
+    margin: 15px auto;
+    float: none;
+    width: 140px;
 }
 
 .lgSignupBtn {
-  display: block;
-  margin: 15px auto;
+    display: block;
+    margin: 15px auto;
 }
 
 .signupStatement {
-  margin: 25px auto;
+    margin: 25px auto;
 }
 
 .loginInput {
-  max-width: 200px;
+    max-width: 200px;
 }
 
 .signupForm {
-  padding: 0 40px 10px 5px;
+    padding: 0 40px 10px 5px;
 }
 
-
-
 .formSubtitle {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .input-field {
-  margin: 10px 20px;
-  /*max-width: 200px;*/
+    margin: 10px 20px;
+    /*max-width: 200px;*/
 }
 
-
-.bottomForm{
-  display: flex;
-  height: 40px;
+.bottomForm {
+    display: flex;
+    height: 40px;
 }
+
 
 /*.collapsible-header{
   min-height: 0;
   line-height: 30px;
 }*/
+
 
 /*.btn:focus .btn:active .btn-lrg:focus {
   background-color: none;
@@ -134,770 +136,803 @@ p, div{
 }*/
 
 .adminRef {
-  flex: 1;
-  order: 2;
-  width: 30px;
-  text-align: center;
-  background-color: rgba(255,255,255, 0.9);
-  color: rgba(2,	136,	209, 0.6	);
-
+    flex: 1;
+    order: 2;
+    width: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(2, 136, 209, 0.6);
 }
 
 .signupBtn {
-  margin: 0 10px;
-  flex: 1;
-  order: 1;
-  width: 20px;
-  /*text-align: center;*/
-
+    margin: 0 10px;
+    flex: 1;
+    order: 1;
+    width: 20px;
+    /*text-align: center;*/
 }
 
 
 /*Hide login, signup button, and intermediary statment*/
-@media (min-width: 800px){
-  .loginContainer {
-    display: none;
-  }
 
-  .btmHomeForm {
-    display:none;
-  }
-
-  .lgSignupBtn {
-    display: none;
-  }
-
-  .signupStatement {
-    display: none;
-  }
-  div.card-content{
-     display: block;
- }
- .newBtnMy{
-    display: inline-block;
-    margin-top: -100px;
-
+@media (min-width: 800px) {
+    .loginContainer {
+        display: none;
+    }
+    .btmHomeForm {
+        display: none;
+    }
+    .lgSignupBtn {
+        display: none;
+    }
+    .signupStatement {
+        display: none;
+    }
+    div.card-content {
+        display: block;
+    }
+    .newBtnMy {
+        display: inline-block;
+        margin-top: -100px;
+    }
+    .newBtn {
+        display: inline-block;
+        margin-top: -100px;
+    }
 }
 
-.newBtn{
-   display: inline-block;
-   margin-top: -100px;
-
-}
-
-}
 
 /*Hide main info and forms when below 850px*/
-@media (max-width: 800px){
-  .homeFormContainer {
-    display: none;
-  }
 
-  .homeInfoContainer {
-    display: none;
-  }
-   .newBtnMy{
-      display: block;
-      margin-top: 21px;
-   }
-
-   .newBtn{
-         display: block;
-         margin-top: 21px;
-      }
-
+@media (max-width: 800px) {
+    .homeFormContainer {
+        display: none;
+    }
+    .homeInfoContainer {
+        display: none;
+    }
+    .newBtnMy {
+        display: block;
+        margin-top: 21px;
+    }
+    .newBtn {
+        display: block;
+        margin-top: 21px;
+    }
 }
 
-
-.lgText{
-  font-size: 1.1em;
+.lgText {
+    font-size: 1.1em;
 }
 
 .logo {
-  color: #424242 ;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+    color: #424242;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
 }
 
+
 /*Change placeholder color*/
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  text-align: center;
-  color:#7f7f7f ;
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    text-align: center;
+    color: #7f7f7f;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  text-align: center;
-  color: #7f7f7f ;
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+    color: #7f7f7f;
 }
-:-ms-input-placeholder { /* IE 10+ */
-  text-align: center;
-  color: #7f7f7f ;
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    text-align: center;
+    color: #7f7f7f;
 }
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;
-  color: #7f7f7f ;
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+    color: #7f7f7f;
 }
 
 label {
-  color: #9e9e9e ;
+    color: #9e9e9e;
 }
 
 .voteTitle {
-   margin-bottom: 5px;
-   text-decoration: underline;
+    margin-bottom: 5px;
+    text-decoration: underline;
 }
+
 
 /*hamburger menu disappear*/
-@media only screen and (min-width: 601px){
-   nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-      display: none;
-   }
+
+@media only screen and (min-width: 601px) {
+    nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+        display: none;
+    }
 }
 
-@media only screen and (max-width: 601px){
-   a.brand-logo.left{
-      display: flex;
-      margin-left: 100px;
-      margin-top: 4px;
-   }
-
-   #sideNavTitle{
-      color: black;
-      font-size: 20px;
-      text-align: center;
-   }
-
-   /*.componentTitle{
+@media only screen and (max-width: 601px) {
+    a.brand-logo.left {
+        display: flex;
+        margin-left: 100px;
+        margin-top: 4px;
+    }
+    #sideNavTitle {
+        color: black;
+        font-size: 20px;
+        text-align: center;
+    }
+    /*.componentTitle{
       margin-left: 30px;
    }*/
 }
 
+
 /*Home Page*/
+
+
 /*for laptops and bigger screens*/
+
 @media (min-width: 800px) {
-
-
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-   display: none;
-}
-
-/*Icons on info cards*/
-.material-icons {
-  margin: auto;
-}
-
-/*Info cards*/
-.card-image {
-  display: inline-block;
-  width: 7vw;
-}
-
-.card-content {
-  display: inline-block;
-}
-
-
-
-/*=============================*/
-
-
-div.container.propMain{
-   /*margin-right: 0;
+    nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+        display: none;
+    }
+    /*Icons on info cards*/
+    .material-icons {
+        margin: auto;
+    }
+    /*Info cards*/
+    .card-image {
+        display: inline-block;
+        width: 7vw;
+    }
+    .card-content {
+        display: inline-block;
+    }
+    /*=============================*/
+    div.container.propMain {
+        /*margin-right: 0;
    margin-left: 8vw;*/
-   width: 90vw;
-}
-.componentTitle {
-   color: #111;
-   font-family: 'Helvetica Neue',
-   sans-serif;
-   font-size: 60px;
-   font-weight: bold;
-   letter-spacing: -1px;
-   line-height: 1;
-   text-align: center;
-
-   /*font-size:2em;*/
-   display: inline-block;
-   margin-top: 20px;
-   /*margin-right: 24vw;*/
-   margin-left: 15vw;
-   margin-bottom: -50px;
-}
-
-   div.row.sortFilter{
-      margin-top: -30px;
-   }
-
-.newBtn {
-   float: right;
-   right: 0;
-   display:  inline-block;
-   margin-top: 50px;
-}
-.newBtnMy {
-   float: right;
-   margin-right: 60px;
-   display:  inline-block;
-   margin-top: 50px;
-}
-
-.proposalsRow{
-   margin-left: 5vw;
-   margin-right: 5vw;
-}
-
-.proposalItem {
-   display: inline-block;
-   margin: 1vw 1vw;
-   width: 42vw;
-}
-
-.proposalsCard {
-   min-height: 30vh;
-   max-height: 70vh;
-}
-.modalCardTitle{
-   font-size: 18px;
-   line-height: 24px;
-   /*text-decoration: underline;*/
-   min-height: 44px;
-   color:#0277bd;
-   /*background-color: black;*/
-}
-
-#upvote, #voteCount {
-   display: inline-block;
-   margin-right: 1em;
-   padding-top: 20px;
-   margin-bottom: -30px;
-}
-
-.proposalSummary {
-   height: 25vh;
-   overflow: hidden;
-}
-
-h4{
-   font-size: 27px;
-   text-decoration: underline;
-}
-
-#modalText {
-   font-size: 20px;
-}
-
-#filter{
-   margin-right: 0vw;
-   width: 24vw;
-}
-.row .col.l6{
-   width:40%;
-}
-
-#line{
-   text-decoration: underline;
-   content: "";
-   border-bottom: 1px solid rgba(133, 133, 133, 0.57);
-   width: 100%;
-}
-
-.marginLine{
-   margin-top: 10px;
-   margin-bottom: 10px;
-}
-
-.cardBottom{
-   margin-bottom: 0;
-}
-
-.roleVotes {
-   display: flex;
-   flex-wrap: wrap;
-   /*margin-left: 0;*/
-   justify-content: space-between;
-}
-
-.roleVote {
-   width: 30%;
-   margin: 3px 5px;
-   /*box-sizing: border-box;*/
+        width: 90vw;
+    }
+    .componentTitle {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 60px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 1;
+        text-align: center;
+        /*font-size:2em;*/
+        display: inline-block;
+        margin-top: 20px;
+        /*margin-right: 24vw;*/
+        margin-left: 15vw;
+        margin-bottom: -50px;
+    }
+    div.row.sortFilter {
+        margin-top: -30px;
+    }
+    .newBtn {
+        float: right;
+        right: 0;
+        display: inline-block;
+        margin-top: 50px;
+    }
+    .newBtnMy {
+        float: right;
+        margin-right: 60px;
+        display: inline-block;
+        margin-top: 50px;
+    }
+    .proposalsRow {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .proposalItem {
+        display: inline-block;
+        margin: 1vw 1vw;
+        width: 42vw;
+    }
+    .proposalsCard {
+        min-height: 30vh;
+        max-height: 70vh;
+    }
+    .modalCardTitle {
+        font-size: 18px;
+        line-height: 24px;
+        /*text-decoration: underline;*/
+        min-height: 44px;
+        color: #0277bd;
+        /*background-color: black;*/
+    }
+    #upvote, #voteCount {
+        display: inline-block;
+        margin-right: 1em;
+        padding-top: 20px;
+        margin-bottom: -30px;
+    }
+    .proposalSummary {
+        height: 25vh;
+        overflow: hidden;
+    }
+    h4 {
+        font-size: 27px;
+        text-decoration: underline;
+    }
+    #modalText {
+        font-size: 20px;
+    }
+    #filter {
+        margin-right: 0vw;
+        width: 24vw;
+    }
+    .row .col.l6 {
+        width: 40%;
+    }
+    #line {
+        text-decoration: underline;
+        content: "";
+        border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+        width: 100%;
+    }
+    .marginLine {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .cardBottom {
+        margin-bottom: 0;
+    }
+    .roleVotes {
+        display: flex;
+        flex-wrap: wrap;
+        /*margin-left: 0;*/
+        justify-content: space-between;
+    }
+    .roleVote {
+        width: 30%;
+        margin: 3px 5px;
+        /*box-sizing: border-box;*/
+    }
+    #modalClick {
+        color: #039be5;
+        float: right;
+        display: inline-block;
+        margin-top: -20px;
+    }
+    span.card-title.grey-text.text-darken-4 {
+        color: red;
+    }
+    .row .col.s3 {
+        margin-left: 4vw;
+    }
 }
 
-#modalClick{
-   color:#039be5;
-   float: right;
-   display: inline-block;
-   margin-top:-20px;
+[type="radio"].with-gap:checked+label:after {
+    border-radius: 50%;
+    border: 2px solid #4dd0e1;
+    background-color: #4dd0e1;
+    z-index: 0;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
 }
 
-span.card-title.grey-text.text-darken-4{
-   color: red;
+#selectfield {
+    font-family: "Montserrat", sans-serif;
 }
 
-.row .col.s3{
-   margin-left: 4vw;
+.container.survey {
+    width: 75%;
+    padding: 3%;
+    padding-bottom: 8%;
 }
 
-}
-
-[type="radio"].with-gap:checked + label:after {
-border-radius: 50%;
-border: 2px solid #4dd0e1;
-background-color: #4dd0e1;
-z-index: 0;
--webkit-transform: scale(.5);
--moz-transform: scale(.5);
--ms-transform: scale(.5);
--o-transform: scale(.5);
-transform: scale(.5); }
-
-#selectfield{
-  font-family:"Montserrat", sans-serif;
-}
-.container.survey{
-  width:75%;
-  padding:3%;
-  padding-bottom:8%;
-}
 
 /* Wizard CSS */
+
 #bar {
-  width: 100%;
-  background-color: grey;
-  margin-top:50px;
+    width: 100%;
+    background-color: grey;
+    margin-top: 50px;
 }
+
 #progress1 {
-  width: 33.3%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
+    width: 33.3%;
+    height: 30px;
+    background-color: #4dd0e1;
+    text-align: center;
+    /* To center it horizontally (if you want) */
+    line-height: 30px;
+    /* To center it vertically */
+    color: white;
 }
+
 #progress2 {
-  width: 66.7%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
+    width: 66.7%;
+    height: 30px;
+    background-color: #4dd0e1;
+    text-align: center;
+    /* To center it horizontally (if you want) */
+    line-height: 30px;
+    /* To center it vertically */
+    color: white;
 }
 
-.container.wizard1{
-  font-family:"Montserrat", sans-serif;
-  width:75%;
-  padding-bottom:8%;
-
+.container.wizard1 {
+    font-family: "Montserrat", sans-serif;
+    width: 75%;
+    padding-bottom: 8%;
 }
+
 
 /*for Iphones portrait*/
 
 @media (max-width: 450px) {
-
-
-   div.container.propMain{
-      width: 80vw;;
-   }
-
-   div.row{
-      width: 90%;
-   }
-   .componentTitle {
-      font-size:36px;
-      display: block;
-      padding-top: 30px;
-      padding-bottom: 20px;
-      text-align: center;
-      line-height: 8px;
-      /*margin-right: 10vw;
+    div.container.propMain {
+        width: 80vw;
+        ;
+    }
+    div.row {
+        width: 90%;
+    }
+    .componentTitle {
+        font-size: 36px;
+        display: block;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        text-align: center;
+        line-height: 8px;
+        /*margin-right: 10vw;
       margin-left: 10vw;*/
-   }
-
-   .newBtn {
-      display: block;
-      text-align: center;
-      /*margin-left: 20vw;*/
-      margin: auto;
-      margin-top: 15px;
-      margin-bottom: -18px;
-      font-size: 14px;
-   }
-
-   .newBtnMy {
-      float: right;
-      margin-right: 60px;
-      display:  inline-block;
-   }
-   .proposalsRow{
-      margin-left: 5vw;
-      margin-right: 5vw;
-   }
-
-   .proposalItem {
-      display: inline-block;
-      width: 92vw;
-   }
-
-   .proposalsCard {
-      min-height: 20vh;
-      max-height: 110vh;
-   }
-   div.proposalItem.container{
-      margin-left: 9px;
-   }
-
-   .modalCardTitle{
-      font-size: 2em;
-      line-height: 24px;
-      font-weight: 500;
-      margin-bottom: -20px;
-      /*text-decoration: underline;*/
-      color:#0074ac;
-   }
-
-   .modalImg{
-      width:70vw;
-   }
-
-   h4 {
-      font-weight: bold;
-      font-size: 24px;
-   }
-
-   #line{
-      text-decoration: underline;
-      content: "";
-      border-bottom: 1px solid rgba(133, 133, 133, 0.57);
-      width: 100%;
-      padding-top: 10px;
-   }
-
-   .marginLine{
-      margin-top: 10px;
-      margin-bottom: 10px;
-   }
-   .roleVotes {
-      display: flex;
-      flex-wrap: wrap;
-      /*margin-left: 0;*/
-      justify-content: space-between;
-   }
-
-   .roleVote {
-      flex: 1 1 auto;;
-      margin: 3px 5px;
-      /*box-sizing: border-box;*/
-   }
-
-   .container .row.cardBottom{
-      margin-bottom: 0;
-      margin-left: 0px;
-   }
-
-   a {
-      color:#039be5;
-      float: right;
-      display: inline-block;
-      margin-top: -20px;
-   }
-
-   #modalText {
-      font-size: 18px;
-   }
-
-   #upvote, #voteCount {
-      display: inline-block;
-      margin-right: 1em;
-      padding-top: 20px;
-      margin-bottom: -30px;
-   }
-
-   .proposalSummary {
-      min-height: 15vh;
-      max-height: 70vh;
-      font-size: 20px;
-      display: none;
-      /*overflow: scroll*/
-   }
-
-   #filter{
-      width: 60vw;
-      display: block;
-   }
-
-   div.col.input-field.s3{
-      width: 10px;
-      display: block;
-      text-align: center;
-   }
-   .container.survey{
-     background-color: rgba(136, 136, 136, 0.08);
-     border: 2px solid rgba(136, 136, 136, 0.41);
-     border-radius: 5px;
-     width:75%;
-     padding:3%;
-     padding-bottom:10vh;
-     margin-top: 5vh;
-     margin-bottom: 5vh;
-   }
-
-   .GraphTitle{
-      font-size: 30px;
-   }
-
-   #mobile-demo.side-nav {
-      width: 42vw;
-      background-image: url('./images/sayagata-400px.png');
-   }
-
+    }
+    .newBtn {
+        display: block;
+        text-align: center;
+        /*margin-left: 20vw;*/
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: -18px;
+        font-size: 14px;
+    }
+    .newBtnMy {
+        float: right;
+        margin-right: 60px;
+        display: inline-block;
+    }
+    .proposalsRow {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .proposalItem {
+        display: inline-block;
+        width: 92vw;
+    }
+    .proposalsCard {
+        min-height: 20vh;
+        max-height: 110vh;
+    }
+    div.proposalItem.container {
+        margin-left: 9px;
+    }
+    .modalCardTitle {
+        font-size: 2em;
+        line-height: 24px;
+        font-weight: 500;
+        margin-bottom: -20px;
+        /*text-decoration: underline;*/
+        color: #0074ac;
+    }
+    .modalImg {
+        width: 70vw;
+    }
+    h4 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #line {
+        text-decoration: underline;
+        content: "";
+        border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+        width: 100%;
+        padding-top: 10px;
+    }
+    .marginLine {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .roleVotes {
+        display: flex;
+        flex-wrap: wrap;
+        /*margin-left: 0;*/
+        justify-content: space-between;
+    }
+    .roleVote {
+        flex: 1 1 auto;
+        ;
+        margin: 3px 5px;
+        /*box-sizing: border-box;*/
+    }
+    .container .row.cardBottom {
+        margin-bottom: 0;
+        margin-left: 0px;
+    }
+    a {
+        color: #039be5;
+        float: right;
+        display: inline-block;
+        margin-top: -20px;
+    }
+    #modalText {
+        font-size: 18px;
+    }
+    #upvote, #voteCount {
+        display: inline-block;
+        margin-right: 1em;
+        padding-top: 20px;
+        margin-bottom: -30px;
+    }
+    .proposalSummary {
+        min-height: 15vh;
+        max-height: 70vh;
+        font-size: 20px;
+        display: none;
+        /*overflow: scroll*/
+    }
+    #filter {
+        width: 60vw;
+        display: block;
+    }
+    div.col.input-field.s3 {
+        width: 10px;
+        display: block;
+        text-align: center;
+    }
+    .container.survey {
+        background-color: rgba(136, 136, 136, 0.08);
+        border: 2px solid rgba(136, 136, 136, 0.41);
+        border-radius: 5px;
+        width: 75%;
+        padding: 3%;
+        padding-bottom: 10vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+    .GraphTitle {
+        font-size: 30px;
+    }
+    #mobile-demo.side-nav {
+        width: 42vw;
+        background-image: url('./images/sayagata-400px.png');
+    }
 }
+
 
 /*for Iphones landscape*/
 
 @media (max-width: 800px) {
-   div.container.propMain{
-      width: 80vw;;
-   }
-
-   div.row{
-      width: 90%;
-   }
-   .componentTitle {
-      font-size:36px;
-      display: block;
-      margin-top: 5px;
-      text-align: center;
-      margin-right: 0;
-   }
-
-   .newBtn {
-      display: block;
-      text-align: center;
-      /*margin-left: 20vw;*/
-      margin: auto;
-      margin-top: 15px;
-      margin-bottom: -18px;
-      font-size: 14px;
-   }
-   .newBtnMy {
-      display: block;
-      text-align: center;
-      /*margin-left: 20vw;*/
-      margin: auto;
-      margin-top: 15px;
-      margin-bottom: 0px;
-      font-size: 14px;
-   }
-
-   .proposalsRow{
-      margin-left: 5vw;
-      margin-right: 5vw;
-   }
-
-   .proposalItem {
-      display: inline-block;
-      width: 92%;
-   }
-
-   .proposalsCard {
-      min-height: 20vh;
-      max-height: 110vh;
-   }
-
-   div.proposalItem.container{
-      margin-left: 9px;
-   }
-
-   .modalCardTitle{
-      font-size: 18px;
-      line-height: 24px;
-      font-weight: 500;
-      /*text-decoration: underline;*/
-
-      color:#0074ac;
-
-   }
-   #line{
-      text-decoration: underline;
-      content: "";
-      border-bottom: 1px solid rgba(133, 133, 133, 0.57);
-      width: 100%;
-      padding-top: 10px;
-   }
-
-   .marginLine{
-      margin-top: 10px;
-      margin-bottom: 10px;
-   }
-   .roleVotes {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 3px 5px;
-      justify-content: space-between;
-   }
-
-   .roleVote {
-      width:30%;
-      /*margin: 0 5px;*/
-      /*box-sizing: border-box;*/
-   }
-
-   .container .row.cardBottom{
-      margin-bottom: 0;
-      margin-left: 0px;
-   }
-
-   h4 {
-      font-weight: bold;
-      font-size: 24px;
-   }
-
-   #modalText {
-      font-size: 18px;
-   }
-
-   #upvote, #voteCount {
-      display: inline-block;
-      margin-right: 1em;
-      padding-top: 20px;
-      margin-bottom: -30px;
-   }
-
-   .proposalSummary {
-      min-height: 15vh;
-      max-height: 70vh;
-      font-size: 20px;
-      /*overflow: scroll*/
-   }
-   a {
-      color:#039be5;
-      float: right;
-      display: inline-block;
-      margin-top: -20px;
-   }
-
-   #filter{
-      width: 60vw;
-      display: block;
-   }
-
-   div.col.input-field.s3{
-      width: 80%;
-      display: block;
-      text-align: center;
-   }
-   .GraphTitle{
-      font-size: 40px;
-   }
-
-   #mobile-demo.side-nav {
-      width: 42vw;
-      background-image: url('./images/sayagata-400px.png');
-   }
-
+    div.container.propMain {
+        width: 80vw;
+        ;
+    }
+    div.row {
+        width: 90%;
+    }
+    .componentTitle {
+        font-size: 36px;
+        display: block;
+        margin-top: 5px;
+        text-align: center;
+        margin-right: 0;
+    }
+    .newBtn {
+        display: block;
+        text-align: center;
+        /*margin-left: 20vw;*/
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: -18px;
+        font-size: 14px;
+    }
+    .newBtnMy {
+        display: block;
+        text-align: center;
+        /*margin-left: 20vw;*/
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 0px;
+        font-size: 14px;
+    }
+    .proposalsRow {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    .proposalItem {
+        display: inline-block;
+        width: 92%;
+    }
+    .proposalsCard {
+        min-height: 20vh;
+        max-height: 110vh;
+    }
+    div.proposalItem.container {
+        margin-left: 9px;
+    }
+    .modalCardTitle {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 500;
+        /*text-decoration: underline;*/
+        color: #0074ac;
+    }
+    #line {
+        text-decoration: underline;
+        content: "";
+        border-bottom: 1px solid rgba(133, 133, 133, 0.57);
+        width: 100%;
+        padding-top: 10px;
+    }
+    .marginLine {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .roleVotes {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3px 5px;
+        justify-content: space-between;
+    }
+    .roleVote {
+        width: 30%;
+        /*margin: 0 5px;*/
+        /*box-sizing: border-box;*/
+    }
+    .container .row.cardBottom {
+        margin-bottom: 0;
+        margin-left: 0px;
+    }
+    h4 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+    #modalText {
+        font-size: 18px;
+    }
+    #upvote, #voteCount {
+        display: inline-block;
+        margin-right: 1em;
+        padding-top: 20px;
+        margin-bottom: -30px;
+    }
+    .proposalSummary {
+        min-height: 15vh;
+        max-height: 70vh;
+        font-size: 20px;
+        /*overflow: scroll*/
+    }
+    a {
+        color: #039be5;
+        float: right;
+        display: inline-block;
+        margin-top: -20px;
+    }
+    #filter {
+        width: 60vw;
+        display: block;
+    }
+    div.col.input-field.s3 {
+        width: 80%;
+        display: block;
+        text-align: center;
+    }
+    .GraphTitle {
+        font-size: 40px;
+    }
+    #mobile-demo.side-nav {
+        width: 42vw;
+        background-image: url('./images/sayagata-400px.png');
+    }
 }
+
 
 /* Survey CSS */
-input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after{
-  border: 2px solid #0277bd;
+
+input[type="radio"]:checked+label:after, input[type="radio"].with-gap:checked+label:before, input[type="radio"].with-gap:checked+label:after {
+    border: 2px solid #0277bd;
 }
 
-[type="radio"].with-gap:checked + label:after {
-border-radius: 50%;
-border: 2px solid #4dd0e1;
-background-color: black;
-z-index: 0;
--webkit-transform: scale(.5);
--moz-transform: scale(.5);
--ms-transform: scale(.5);
--o-transform: scale(.5);
-transform: scale(.5); }
-
-#selectfield{
-  font-family:"Montserrat", sans-serif;
-}
-.container.survey{
-  background-color: rgba(136, 136, 136, 0.08);
-  border: 2px solid rgba(136, 136, 136, 0.41);
-  border-radius: 5px;
-  width:75%;
-  padding:3%;
-  padding-bottom:15vh;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+[type="radio"].with-gap:checked+label:after {
+    border-radius: 50%;
+    border: 2px solid #4dd0e1;
+    background-color: black;
+    z-index: 0;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
 }
 
-.nextBtn{
-   display: block;
-   margin-bottom: 4vh;
+#selectfield {
+    font-family: "Montserrat", sans-serif;
 }
 
-h3.center{
-   font-size: 33px;
+.container.survey {
+    background-color: rgba(136, 136, 136, 0.08);
+    border: 2px solid rgba(136, 136, 136, 0.41);
+    border-radius: 5px;
+    width: 75%;
+    padding: 3%;
+    padding-bottom: 15vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
-.container .row.selectDisorder{
-   margin-bottom: -25px;
-   margin-left: 25px;
+.nextBtn {
+    display: block;
+    margin-bottom: 4vh;
 }
 
-#otherLable{
-   margin-top: 20px;
-   margin-left: 40px;
+h3.center {
+    font-size: 33px;
+}
+
+.container .row.selectDisorder {
+    margin-bottom: -25px;
+    margin-left: 25px;
+}
+
+#otherLable {
+    margin-top: 20px;
+    margin-left: 40px;
 }
 
 
 /* Wizard CSS */
-#bar {
-  width: 100%;
-  background-color: grey;
-  margin-top:50px;
-}
-#progress2 {
-  width: 66.7%;
-  height: 30px;
-  background-color: #4dd0e1;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
-}
+@media (max-width: 450px) {
+  .container.wizard1 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+  .container.wizard2 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+  }
 
-.container.wizard1{
-  font-family:"Montserrat", sans-serif;
-  width:45%;
-  border-left:1px solid rgb(212, 212, 212);
-  border-right:1px solid rgb(212, 212, 212);
-  background-color:white;
-  padding-left:1%;
-  padding-right:1%;
+  .container.wizard3 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-bottom: 8%;
+      height: 100vh;
+  }
+
+  #gstarted {
+      font-size: 40px;
+  }
+
+  #congrats {
+      padding-top: 100px;
+      font-size: 40px;
+  }
+
+  #done {
+      padding-top: 95px;
+  }
 }
-.container.wizard2{
-  font-family:"Montserrat", sans-serif;
-  width:45%;
-  border-left:1px solid rgb(212, 212, 212);
-  border-right:1px solid rgb(212, 212, 212);
-  background-color:white;
-  padding-left:3%;
-  padding-right:3%;
+@media (min-width: 800px){
+  .container.wizard1 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+
+  .container.wizard2 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+  }
+
+  .container.wizard3 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-bottom: 8%;
+      height: 100vh;
+  }
+
+  #gstarted {
+      font-size: 40px;
+  }
+
+  #congrats {
+      padding-top: 100px;
+      font-size: 40px;
+  }
+
+  #done {
+      padding-top: 95px;
+  }
+
 }
-.container.wizard3{
-  font-family:"Montserrat", sans-serif;
-  width:45%;
-  border-left:1px solid rgb(212, 212, 212);
-  border-right:1px solid rgb(212, 212, 212);
-  background-color:white;
-  padding-left:3%;
-  padding-right:3%;
-  padding-bottom:8%;
-  height:100vh;
-}
-#gstarted{
-  font-size:40px;
-}
-#congrats{
-  padding-top:100px;
-  font-size:40px;
-}
-#done{
-  padding-top:95px;
+@media (min-width: 800px){
+  .container.wizard1 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+
+  .container.wizard2 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+  }
+
+  .container.wizard3 {
+      font-family: "Montserrat", sans-serif;
+      width: 45%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-bottom: 8%;
+      height: 100vh;
+  }
+
+  #gstarted {
+      font-size: 40px;
+  }
+
+  #congrats {
+      padding-top: 100px;
+      font-size: 40px;
+  }
+
+  #done {
+      padding-top: 95px;
+  }
+
 }
