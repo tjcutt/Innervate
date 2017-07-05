@@ -193,9 +193,9 @@ class HomeForm extends React.Component{
                       </ToggleDisplay>
 
                       <div className = "bottomForm">
-                      <button type="submit" className="waves-effect grey lighten-5 btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
+                      <button type="submit" className="waves-effect grey text-center lighten-5 btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
 
-                      <button type="button" className="adminRef waves-effect btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
+                      <button type="button" className="adminRef text-center waves-effect btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
 
                       </div>
 
@@ -211,7 +211,7 @@ class HomeForm extends React.Component{
               <button className=" center  waves-effect waves-light btn lgSignupBtn grey darken-2" onClick={()=> this.signupToggle()}> Sign Up</button>
 
               <ToggleDisplay if={this.state.signupShow} tag="section">
-                  <div className="homeForm container font1 col s12 m5 l5">
+                  <div className="btmHomeForm container font1 ">
 
                       <form className="signpForm" onSubmit={this.submitClick}>
 
@@ -244,9 +244,12 @@ class HomeForm extends React.Component{
                               </div>
                           </ToggleDisplay>
 
-                          <a className="adminRef collapsible-header active" onClick={()=> this.setShow()} href="#">Admin?</a>
+                          <div className = "bottomForm">
+                          <button type="submit" className="waves-effect grey text-center lighten-5 btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
 
-                          <button type="submit" className="waves-effect waves-light btn signupBtn grey darken-2" onClick={this.submitClick}>Submit</button>
+                          <button type="button" className="adminRef text-center waves-effect btn signupBtn" onClick={()=> this.setShow()}>Admin?</button>
+
+                          </div>
 
                       </form>
 

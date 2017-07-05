@@ -74,6 +74,11 @@ p, div{
   margin: 25px auto;
 }
 
+.btmHomeForm {
+  width: 60%;
+  padding: 20px;
+}
+
 .loginBtn {
   display: block;
   margin: 15px auto;
@@ -97,6 +102,7 @@ p, div{
 .signupForm {
   padding: 0 40px 10px 5px;
 }
+
 
 
 .formSubtitle {
@@ -138,11 +144,11 @@ p, div{
 }
 
 .signupBtn {
-  margin: 0 20px;
+  margin: 0 10px;
   flex: 1;
   order: 1;
-  width: 30px;
-  text-align: center;
+  width: 20px;
+  /*text-align: center;*/
 
 }
 
@@ -151,6 +157,10 @@ p, div{
 @media (min-width: 800px){
   .loginContainer {
     display: none;
+  }
+
+  .btmHomeForm {
+    display:none;
   }
 
   .lgSignupBtn {
