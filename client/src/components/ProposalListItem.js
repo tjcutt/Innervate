@@ -16,7 +16,8 @@ class ProposalListItem extends React.Component {
         images: [],
         votes: 0,
         userCookie: '',
-        roleVotes: {}
+        roleVotes: {},
+        propRole: ''
      }
    }
 
@@ -24,6 +25,7 @@ class ProposalListItem extends React.Component {
       const cookies = new Cookies()
       this.setState({userCookie: cookies.get('user')})
       this.getVotes()
+      console.log('PROOOOP', this.props.proposal);
    }
 
    shouldComponentUpdate(nextProps, nextState){
@@ -99,11 +101,9 @@ class ProposalListItem extends React.Component {
 
    render (){
       this.getVotes()
-      console.log('this.state', this.state.roleVotes);
       let el = null
       // console.log('list item roleid', this.props.userRole);
       if (this.props.userRole == 5){
-         console.log('TRUUUUE');
          el = (
          <div>
             <div id="line" className="marginLine" />
@@ -118,6 +118,10 @@ class ProposalListItem extends React.Component {
             </div>
          </div>)
       }
+      let created_by = null
+      if (this.props.userRole == 6){
+         created_by = (<div>created by: { this.props.proposal.name }  </div> )
+      }
 
       return (
          <div className="proposalItem container">
@@ -125,6 +129,8 @@ class ProposalListItem extends React.Component {
                <Card className='grey lighten-4 proposalsCard'
                 textClassName='black-text' title="">
                <h3 className="modalCardTitle">{this.props.proposal.title}</h3>
+               <br />
+                { created_by }
                <br />
                <div className="proposalSummary">
                   { this.props.proposal.summary }
@@ -161,7 +167,6 @@ class ProposalListItem extends React.Component {
    }
 
    getVotes(){
-      console.log('error yet???');
       let id = this.props.proposal.id
       let body = { id }
       fetch(`/api/votes/${id}`,{
@@ -174,7 +179,6 @@ class ProposalListItem extends React.Component {
       })
       .then(res => res.json())
       .then(num => {
-         console.log('HOW BOUT NOW??');
          let roleIdVotes = {}
          for (var obj of num[1]) roleIdVotes[obj.role_id] = obj.count
          this.setState({

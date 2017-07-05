@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 router.post('/:id', (req, res, next) => {
    //this grabs the number of votes on a specific proposal
    let proposalId = req.body.id
+   console.log('LOLOLOOLOLOLOLOLOL', proposalId);
    knex('votes')
       .join('user_role',' user_role.user_id', 'votes.user_id')
       .where('proposal_id', proposalId)
@@ -14,15 +15,15 @@ router.post('/:id', (req, res, next) => {
       .select(['user_role.role_id' ])
       .groupBy(['user_role.role_id' ])
          .then((num)=> {
+            // console.log('FOR PROPOSOAL ID:', proposalId);
+            // console.log('num nums', num);
             let votes = num.reduce((acc, el) => acc + parseInt(el.count) ,0)
-            console.log('votesss', votes);
-            console.log('prop id and count', proposalId, num);
+            // console.log('votes', votes);
             res.send([votes, num])
          })
 })
 
 router.post('/', function(req, res, next) {
-   console.log('rec COOKIES', req.cookies.user);
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
    let userId = userCookieId.user.id

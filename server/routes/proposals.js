@@ -6,8 +6,11 @@ const jwt = require('jsonwebtoken');
 /* GET All PROPOSALS. */
 router.get('/', function(req, res, next) {
    knex('proposals')
-      .select('*')
+      .select(['proposals.id', 'proposals.title', 'proposals.summary', 'proposals.info', 'proposals.votes', 'proposals.created_at', 'proposals.active', 'user_role.user_id', 'user_role.role_id', 'roles.name'])
+      .join('user_role', 'user_role.user_id', 'proposals.user_id')
+      .join('roles', 'roles.id', 'user_role.role_id')
       .then ((props) => {
+         console.log('props', props);
          res.json(props)
       })
 });
@@ -15,14 +18,11 @@ router.get('/', function(req, res, next) {
 router.get('/:id', (req, res) => {
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
-   console.log('USER ID after decode', userCookieId);
    let userId = userCookieId.user.id
-   console.log('USER ID after specifying', userId);
 
    knex ('proposals')
       .where('user_id', userId)
       .then ((props) => {
-         console.log('my props', props);
          res.json(props)
       })
 })
@@ -33,7 +33,6 @@ router.post('/:id', (req, res) => {
       .where('id', id)
       .increment('votes', 1)
       .then((data) => {
-         console.log('res', data);
          res.json(data)
       })
 
