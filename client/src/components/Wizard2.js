@@ -193,7 +193,7 @@ class WizardTwo extends React.Component {
               <textarea value={this.state.info} onChange={this.handleInfoChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>
             <div className="col s12">
-              <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
+              <button className="waves-effect grey text-center lighten-5 btn right grey darken-2" type="submit" onClick={this.handleClick} name="action">Next
               </button>
             </div>
           </div>
