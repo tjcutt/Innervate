@@ -796,6 +796,8 @@ h3.center {
 }
 
 
+
+
 /* Wizard CSS */
 @media (max-width: 450px) {
   .container.wizard1 {
@@ -842,7 +844,54 @@ h3.center {
       padding-top: 95px;
   }
 }
-@media (min-width: 800px){
+@media (min-width: 450px){
+  .container.wizard1 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+
+  .container.wizard2 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+  }
+
+  .container.wizard3 {
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
+      border-left: 1px solid rgb(212, 212, 212);
+      border-right: 1px solid rgb(212, 212, 212);
+      background-color: white;
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-bottom: 8%;
+      height: 100vh;
+  }
+
+  #gstarted {
+      font-size: 40px;
+  }
+
+  #congrats {
+      padding-top: 100px;
+      font-size: 40px;
+  }
+
+  #done {
+      padding-top: 95px;
+  }
+
+}
+@media (max-width: 800px){
   .container.wizard1 {
       font-family: "Montserrat", sans-serif;
       width: 45%;
@@ -889,7 +938,7 @@ h3.center {
   }
 
 }
-@media (min-width: 800px){
+@media (max-width: 800px){
   .container.wizard1 {
       font-family: "Montserrat", sans-serif;
       width: 45%;
