@@ -58,8 +58,8 @@ class WizardThree extends React.Component {
         <div className="row">
           <h1 className="center-align" id="congrats">Congratulations!</h1>
           <h3 className="center-align" id="">You have completed your proposal!</h3>
-          <div className="col l12">
-            <a id="done" href="/myproposals">Go to My Proposals </a>
+          <div id="done" className="col s12 right-align">
+            <a href="/myproposals">Go to My Proposals </a>
           </div>
         </div>
       </div>

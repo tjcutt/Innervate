@@ -147,24 +147,24 @@ class WizardTwo extends React.Component {
           <div className="row">
             <h3 className="center-align" id="gstarted">More Info</h3><br/>
           <h5>Add images</h5>
-            <div className="col l11">
+            <div className="col s11">
               <input value={this.state.imageUrl} onChange={this.handleImageChange} placeholder="Enter image URL" type="text" className="validate"/>
             </div>
-            <div className="col l1">
+            <div className="col s1">
               <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addImage}><i className="material-icons">add</i></a>
             </div>
           </div>
           <div className="row">
-            <div className="col l12">
+            <div className="col s12">
               {this.createImages(this.state.images)}
             </div>
           </div>
           <div className="row">
           <h5>Add videos</h5>
-            <div className="col l11">
+            <div className="col s11">
               <input value={this.state.videoUrl} onChange={this.handleVideoChange} placeholder="Enter video URL" type="text" className="validate"/>
             </div>
-            <div className="col l1">
+            <div className="col s1">
               <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addVideo}><i className="material-icons">add</i></a>
             </div>
           </div>
@@ -175,10 +175,10 @@ class WizardTwo extends React.Component {
           </div>
           <div className="row">
           <h5>Add articles</h5>
-            <div className="col l11">
+            <div className="col s11">
               <input value={this.state.articleUrl} onChange={this.handleArticleChange} placeholder="Enter article URL" type="text" className="validate"/>
             </div>
-            <div className="col l1">
+            <div className="col s1">
               <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addArticle}><i className="material-icons">add</i></a>
             </div>
           </div>
@@ -192,7 +192,7 @@ class WizardTwo extends React.Component {
               <h5>Any additional info...</h5>
               <textarea value={this.state.info} onChange={this.handleInfoChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>
-            <div className="col l12">
+            <div className="col s12">
               <button className="btn waves-effect waves-light right" type="submit" onClick={this.handleClick} name="action">Next
               </button>
             </div>
