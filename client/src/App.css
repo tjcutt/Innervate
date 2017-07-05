@@ -113,8 +113,11 @@ p, div {
 }
 
 .btmHomeForm {
-    width: 60%;
-    padding: 20px;
+    width: 85%;
+}
+
+.sideNav {
+  padding: 10px;
 }
 
 .loginBtn {
