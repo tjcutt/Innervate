@@ -79,7 +79,7 @@ class ProposalListItem extends React.Component {
          .then(res => res.json())
          .then(num => {
             this.setState({
-               votes: num
+               votes: num[0]
             })
             // console.log('can i get id?', id);
             if (valid){
@@ -161,6 +161,7 @@ class ProposalListItem extends React.Component {
    }
 
    getVotes(){
+      console.log('error yet???');
       let id = this.props.proposal.id
       let body = { id }
       fetch(`/api/votes/${id}`,{
@@ -173,6 +174,7 @@ class ProposalListItem extends React.Component {
       })
       .then(res => res.json())
       .then(num => {
+         console.log('HOW BOUT NOW??');
          let roleIdVotes = {}
          for (var obj of num[1]) roleIdVotes[obj.role_id] = obj.count
          this.setState({

@@ -16,8 +16,8 @@ router.post('/:id', (req, res, next) => {
          .then((num)=> {
             let votes = num.reduce((acc, el) => acc + parseInt(el.count) ,0)
             console.log('votesss', votes);
-            console.log('tprop id and count', proposalId, num);
-            res.json([votes, num])
+            console.log('prop id and count', proposalId, num);
+            res.send([votes, num])
          })
 })
 
