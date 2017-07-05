@@ -544,6 +544,15 @@ label {
     padding-bottom: 8%;
 }
 
+i.material-icons {
+background-color: rgba(2, 136, 209, 0.6);
+}
+
+path {
+  border: 2px solid black;
+  color: rgba(2, 136, 209, 0.6);
+  fill: rgba(2, 136, 209, 0.6);
+}
 
 /*for Iphones portrait*/
 

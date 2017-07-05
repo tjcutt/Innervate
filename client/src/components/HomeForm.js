@@ -40,7 +40,7 @@ class HomeForm extends React.Component{
       return <Redirect to='/proposals'></Redirect>
     }
   }
-  
+
     setFirst(input){
       this.setState({
         first_name: input.target.value
