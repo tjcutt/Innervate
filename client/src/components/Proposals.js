@@ -50,7 +50,6 @@ class Proposals extends React.Component {
 
       return (
       <div>
-
      <Nav />
          <div className="container propMain">
             <div className="row">
