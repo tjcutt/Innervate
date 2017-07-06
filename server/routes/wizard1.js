@@ -12,7 +12,6 @@ router.post('/', function(req, res, next) {
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
    let userId = userCookieId.user.id
-   console.log('userID', userId);
  knex('proposals')
   .returning('*')
   .insert({
