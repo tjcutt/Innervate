@@ -45,7 +45,6 @@ class Proposals extends React.Component {
                </div>
             </div>
          )
-
       }
 
       return (

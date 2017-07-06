@@ -34,7 +34,7 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
-   //   console.log('sorted proposals', sortedProposals);
+     // console.log('sorted proposals', sortedProposals);
      // Then call setState
      this.setState({ proposals: sortedProposals });
    }
