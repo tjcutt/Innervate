@@ -127,6 +127,7 @@ class HomeForm extends React.Component{
       event.preventDefault()
         fetch('/api/navLogin',{
           method:"POST",
+          credentials: 'include',
           headers: {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
@@ -160,7 +161,7 @@ class HomeForm extends React.Component{
                   <label htmlFor="first_name"></label>
               </div>
 
-              <div> <a onClick={this.handleLoginClick} className="loginBtn waves-effect waves-light  center btn grey darken-2">Login</a></div>
+              <div> <a onClick={this.handleLoginClick.bind(this)} className="loginBtn waves-effect waves-light  center btn grey darken-2">Login</a></div>
 
               {this.handleRedirect()}
           </div>
