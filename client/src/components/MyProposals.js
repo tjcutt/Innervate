@@ -15,7 +15,6 @@ class MyProposals extends React.Component {
       })
       .then(res => res.json())
       .then(proposals => {
-         console.log('my props', proposals);
          this.setState({
           proposals:proposals
          })

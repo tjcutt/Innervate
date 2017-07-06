@@ -57,7 +57,6 @@ class HomeForm extends React.Component{
       this.setState({
         email: input.target.value
       })
-      console.log('proof that we do set email state', this.state.email);
 
     }
 
@@ -65,7 +64,6 @@ class HomeForm extends React.Component{
       this.setState({
         pass: input.target.value
       })
-      console.log('proof that we do set pass state', this.state.email);
 
     }
 
@@ -107,7 +105,6 @@ class HomeForm extends React.Component{
         })
           .then((res) => res.json())
           .then(tokens => {
-            console.log('working');;
             const cookies = new Cookies()
             cookies.set('user', tokens[0])
             if (tokens.length >1){
@@ -123,7 +120,6 @@ class HomeForm extends React.Component{
     }
 
     handleLoginClick (event, res) {
-      console.log('our state', this.state);
       event.preventDefault()
         fetch('/api/navLogin',{
           method:"POST",
@@ -136,7 +132,6 @@ class HomeForm extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
-          //  console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
            cookies.set('role', tokens[1])
