@@ -7,6 +7,10 @@ exports.seed = function(knex) {
             }, {
                 url: 'http://www.opensourceimaging.org/wp-content/uploads/Open-Source-Imaging-OpenBCI-EEG-software.jpg',
                 proposal_id: 1
-            }]);
+            },
+          {
+            url:'http://i64.tinypic.com/2ezql4o.png',
+            proposal_id:6
+          }]);
         });
 };
