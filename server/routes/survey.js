@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next){
   let userInfo = jwt.verify(req.body.userCookie, process.env.JWT_SECRET)
-  let user = userInfo.user
+  let userCookie = userInfo.user
   if(req.body.referral == 'otherRef'){
     req.body.referral = 'Other'
   }
@@ -17,7 +17,7 @@ router.post('/', function(req, res, next){
     .where('name', req.body.referral)
     .then((referral) => {
       knex('users')
-        .where('id', user.id)
+        .where('id', userCookie.id)
         .returning('*')
         .update({
           'referral_id': referral[0].id
@@ -27,11 +27,12 @@ router.post('/', function(req, res, next){
             .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
-              for(var i = 0; i < disorders.length; i++){
+              console.log(disorders);
+              console.log(user[0]);
                 knex('user_disorder')
                   .returning('*')
                   .insert({
-                    disorder_id:disorders[i].id,
+                    disorder_id:disorders[0].id,
                     user_id:user[0].id
                   })
                   .then((user_disorder)=>{
@@ -53,7 +54,6 @@ router.post('/', function(req, res, next){
                             })
                         })
                   })
-                }
             })
         })
     })

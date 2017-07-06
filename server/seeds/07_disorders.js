@@ -9,7 +9,7 @@ exports.seed = function(knex) {
                 name: 'Brain Injury'
             }, {
               id: 3,
-              name: `Alzheimer's Disease and other Dementias`
+              name: `Alzheimer's Disease and Other Dementias`
             },{
               id:4,
               name:'Epilepsy'
