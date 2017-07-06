@@ -70,7 +70,7 @@ p, div {
 
 /* label focus color */
 
-  .input-field input[type=text]:focus + label {
+  .input-field input:focus + label {
     color: rgba(2, 136,	209, 0.6) !important;
   }
 
