@@ -27,8 +27,6 @@ router.post('/', function(req, res, next){
             .select('*')
             .where('name', req.body.disorders[0])
             .then((disorders) => {
-              console.log(disorders);
-              console.log(user[0]);
                 knex('user_disorder')
                   .returning('*')
                   .insert({

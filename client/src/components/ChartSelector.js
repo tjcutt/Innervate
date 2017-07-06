@@ -12,7 +12,6 @@ class ChartSelector extends React.Component {
    }
 
    render() {
-          console.log("WE ARE IN graphselector");
      // this.sortAds('created_at')
 
      return (
@@ -27,7 +26,6 @@ class ChartSelector extends React.Component {
      )
    }
    handleChange(event){
-     console.log('Handling SELCTOR, which is', event.target.value);
      let selector = event.target.value
      this.props.selectData(selector)
    }

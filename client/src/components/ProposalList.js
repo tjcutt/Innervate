@@ -23,9 +23,7 @@ class ProposalList extends React.Component {
    }
 
    sortProposals = (field, proposals) => {
-      // console.log('|||| BEFORE sort', proposals);
      let sortedProposals = this.state.proposals.sort( (a, b) => {
-      //   console.log("||||SORTING sortProposals", a[field], b[field]);
        if (a[field] < b[field]) {
          return 1;
        }
@@ -34,8 +32,6 @@ class ProposalList extends React.Component {
        }
        return 0;
      });
-     // console.log('sorted proposals', sortedProposals);
-     // Then call setState
      this.setState({ proposals: sortedProposals });
    }
 
@@ -63,7 +59,6 @@ class ProposalList extends React.Component {
          })
          el = ProposalItems
       }
-      console.log('reload')
       return (
          <div>
             <div className="row sortFilter">
@@ -93,7 +88,6 @@ class ProposalList extends React.Component {
       })
       .then(res => res.json())
       .then(data => {
-         // console.log( 'front end .then ID', data);
          this.setState({
             userRole: data
          })

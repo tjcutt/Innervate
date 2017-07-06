@@ -73,7 +73,6 @@ class Survey extends React.Component {
     }
 
     handleClick(event) {
-      console.log('hey');
         fetch('/api/survey', {
             method: "POST",
             credentials: 'include',
@@ -85,7 +84,6 @@ class Survey extends React.Component {
         })
         .then(res => res.json())
          .then(role => {
-            console.log('NO JK LEMON IS', role);
             const cookies = new Cookies()
             cookies.set('role', role.role)
             this.setState({

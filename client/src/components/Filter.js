@@ -11,7 +11,6 @@ class Filter extends React.Component {
   }
 
   handleChange(event){
-    // console.log(this.props.ads);
     let proposals = this.props.proposals
     this.props.filterProposals(event.target.value, proposals)
   }

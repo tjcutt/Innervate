@@ -25,7 +25,6 @@ class ProposalListItem extends React.Component {
       const cookies = new Cookies()
       this.setState({userCookie: cookies.get('user')})
       this.getVotes()
-      console.log('PROOOOP', this.props.proposal);
    }
 
    shouldComponentUpdate(nextProps, nextState){
@@ -83,7 +82,6 @@ class ProposalListItem extends React.Component {
             this.setState({
                votes: num[0]
             })
-            // console.log('can i get id?', id);
             if (valid){
             fetch(`/api/proposals/${id}`,{
                method:"POST",
@@ -102,7 +100,6 @@ class ProposalListItem extends React.Component {
    render (){
       this.getVotes()
       let el = null
-      // console.log('list item roleid', this.props.userRole);
       if (this.props.userRole == 5){
          el = (
          <div>

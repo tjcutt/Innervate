@@ -52,7 +52,6 @@ handleRedirect(){
 }
 
    selectData = (selector) => {
-      console.log('I AM SELECTOR:', selector)
       let fetchLabels = []
       let fetchData = []
       fetch(`api/${selector}`)
