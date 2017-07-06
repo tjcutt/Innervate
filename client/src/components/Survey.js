@@ -73,6 +73,7 @@ class Survey extends React.Component {
     }
 
     handleClick(event) {
+      console.log('hey');
         fetch('/api/survey', {
             method: "POST",
             credentials: 'include',
