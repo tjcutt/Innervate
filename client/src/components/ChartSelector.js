@@ -16,7 +16,7 @@ class ChartSelector extends React.Component {
 
      return (
        <div className="sort-section sort ChartSelector">
-          <Input s={8} m={8} l={8} id="sort" type='select' label="Data Selector" defaultValue='' onChange={this.handleChange.bind(this)}>
+          <Input s={8} m={8} l={8} id="sort" className="chartDrop" type='select' label="Data Selector" defaultValue='' onChange={this.handleChange.bind(this)}>
              <option value='userRole'>Users by Role</option>
              <option value='proposalSolution'>Proposals by Solutions</option>
              <option value='proposalDisorder'>Proposals by Disorders</option>

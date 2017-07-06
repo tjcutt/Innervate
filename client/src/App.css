@@ -31,6 +31,10 @@ p, div {
     justify-content: center;
 }
 
+.chartDrop {
+  width: 200px;
+}
+
 .GraphTitle {
     width: 100%;
     display: flex;
