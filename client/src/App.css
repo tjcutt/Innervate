@@ -634,6 +634,11 @@ path {
     div.proposalItem.container {
         margin-left: 9px;
     }
+
+    .modal .modal-content {
+    /*background-color:;*/
+    }
+
     .modalCardTitle {
         font-size: 2em;
         line-height: 24px;

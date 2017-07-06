@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 /* GET All PROPOSALS. */
 router.get('/', function(req, res, next) {
    knex('proposals')
-      .select(['proposals.id', 'proposals.title', 'proposals.summary', 'proposals.info', 'proposals.votes', 'proposals.created_at', 'proposals.active', 'user_role.user_id', 'user_role.role_id', 'roles.name'])
+      .select(['proposals.id', 'proposals.title', 'proposals.summary', 'proposals.info', 'proposals.story', 'proposals.votes', 'proposals.created_at', 'proposals.active', 'user_role.user_id', 'user_role.role_id', 'roles.name'])
       .join('user_role', 'user_role.user_id', 'proposals.user_id')
       .join('roles', 'roles.id', 'user_role.role_id')
       .then ((props) => {
