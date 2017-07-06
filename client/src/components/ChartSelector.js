@@ -21,7 +21,7 @@ class ChartSelector extends React.Component {
              <option value='userRole'>Users by Role</option>
              <option value='proposalSolution'>Proposals by Solutions</option>
              <option value='proposalDisorder'>Proposals by Disorders</option>
-             <option value='proposalAffliction'>Proposals by Afflictions</option>
+             <option value='proposalAffliction'>Proposals by Challenges</option>
           </Input>
        </div>
      )
