@@ -69,7 +69,8 @@ class HomeNav extends React.Component{
                   <a href="#!" className="brand-logo left">Innervate</a>
 
                   <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons sideNavIcon hamburger">menu</i></a>
-                  <ul className="right navbarElements hide-on-small-and-down">
+
+                  <ul className="right navbarElements ">
 
                       <li className="input-field homeNavInput col s5">
                           <input id="loginEmail" onChange={this.setEmail} className="homeInput validate" type="email" />
@@ -84,6 +85,7 @@ class HomeNav extends React.Component{
                       <li> <a onClick={this.handleLoginClick} className="waves-effect waves-light homeTopNavBtn btn grey darken-2">Login</a></li>
 
                   </ul>
+                  
 
                   <div className="side-nav sideNav" id="mobile-demo">
                       <ul>

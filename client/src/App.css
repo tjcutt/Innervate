@@ -101,7 +101,6 @@ p, div {
 }
 
 
-/*HomeForm Elements*/
 
 .lgHomeContainer {
     margin: 20px;
@@ -255,6 +254,10 @@ p, div {
         display: block;
         margin-top: 21px;
     }
+
+    .navbarElements {
+    display: none;
+  }
 }
 
 .lgText {
@@ -326,6 +329,11 @@ label {
     nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
         display: none;
     }
+
+    a.brand-logo.left {
+      margin-left: 17px;
+      margin-top: 4px;
+    }
 }
 
 @media only screen and (max-width: 601px) {
@@ -339,13 +347,7 @@ label {
         font-size: 20px;
         text-align: center;
     }
-    /*.componentTitle{
-      margin-left: 30px;
-   }*/
 }
-
-
-/*Home Page*/
 
 
 /*for laptops and bigger screens*/
