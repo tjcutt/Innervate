@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
       .join('user_role', 'user_role.user_id', 'proposals.user_id')
       .join('roles', 'roles.id', 'user_role.role_id')
       .then ((props) => {
-         console.log('props', props);
          res.json(props)
       })
 });
@@ -19,12 +18,10 @@ router.get('/:id', (req, res) => {
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
    let userId = userCookieId.user.id
-   console.log(userId);
 
    knex ('proposals')
       .where('user_id', userId)
       .then ((props) => {
-         console.log('my props', props);
          res.json(props)
       })
 })

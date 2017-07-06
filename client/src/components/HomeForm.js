@@ -40,7 +40,7 @@ class HomeForm extends React.Component{
       return <Redirect to='/proposals'></Redirect>
     }
   }
-  
+
     setFirst(input){
       this.setState({
         first_name: input.target.value
@@ -57,7 +57,6 @@ class HomeForm extends React.Component{
       this.setState({
         email: input.target.value
       })
-      console.log('proof that we do set email state', this.state.email);
 
     }
 
@@ -65,7 +64,6 @@ class HomeForm extends React.Component{
       this.setState({
         pass: input.target.value
       })
-      console.log('proof that we do set pass state', this.state.email);
 
     }
 
@@ -107,7 +105,6 @@ class HomeForm extends React.Component{
         })
           .then((res) => res.json())
           .then(tokens => {
-            console.log('working');;
             const cookies = new Cookies()
             cookies.set('user', tokens[0])
             if (tokens.length >1){
@@ -123,10 +120,10 @@ class HomeForm extends React.Component{
     }
 
     handleLoginClick (event, res) {
-      console.log('our state', this.state);
       event.preventDefault()
         fetch('/api/navLogin',{
           method:"POST",
+          credentials: 'include',
           headers: {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
@@ -135,7 +132,6 @@ class HomeForm extends React.Component{
         })
          .then(res => res.json())
          .then( tokens => {
-          //  console.log(tokens);
            const cookies = new Cookies()
            cookies.set('user', tokens[0])
            cookies.set('role', tokens[1])
@@ -160,7 +156,7 @@ class HomeForm extends React.Component{
                   <label htmlFor="first_name"></label>
               </div>
 
-              <div> <a onClick={this.handleLoginClick} className="loginBtn waves-effect waves-light  center btn grey darken-2">Login</a></div>
+              <div> <a onClick={this.handleLoginClick.bind(this)} className="loginBtn waves-effect waves-light  center btn grey darken-2">Login</a></div>
 
               {this.handleRedirect()}
           </div>

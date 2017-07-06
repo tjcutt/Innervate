@@ -3,7 +3,6 @@ var router = express.Router();
 const knex = require('../knex');
 
 router.get('/', (req, res) => {
-   console.log('reaching backend');
    knex('user_role')
       .whereNot('role_id', 5)
       .whereNot('role_id', 6)
@@ -11,7 +10,6 @@ router.get('/', (req, res) => {
       .groupBy('role_id')
       .count('*')
       .then((data) =>{
-         console.log('object ', data);
          let roleName = {
             1: "Patient",
             2:"Caregiver",

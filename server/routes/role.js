@@ -4,7 +4,7 @@ const knex = require('../knex');
 const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
-   if (req.cookies.role.length == 2) console.log('aint gonna happen');
+   if (req.cookies.role.length == 2);
    let cookieJWT = req.cookies.role
 
    let roleCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)

@@ -3,7 +3,6 @@ var router = express.Router();
 const knex = require('../knex');
 
 router.get('/', (req, res) => {
-   console.log('reaching backend SOLUTIONS' );
    knex('proposal_solution')
       .select('solution_id')
       .groupBy('solution_id')

@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router-dom';
 import ProposalList from './ProposalList'
 import Nav from './Nav';
+
 class Proposals extends React.Component {
    constructor(props) {
      super(props)
@@ -30,32 +31,35 @@ class Proposals extends React.Component {
        })
      }
    }
-   handleRedirect(){
-     if(!this.state.hasCookies){
-       return <Redirect to='/'></Redirect>;
-     }
-   }
+      handleRedirect(){
+        if(!this.state.hasCookies){
+          return <Redirect to='/'></Redirect>;
+        }
+      }
    render(){
       if (this.state.proposals.length == 0){
          return (
+
+           <div>
+            <Nav />
             <div className="container propMain">
               {this.handleRedirect()}
                <div className="row">
                   <div className="componentTitle"> Proposals</div>
                </div>
             </div>
+            </div>
          )
       }
 
       return (
       <div>
-
-     <Nav />
+      <Nav />
          <div className="container propMain">
             <div className="row">
                <div className="componentTitle"> Proposals</div>
             </div>
-            <ProposalList proposals={this.state.proposals}/>
+            <ProposalList proposals={this.state.proposals} />
          </div>
       </div>
       )

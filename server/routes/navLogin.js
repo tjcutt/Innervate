@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs')
 require('dotenv')
 
 router.post('/', function(req, res, next) {
-    console.log('auth', req.body)
     knex('users')
         .returning('*')
         .join('user_role', 'user_role.user_id', 'users.id')
@@ -14,11 +13,9 @@ router.post('/', function(req, res, next) {
         .where('email', req.body.email)
         .select('*')
         .then((data) => {
-          console.log('##########our data', data);
           if (bcrypt.compareSync(req.body.pass, data[0].hashed_pass)) {
             delete req.body.pass
                 let tokens = setTokens(data[0])
-                console.log(tokens);
                 res.send(tokens);
               }
         })
@@ -28,7 +25,6 @@ router.post('/', function(req, res, next) {
 })
 
 function setTokens(user) {
-  console.log('user shiz'.rainbow, user);
     let token = jwt.sign({
         user: user
     }, process.env.JWT_SECRET)

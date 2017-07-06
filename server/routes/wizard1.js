@@ -12,7 +12,6 @@ router.post('/', function(req, res, next) {
    let cookieJWT = req.cookies.user
    let userCookieId = jwt.verify(cookieJWT, process.env.JWT_SECRET)
    let userId = userCookieId.user.id
-   console.log('userID', userId);
  knex('proposals')
   .returning('*')
   .insert({
@@ -28,6 +27,7 @@ router.post('/', function(req, res, next) {
    return insertDAS(proposal_id, req.body)
   })
   .then((proposals) => {
+     console.log('proposals', proposals);
     res.send({proposal_id: proposals[0][0].proposal_id});
   })
 })
