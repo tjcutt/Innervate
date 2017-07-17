@@ -42,20 +42,20 @@ class WizardThree extends React.Component {
     <MuiThemeProvider>
       <div className="container wizard3">
         {this.handleRedirect()}
-        <div className="row">
+        <div className="col s12 m12 l12">
           <Stepper activeStep={stepIndex}>
             <Step>
-              <StepLabel>Getting Started</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
             <Step>
-              <StepLabel>Provide More Information</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
             <Step>
               <StepLabel>Done</StepLabel>
             </Step>
           </Stepper>
         </div>
-        <div className="row">
+        <div className="col s12 m12 l12">
           <h1 className="center-align" id="congrats">Congratulations!</h1>
           <h3 className="center-align" id="">You have completed your proposal!</h3>
           <div id="done" className="col s12 right-align">

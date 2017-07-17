@@ -131,41 +131,48 @@ class WizardTwo extends React.Component {
       <MuiThemeProvider>
         <div className="container wizard2">
           {this.handleRedirect()}
-          <div className="row">
+          <div className="col s12 m12 l12">
             <Stepper activeStep={stepIndex}>
               <Step>
-                <StepLabel>Getting Started</StepLabel>
+                <StepLabel></StepLabel>
               </Step>
               <Step>
                 <StepLabel>Provide More Information</StepLabel>
               </Step>
               <Step>
-                <StepLabel>Done</StepLabel>
+                <StepLabel></StepLabel>
               </Step>
             </Stepper>
           </div>
-          <div className="row">
+
+          <div className="col s12 m12 l12">
             <h3 className="center-align" id="gstarted">More Info</h3><br/>
-          <h5>Add images</h5>
-            <div className="col s11">
-              <input value={this.state.imageUrl} onChange={this.handleImageChange} placeholder="Enter image URL" type="text" className="validate"/>
-            </div>
-            <div className="col s1">
-              <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addImage}><i className="material-icons">add</i></a>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              {this.createImages(this.state.images)}
+            <h5>Add images</h5>
+            <div className="row">
+              <div className="col s11">
+                <input value={this.state.imageUrl} onChange={this.handleImageChange} placeholder="Enter image URL" type="text" className="validate"/>
+              </div>
+              <div className="col s1">
+                <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addImage}><i className="material-icons">add</i></a>
+              </div>
             </div>
           </div>
-          <div className="row">
+          <div className="col s12 m12 l12">
+            <div className="row">
+              <div className="col s12">
+                {this.createImages(this.state.images)}
+              </div>
+            </div>
+          </div>
+          <div className="col s12 m12 l12">
           <h5>Add videos</h5>
-            <div className="col s11">
-              <input value={this.state.videoUrl} onChange={this.handleVideoChange} placeholder="Enter video URL" type="text" className="validate"/>
-            </div>
-            <div className="col s1">
-              <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addVideo}><i className="material-icons">add</i></a>
+            <div className="row">
+              <div className="col s11">
+                <input value={this.state.videoUrl} onChange={this.handleVideoChange} placeholder="Enter video URL" type="text" className="validate"/>
+              </div>
+              <div className="col s1">
+                <a className="btn-floating btn-medium waves-effect waves-light cyan lighten-2" onClick={this.addVideo}><i className="material-icons">add</i></a>
+              </div>
             </div>
           </div>
           <div className="row">

@@ -136,20 +136,20 @@ class WizardOne extends React.Component{
       <MuiThemeProvider>
         <div className="container wizard1">
           {this.handleRedirect()}
-          <div className="row">
+          <div className="col s12 l12 m12">
             <Stepper activeStep={stepIndex}>
               <Step>
                 <StepLabel>Getting Started</StepLabel>
               </Step>
               <Step>
-                <StepLabel>Provide More Information</StepLabel>
+                <StepLabel></StepLabel>
               </Step>
               <Step>
-                <StepLabel>Done</StepLabel>
+                <StepLabel></StepLabel>
               </Step>
             </Stepper>
           </div>
-          <div className="row">
+          <div className="col s12 l12 m12">
             <h3 className="center-align" id="gstarted">Getting Started</h3><br/>
             <div className="col s12">
               <h5>Enter a title for your proposal</h5>
@@ -201,7 +201,7 @@ class WizardOne extends React.Component{
                   {this.solutionItems(solutions)}
                 </SelectField>
               </div>
-            <div className="input-field col s12">
+            <div className="col s12">
               <h5>Tell us your personal story/how this would benefit people</h5>
               <textarea value={this.state.story} onChange={this.handleStoryChange} id="textarea1" className="materialize-textarea"></textarea>
             </div>

@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,  legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -32,7 +32,7 @@ p, div {
 }
 
 .chartDrop {
-  width: 200px;
+    width: 200px;
 }
 
 .GraphTitle {
@@ -68,43 +68,44 @@ p, div {
 
 /*OVERRIDING MATERIALIZE ON HOME PAGE=============*/
 
-.homeNav input + label {
-  color: rgba(255, 255, 255, 0.8);
+.homeNav input+label {
+    color: rgba(255, 255, 255, 0.8);
 }
+
 
 /* label focus color */
 
-  .input-field input:focus + label {
-    color: rgba(2, 136,	209, 0.6) !important;
-  }
+.input-field input:focus+label {
+    color: rgba(2, 136, 209, 0.6) !important;
+}
 
- .input-field input:focus {
-   border-bottom: 1px solid rgba(2, 136,	209, 0.6) !important;
-   box-shadow: 0 1px 0 0 rgba(2, 136,	209, 0.6) !important
- }
+.input-field input:focus {
+    border-bottom: 1px solid rgba(2, 136, 209, 0.6) !important;
+    box-shadow: 0 1px 0 0 rgba(2, 136, 209, 0.6) !important
+}
 
 .btn, .btn-large, .btn:clicked, .btn-large:visited {
-  background-color: none;
+    background-color: none;
 }
 
 .waves-effect, .waves-effect:focus, .waves-effect:active {
-  background-color: rgba(255,255,255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
- .waves-effect:visited {
-  background-color: rgba(230,255,255, 0.8)
+.waves-effect:visited {
+    background-color: rgba(230, 255, 255, 0.8)
 }
 
 .waves-effect:hover {
-  background-color: rgba(255,255,255, 0.6) ;
+    background-color: rgba(255, 255, 255, 0.6);
 }
+
+
 /*================================*/
 
 .font1 {
     font-family: 'Montserrat', sans-serif;
 }
-
-
 
 .lgHomeContainer {
     margin: 20px;
@@ -120,7 +121,7 @@ p, div {
 }
 
 .sideNav {
-  padding: 10px;
+    padding: 10px;
 }
 
 .loginBtn {
@@ -200,7 +201,6 @@ p, div {
     .loginContainer {
         display: none;
     }
-
     .btmHomeForm {
         display: none;
     }
@@ -222,22 +222,19 @@ p, div {
         margin-top: -100px;
         font-size: 12px;
     }
-
     .flexxy {
-      margin-top: 12px;
-      display: flex;
-   }
-
-   .select-wrapper input.select-dropdown{
-      min-width: 150px;
-   }
-.row .col.s3 {
-   width: 60%;
-}
-
-   .flexu{
-      width: 30%;
-   }
+        margin-top: 12px;
+        display: flex;
+    }
+    .select-wrapper input.select-dropdown {
+        min-width: 150px;
+    }
+    .row .col.s3 {
+        width: 60%;
+    }
+    .flexu {
+        width: 30%;
+    }
 }
 
 
@@ -258,10 +255,9 @@ p, div {
         display: block;
         margin-top: 21px;
     }
-
     .navbarElements {
-    display: none;
-  }
+        display: none;
+    }
 }
 
 .lgText {
@@ -299,22 +295,28 @@ p, div {
 
 /*Change placeholder color*/
 
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    text-align: center;
+    color: #7f7f7f;
+}
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  text-align: center;
-  color:#7f7f7f ;
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: center;
+    color: #7f7f7f;
 }
-::-moz-placeholder { /* Firefox 19+ */
-  text-align: center;
-  color: #7f7f7f ;
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    text-align: center;
+    color: #7f7f7f;
 }
-:-ms-input-placeholder { /* IE 10+ */
-  text-align: center;
-  color: #7f7f7f ;
-}
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;
-  color: #7f7f7f ;
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+    color: #7f7f7f;
 }
 
 label {
@@ -333,10 +335,9 @@ label {
     nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
         display: none;
     }
-
     a.brand-logo.left {
-      margin-left: 17px;
-      margin-top: 4px;
+        margin-left: 17px;
+        margin-top: 4px;
     }
 }
 
@@ -378,34 +379,29 @@ label {
    margin-left: 8vw;*/
         width: 90vw;
     }
-   .homeInfoContainer {
-      margin-top: 10px;
-   }
-   .lgText{
-      font-size: 20px;
-      padding-left: 0 10px;
-      line-height: 30px;
-   }
-
-   #heyhey{
-      background-color: rgba(157, 157, 157, 0.00);
-      border: 1px solid rgba(255, 255, 255, 0);
-      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.0), 0 1px 5px 0 rgba(0,0,0,0.0), 0 3px 1px -2px rgba(0,0,0,0);
-      /*display: flex;*/
-   }
-
-   .frontDiv {
-      width: 50%;
-   }
-
-   .imgRow{
-      display: flex;
-   }
-
-   .arrow{
-      justify-content: center;
-   }
-
+    .homeInfoContainer {
+        margin-top: 10px;
+    }
+    .lgText {
+        font-size: 20px;
+        padding-left: 0 10px;
+        line-height: 30px;
+    }
+    #heyhey {
+        background-color: rgba(157, 157, 157, 0.00);
+        border: 1px solid rgba(255, 255, 255, 0);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.0), 0 1px 5px 0 rgba(0, 0, 0, 0.0), 0 3px 1px -2px rgba(0, 0, 0, 0);
+        /*display: flex;*/
+    }
+    .frontDiv {
+        width: 50%;
+    }
+    .imgRow {
+        display: flex;
+    }
+    .arrow {
+        justify-content: center;
+    }
     .componentTitle {
         color: #111;
         font-family: 'Helvetica Neue', sans-serif;
@@ -578,12 +574,12 @@ label {
     padding-bottom: 8%;
 }
 
-
 path {
-  border: 2px solid black;
-  color: rgba(2, 136, 209, 0.6);
-  fill: rgba(2, 136, 209, 0.6);
+    border: 2px solid black;
+    color: rgba(2, 136, 209, 0.6);
+    fill: rgba(2, 136, 209, 0.6);
 }
+
 
 /*for Iphones portrait*/
 
@@ -634,11 +630,9 @@ path {
     div.proposalItem.container {
         margin-left: 9px;
     }
-
     .modal .modal-content {
-    /*background-color:;*/
+        /*background-color:;*/
     }
-
     .modalCardTitle {
         font-size: 2em;
         line-height: 24px;
@@ -912,145 +906,130 @@ h3.center {
 }
 
 
-
-
 /* Wizard CSS */
+
 @media (max-width: 450px) {
-  .container.wizard1 {
-      font-family: "Montserrat", sans-serif;
-      width: 100%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 1%;
-      padding-right: 1%;
-  }
-  .container.wizard2 {
-      font-family: "Montserrat", sans-serif;
-      width: 100%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-  }
-
-  .container.wizard3 {
-      font-family: "Montserrat", sans-serif;
-      width: 100%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-      padding-bottom: 8%;
-      height: 100vh;
-  }
-
-  #gstarted {
-      font-size: 40px;
-  }
-
-  #congrats {
-      padding-top: 100px;
-      font-size: 40px;
-  }
-
-  #done {
-      padding-top: 95px;
-  }
+    .container.wizard1 {
+        font-family: "Montserrat", sans-serif;
+        width: 100%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .container.wizard2 {
+        font-family: "Montserrat", sans-serif;
+        width: 100%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .container.wizard3 {
+        font-family: "Montserrat", sans-serif;
+        width: 100%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 8%;
+        height: 100vh;
+    }
+    #gstarted {
+        font-size: 40px;
+    }
+    #congrats {
+        padding-top: 100px;
+        font-size: 40px;
+    }
+    #done {
+        padding-top: 95px;
+    }
 }
-@media (min-width: 450px) and (max-width:800px){
-  .container.wizard1 {
-      font-family: "Montserrat", sans-serif;
-      width: 85%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 1%;
-      padding-right: 1%;
-  }
 
-  .container.wizard2 {
-      font-family: "Montserrat", sans-serif;
-      width: 85%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-  }
-
-  .container.wizard3 {
-      font-family: "Montserrat", sans-serif;
-      width: 85%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-      padding-bottom: 8%;
-      height: 100vh;
-  }
-
-  #gstarted {
-      font-size: 40px;
-  }
-
-  #congrats {
-      padding-top: 100px;
-      font-size: 40px;
-  }
-
-  #done {
-      padding-top: 125px;
-  }
-
+@media (min-width: 450px) and (max-width:800px) {
+    .container.wizard1 {
+        font-family: "Montserrat", sans-serif;
+        width: 85%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .container.wizard2 {
+        font-family: "Montserrat", sans-serif;
+        width: 85%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .container.wizard3 {
+        font-family: "Montserrat", sans-serif;
+        width: 85%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 8%;
+        height: 100vh;
+    }
+    #gstarted {
+        font-size: 40px;
+    }
+    #congrats {
+        padding-top: 100px;
+        font-size: 40px;
+    }
+    #done {
+        padding-top: 125px;
+    }
 }
-@media (min-width: 800px){
-  .container.wizard1 {
-      font-family: "Montserrat", sans-serif;
-      width: 45%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 1%;
-      padding-right: 1%;
-  }
 
-  .container.wizard2 {
-      font-family: "Montserrat", sans-serif;
-      width: 45%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-  }
-
-  .container.wizard3 {
-      font-family: "Montserrat", sans-serif;
-      width: 45%;
-      border-left: 1px solid rgb(212, 212, 212);
-      border-right: 1px solid rgb(212, 212, 212);
-      background-color: white;
-      padding-left: 3%;
-      padding-right: 3%;
-      padding-bottom: 8%;
-      height: 100vh;
-  }
-
-  #gstarted {
-      font-size: 40px;
-  }
-
-  #congrats {
-      padding-top: 100px;
-      font-size: 40px;
-  }
-
-  #done {
-    margin-top: 125px;
-  }
-
+@media (min-width: 800px) {
+    .container.wizard1 {
+        font-family: "Montserrat", sans-serif;
+        width: 45%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    .container.wizard2 {
+        font-family: "Montserrat", sans-serif;
+        width: 45%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .container.wizard3 {
+        font-family: "Montserrat", sans-serif;
+        width: 45%;
+        border-left: 1px solid rgb(212, 212, 212);
+        border-right: 1px solid rgb(212, 212, 212);
+        background-color: white;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 8%;
+        height: 100vh;
+    }
+    #gstarted {
+        font-size: 40px;
+    }
+    #congrats {
+        padding-top: 100px;
+        font-size: 40px;
+    }
+    #done {
+        margin-top: 125px;
+    }
 }
