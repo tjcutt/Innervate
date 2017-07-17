@@ -99,31 +99,28 @@ class Survey extends React.Component {
             <MuiThemeProvider>
                 <div className="container survey font1">
                   {this.handleRedirect()}
-                    <div className="row">
-                        <h3 className="center font1">Tell Us About Yourself</h3>
-                    </div>
-
+                    <h3 className="center font1">Tell Us About Yourself</h3><br/>
                     <h5>Specify your role...</h5><br/>
                     <div className="row">
-                        <div className="col l3">
+                        <div className="col l3 s12">
                             <p>
                                 <input className="with-gap" name="role" type="radio" id="patient" value="Patient" checked={this.state.role === 'Patient'} onChange={this.handleRoleChange}/>
                                 <label htmlFor="patient">Patient</label>
                             </p>
                         </div>
-                        <div className="col l3">
+                        <div className="col l3 s12">
                             <p>
                                 <input className="with-gap" name="role" type="radio" id="family" value="Family" checked={this.state.role === 'Family'} onChange={this.handleRoleChange}/>
                                 <label htmlFor="family">Family</label>
                             </p>
                         </div>
-                        <div className="col l3">
+                        <div className="col l3 s12">
                             <p>
                                 <input className="with-gap" name="role" type="radio" id="caregiver" value="Caregiver" checked={this.state.role === 'Caregiver'} onChange={this.handleRoleChange}/>
                                 <label htmlFor="caregiver">Caregiver</label>
                             </p>
                         </div>
-                        <div className="col l3">
+                        <div className="col l3 s12">
                             <p>
                                 <input className="with-gap" name="role" type="radio" id="medprof" value="Medical Professional" checked={this.state.role === 'Medical Professional'} onChange={this.handleRoleChange}/>
                                 <label htmlFor="medprof">Medical Professional</label>
@@ -132,21 +129,17 @@ class Survey extends React.Component {
                     </div>
 
                     <h5>Specify the neurological disorder you have or care of:</h5><br/>
-                    <div className="row">
-                        <div className="row selectDisorder">
-                            <div className="col s12 m12 l12">
-                                <SelectField id="selectfield" multiple={true} fullWidth={true} hintText="Select disorders" value={disorders} onChange={this.handleChange}>
-                                    {this.menuItems(disorders)}
-                                </SelectField>
-                            </div>
+                    <div className="col s12 m12 l12">
+                      <SelectField id="selectfield" multiple={true} fullWidth={true} hintText="Select disorders" value={disorders} onChange={this.handleChange}>
+                      {this.menuItems(disorders)}
+                      </SelectField>
+                    </div>
+                    <div className="col s12 m12 l12">
+                      <div className="row">
+                        <div className="input-field col s12">
+                          <input id="first_name" type="text" className="surveryInput validate"/>
+                          <label htmlFor="first_name">Other</label>
                         </div>
-                        <div className="col s12 m12 l12">
-                            <div className="row">
-                                <input className="with-gap col s12 m1 l1" name="other" type="radio" id="other"/>
-                                <label htmlFor="other col s12 m1 l1" id="otherLable">Other:
-                                </label>
-                                <input id="first_name" type="text" className="surveryInput validate right col s8 m8 l11"/>
-                            </div>
                         </div>
                     </div>
 
