@@ -27,7 +27,6 @@ ReactDOM.render(
       <Route path="/wizard2" component={WizardTwo}></Route>
       <Route path="/wizard3" component={WizardThree}></Route>
       <Route path="/charts" component={Charts}></Route>
-
     </div>
 
   </BrowserRouter>,

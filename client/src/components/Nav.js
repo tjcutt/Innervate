@@ -21,7 +21,7 @@ class Nav extends React.Component{
     return (
       <nav>
          <div className="nav-wrapper">
-           <a href="#!" className="brand-logo left">Innervate</a>
+           <a href="#!" className="brand-logo left"> NPI </a>
            <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons hamburger">menu</i></a>
            <ul className="right hide-on-small-and-down">
               <li><a href="/myproposals">My Proposals</a></li>

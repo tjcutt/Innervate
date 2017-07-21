@@ -66,7 +66,7 @@ class HomeNav extends React.Component{
           <nav>
               <div className="nav-wrapper homeNav">
 
-                  <a href="#!" className="brand-logo left">Innervate</a>
+                  <a href="#!" className="brand-logo left">NPI</a>
 
                   <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons sideNavIcon hamburger">menu</i></a>
 
@@ -85,7 +85,7 @@ class HomeNav extends React.Component{
                       <li> <a onClick={this.handleLoginClick} className="waves-effect waves-light homeTopNavBtn btn grey darken-2">Login</a></li>
 
                   </ul>
-                  
+
 
                   <div className="side-nav sideNav" id="mobile-demo">
                       <ul>

@@ -82,13 +82,14 @@ render(){
          <div className="chart">
             <Pie
               data={this.state.chartData}
-              height={400}
-              width={400}
+              height={350}
+              width={350}
               options={{
                     maintainAspectRatio: false
                 }}
              />
           </div>
+          <br />
        </div>
    )
 }

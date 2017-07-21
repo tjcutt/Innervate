@@ -20,6 +20,7 @@ exports.seed = function(knex) {
         first_name:"Heidi",
         last_name:"Grabenstatter",
         email:"heidi.grabenstatter@colorado.edu",
+        hashed_pass: '$2a$10$eqYXpgXpxAnn/eth19CeQeJ3bJPMlC9vzYELg5FhuWLXT3.IapOQu'
       },{
         first_name:"Craig",
         last_name:"Quincy",
